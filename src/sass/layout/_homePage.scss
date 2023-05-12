@@ -1,0 +1,23 @@
+.category-books{
+    display: flex;
+    gap: 24px;
+}
+.book-card{
+    max-width: 180px;
+}
+.title-hero{
+font-weight: 700;
+font-size: 48px;
+line-height: 52px;
+letter-spacing: -0.04em;
+span{
+    color: $accent-text-color;
+}
+}
+.books{
+   max-width: 996px;
+}
+.button-see-more{
+    display: block;
+    margin-left: auto;
+}
