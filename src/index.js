@@ -1,5 +1,5 @@
 import { fetchBooks } from './js/booksApi.js';
-import { markupCategories } from './js/fetchCategories.js';
+import { markupCategories } from './js/markupCategories.js';
 
 const listElem = document.querySelector('.categories_list');
 const fetchList = '/category-list';
