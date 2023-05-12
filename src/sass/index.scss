@@ -1,0 +1,18 @@
+//base
+@import './base/body';
+@import './base/common';
+@import './base/reset';
+
+//utils
+@import './utils/variabls';
+
+//components
+@import './components/container';
+@import './components/modal';
+
+//layout
+@import './layout/categories';
+@import './layout/header';
+@import './layout/homePage';
+@import './layout/store';
+@import './layout/support';
