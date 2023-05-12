@@ -1,7 +1,7 @@
 import { fetchBooks } from './booksApi';
 const sectionBooksEl = document.querySelector('.books');
 
-async function createMurkUpAllBooks() {
+export async function createMurkUpAllBooks() {
   const urlAllBooks = 'top-books';
   try {
     const res = await fetchBooks(urlAllBooks);
@@ -45,4 +45,3 @@ function createBooks(books) {
     })
     .join('');
 }
-createMurkUpAllBooks();
