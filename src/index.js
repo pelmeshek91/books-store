@@ -9,7 +9,7 @@ const categoriesList = async point => {
   try {
     const results = await fetchBooks(point);
 
-    listElem.insertAdjacentHTML('beforebegin', markupCategories(results));
+    listElem.insertAdjacentHTML('afterbegin', markupCategories(results));
     return results;
   } catch (error) {
     console.log(error);
@@ -18,6 +18,8 @@ const categoriesList = async point => {
 categoriesList(fetchList);
 createMurkUpAllBooks();
 
-const onHandleCategories = () => {};
+const onHandleCategories = e => {
+  console.log(e.target);
+};
 
 listElem.addEventListener('click', onHandleCategories);
