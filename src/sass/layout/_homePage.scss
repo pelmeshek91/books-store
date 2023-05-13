@@ -1,5 +1,6 @@
 .category-books{
     display: flex;
+    flex-wrap: wrap;
     gap: 24px;
 }
 .book-card{
