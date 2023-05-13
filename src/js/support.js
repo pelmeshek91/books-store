@@ -52,7 +52,7 @@ function createLogos(charities) {
     .map(charity => {
       const markup = `<li class="support-item">
           <span class="support-nmbr">${count.toString().padStart(2, '0')}</span>
-          <a href="${charity.url}" class="support-link">
+          <a href="${charity.url}" target='_new' class="support-link">
             <svg class="icon">
               <use href=${require('../images/support/support-svg.svg')}${
         charity.img
@@ -65,16 +65,7 @@ function createLogos(charities) {
     })
     .join('');
 }
-console.log(createLogos(charities));
 
 const list = document.querySelector('.support-list');
+
 list.insertAdjacentHTML('beforeend', createLogos(charities));
-
-const logos = document.querySelectorAll('.support-link');
-
-logos.forEach((logo, index) => {
-  logo.addEventListener('click', e => {
-    e.preventDefault();
-    window.open(charities[index].url, '_blank');
-  });
-});
