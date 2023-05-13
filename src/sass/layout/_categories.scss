@@ -1,0 +1,13 @@
+.btn-categoty {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.categories_list {
+  height: 472px;
+  width: 328px;
+  overflow: scroll;
+}
+.item-category:not(:last-child) {
+  margin-bottom: 32px;
+}
