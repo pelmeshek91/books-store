@@ -1,0 +1,118 @@
+.logo {
+    fill:$second-color;
+    stroke:$accent-text-color;
+}
+.logo-span{
+    color:$primary-color;
+}
+.home-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 10px;
+    width: 72px;
+    height: 34px;
+    border-radius: 36px;
+    background-color:$accent-button-color ;
+    color:$primary-color;
+}
+.shop-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    width: 118px;
+    height: 20px;
+    color:$primary-color;
+}
+.shop-logo{
+    fill:$second-color;
+    stroke:$primary-color;
+}
+.sign-btn{
+    width: 184px;
+    height: 48px;
+    background-color:$accent-text-color;
+    border-radius: 18px;
+    color:$second-color;
+    border: 1.5px solid #111111;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 90px;
+}
+.arrow{
+    fill:$second-color;
+}
+.icon-burger{
+    background-color:$second-color;
+    stroke:$primary-color ;
+}
+
+.theme-switch__control {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 40px;
+    height: 24px;
+    border-radius: 50em;
+    padding: 3px 0;
+  }
+.theme-switch__toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+  }
+.theme-switch__track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    user-select: none;
+    background-image:linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%) ;
+    border-radius: inherit;
+    z-index: 1;
+    cursor: pointer;
+  }
+.theme-switch__marker {
+    position: relative;
+    background-color: $second-color;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.theme-switch__toggle:checked + .theme-switch__track {
+    background-image: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
+  }
+  
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+    transform: translateX(20px);
+  }
+  
+.theme-switch__toggle:focus + .theme-switch__track,
+.theme-switch__toggle:active + .theme-switch__track {
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+body.light-theme{
+    background-color:$second-color;
+}
+body.dark-theme{
+    background-color:$primary-color;
+}

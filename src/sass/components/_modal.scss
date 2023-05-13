@@ -1,14 +1,29 @@
 .modal-add-book-window{
-    border: 2px solid #111111;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border: 2px solid #4F2EE8;
         border-radius: 18px;
         width: 579px;
-        position: absolute;
-        top: 0;
+        height: 465px;
         background-color: #FFFFFF;
 }
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+}
+
 body{
     position: relative;
 }
+
 .btn-chose-book {
     border: 2px solid #4F2EE8;
         border-radius: 40px;
@@ -24,3 +39,69 @@ body{
     opacity: 0;
     pointer-events: none;
 }
+
+.all-book-modal{
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.close-btn-modal{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 527px;
+    top: 24px;
+}
+
+.close-svg-modal{
+    color: #111111;
+}
+
+.img-book-modal{
+    width: 192px;
+    height: 281px;
+    margin-left: 40px;
+    border-radius: 8px;
+}
+
+.book-modal{
+    padding-left: 24px;
+}
+
+.title-book-modal{
+    max-width: 192px;
+       font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.author-book-modal{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: #B4AFAF;
+    margin-bottom: 20px;
+}
+
+.text-book-modal{
+    max-width: 279px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+.logo-list{
+    display: flex;
+    gap: 20px;
+}
+
+
