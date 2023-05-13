@@ -1,4 +1,5 @@
 import { fetchBooks } from './booksApi';
+import { handleClickOnFilter } from './categories';
 export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
@@ -35,12 +36,21 @@ function createBooks(books) {
           <img
             src=${book.book_image}
             alt=${book.list_name}
-            width="180"
-            height="256"
           />
-          <h3>${book.title}</h3>
+          <h3>${
+            book.title.length > 20
+              ? book.title.slice(0, 20) + '...'
+              : book.title
+          }</h3>
           <p>${book.author}</p>
         </li>`;
     })
     .join('');
+}
+
+export function onHandleCategoriesForButton(e) {
+  if (e.target.nodeName !== 'BUTTON') return;
+  const res = e.target.parentNode;
+  const categoryName = res.querySelector('h2').textContent;
+  handleClickOnFilter(categoryName);
 }
