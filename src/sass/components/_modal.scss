@@ -1,0 +1,26 @@
+.modal-add-book-window{
+    border: 2px solid #111111;
+        border-radius: 18px;
+        width: 579px;
+        position: absolute;
+        top: 0;
+        background-color: #FFFFFF;
+}
+body{
+    position: relative;
+}
+.btn-chose-book {
+    border: 2px solid #4F2EE8;
+        border-radius: 40px;
+        width: 499px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        margin-left: 40px;
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
