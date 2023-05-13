@@ -1,20 +1,43 @@
-<div class="backdrop autoriz-menu-container">
+<div class="backdrop autoriz-menu-container hidden">
   <div class="autoriz-modal">
     <button class="autoriz-modal-btn" type="button">
-        <svg>
-            <use href="">
-
-            </use>
-        </svg>
+      <svg class="modal-icon-cross" width="20" height="20">
+        <use href="./images/svg/general-svg.svg.svg#icon-x-close"></use>
+      </svg>
     </button>
 
     <form class="autoriz-modal-form">
-        <input type="text" placeholder="">
-        <input type="text" placeholder="">
-        <input type="text" placeholder="">
-        <button class="">Sign up</button>
-        <p>sign up</p>
-        <p>sing in</p>
+        <input class="autoriz-modal-input" type="text" placeholder="NAME" />
+
+        <div class="input-wrapper">
+          <label class="autoriz-label-email" for="user_email"
+            ><input
+              class="autoriz-modal-input"
+              type="email"
+              placeholder="EMAIL"
+              name="user_email" />
+            <svg class="autoriz-icon" width="20" height="20">
+              <use href="./images/svg/general-svg.svg.svg#icon-lock"></use>
+              </svg></label>
+        </div>
+
+        <div class="input-wrapper">
+          <label class="autoriz-label-password" for="user_password">
+            <input
+              class="autoriz-modal-input"
+              type="password"
+              placeholder="PASSWORD"
+              name="user_password" />
+            <svg class="autoriz-icon" width="20" height="20">
+              <use href="./images/svg/general-svg.svg.svg#icon-mail"></use>
+              </svg></label>
+        </div>
+
+        <button class="autoriz-sing-up-btn" type="submit">sing up</button>
+        <div class="autoriz-text">
+          <p class="sing-text">sing up</p>
+          <p class="sing-text">sing in</p>
+        </div>
     </form>
   </div>
 </div>
