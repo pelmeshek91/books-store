@@ -1,5 +1,5 @@
 import { fetchBooks } from './booksApi';
-const sectionBooksEl = document.querySelector('.books');
+export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
   const urlAllBooks = 'top-books';
@@ -33,13 +33,15 @@ function createBooks(books) {
   return books
     .map(book => {
       return ` <li class="book-card">
-          <img
+          <img class="book-image"
             src=${book.book_image}
             alt=${book.list_name}
-            width="180"
-            height="256"
           />
-          <h3>${book.title}</h3>
+          <h3>${
+            book.title.length > 20
+              ? book.title.slice(0, 20) + '...'
+              : book.title
+          }</h3>
           <p>${book.author}</p>
         </li>`;
     })
