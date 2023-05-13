@@ -6,7 +6,7 @@
 .categories_list {
   height: 472px;
   width: 328px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .item-category:not(:last-child) {
   margin-bottom: 32px;
