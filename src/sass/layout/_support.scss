@@ -36,11 +36,13 @@
   margin-left: 40px;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
 }
 
 .support-item:not(:last-child) {
   margin-bottom: 20px;
+}
+.support-link {
+  display: flex;
 }
 .support-item:first-child {
   margin-top: 40px;
@@ -55,7 +57,7 @@
   font-size: 14px;
   line-height: 1.29;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   letter-spacing: -0.04em;
   color: $second-color;
   margin-right: 16px;
