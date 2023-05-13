@@ -1,11 +1,10 @@
 import { fetchBooks } from './booksApi';
-const sectionBooksEl = document.querySelector('.books');
+export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
   const urlAllBooks = 'top-books';
   try {
     const res = await fetchBooks(urlAllBooks);
-    console.log(res.books);
     sectionBooksEl.innerHTML =
       '<h1 class="title-hero">Best Sellers <span>Books</span></h1><ul class="categories"></ul>';
     const categoriesList = document.querySelector('.categories');
@@ -32,7 +31,7 @@ function createCategoryBooks(data) {
 function createBooks(books) {
   return books
     .map(book => {
-      return ` <li class="book-card">
+      return ` <li class="book-card" data-id="${book._id}">
           <img
             src=${book.book_image}
             alt=${book.list_name}

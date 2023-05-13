@@ -1,3 +1,4 @@
+import './js/modal';
 import { fetchBooks } from './js/booksApi.js';
 import { markupCategories } from './js/markupCategories.js';
 import { createMurkUpAllBooks } from './js/allBooks.js';
