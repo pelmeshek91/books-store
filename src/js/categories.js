@@ -6,10 +6,13 @@ export async function handleClickOnFilter(category) {
     const categoryBooks = `/category?category=${category}`;
     const bookItems = await fetchBooks(categoryBooks);
     sectionBooksEl.innerHTML = '';
+
+    const list = document.createElement('ul');
+    list.classList.add('categories');
+    sectionBooksEl.append(list);
+
     bookItems
-      .map(book =>
-        sectionBooksEl.insertAdjacentHTML('beforeend', createMarkup(book))
-      )
+      .map(book => list.insertAdjacentHTML('beforeend', createMarkup(book)))
       .join('');
   } catch (error) {
     console.log(error);
