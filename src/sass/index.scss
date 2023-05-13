@@ -1,10 +1,10 @@
+//utils
+@import './utils/variabls';
+@import './utils/mixin';
 //base
 @import './base/body';
 @import './base/common';
 @import './base/reset';
-
-//utils
-@import './utils/variabls';
 
 //components
 @import './components/container';
@@ -16,3 +16,4 @@
 @import './layout/homePage';
 @import './layout/store';
 @import './layout/support';
+@import './layout/autoriz';
