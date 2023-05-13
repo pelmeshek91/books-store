@@ -20,11 +20,13 @@ categoriesList(fetchList);
 createMurkUpAllBooks();
 
 const onHandleCategories = e => {
-  if (e.target.nodeName !== 'BUTTON') {
+  if (e.target.textContent === 'All categories') {
     return;
   }
-  const categoryName = e.target.textContent;
-  handleClickOnFilter(categoryName);
+  if (e.target.nodeName === 'BUTTON') {
+    const categoryName = e.target.textContent;
+    handleClickOnFilter(categoryName);
+  }
 };
 
 listElem.addEventListener('click', onHandleCategories);

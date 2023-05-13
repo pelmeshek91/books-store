@@ -1,4 +1,4 @@
-import { sectionBooksEl } from './allBooks';
+import { categoriesList, sectionBooksEl } from './allBooks';
 import { fetchBooks } from './booksApi';
 
 export async function handleClickOnFilter(category) {
