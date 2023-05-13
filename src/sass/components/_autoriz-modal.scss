@@ -3,7 +3,7 @@
 .modal-icon-cross {
   stroke: $primary-color;
 }
-.backdrop {
+.backdrop.autoriz-is-hidden {
   position: fixed;
   left: 0px;
   top: 0px;
@@ -100,18 +100,18 @@
 .sing-text:not(:last-child) {
   margin-right: 20px;
 }
-.hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
+// .hidden {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
+//   white-space: nowrap;
+//   clip-path: inset(100%);
+//   clip: rect(0 0 0 0);
+//   overflow: hidden;
+// }
 ::placeholder {
   color: $primary-color;
   font-weight: 700;
