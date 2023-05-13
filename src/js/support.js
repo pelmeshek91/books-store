@@ -47,20 +47,9 @@ const charities = [
 ];
 
 const logos = document.querySelectorAll('.support-link');
-// Array.from(logos).forEach(logo => {
-//   logo.addEventListener('click', onLogoClick);
-// });
 
-// function onLogoClick(e) {
-//   const url = e.target.dataset.url;
-//   window.open(url, '_blank');
-// }
-logos.addEventListener('click', onLogoClick);
-
-function onLogoClick(e) {
-  e.preventDefault();
-  logos.forEach(logo => {
-    const url = e.target.dataset.url;
-    window.open(url, '_blank');
+logos.forEach((logo, index) => {
+  logo.addEventListener('click', () => {
+    window.open(charities[index].url, '_blank');
   });
-}
+});
