@@ -1,15 +1,17 @@
 import { fetchBooks } from './booksApi';
+import { handleClickOnFilter } from './categories';
 export const sectionBooksEl = document.querySelector('.books');
+
 
 export async function createMurkUpAllBooks() {
   const urlAllBooks = 'top-books';
   try {
     const res = await fetchBooks(urlAllBooks);
-    console.log(res.books);
     sectionBooksEl.innerHTML =
       '<h1 class="title-hero">Best Sellers <span>Books</span></h1><ul class="categories"></ul>';
     const categoriesList = document.querySelector('.categories');
     categoriesList.innerHTML = createCategoryBooks(res);
+
   } catch {
     console.log('Error');
   }
@@ -47,3 +49,11 @@ function createBooks(books) {
     })
     .join('');
 }
+
+
+export function onHandleCategoriesForButton(e) {
+  if (e.target.nodeName !== 'BUTTON') return
+  const res = e.target.parentNode
+  const categoryName = res.querySelector("h2").textContent
+   handleClickOnFilter(categoryName);
+}  

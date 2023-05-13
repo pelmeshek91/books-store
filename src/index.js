@@ -1,6 +1,6 @@
 import { fetchBooks } from './js/booksApi.js';
 import { markupCategories } from './js/markupCategories.js';
-import { createMurkUpAllBooks } from './js/allBooks.js';
+import { createMurkUpAllBooks, sectionBooksEl, onHandleCategoriesForButton } from './js/allBooks.js';
 import { handleClickOnFilter } from './js/categories.js';
 import './js/support.js';
 const listElem = document.querySelector('.categories_list');
@@ -21,6 +21,7 @@ createMurkUpAllBooks();
 
 const onHandleCategories = e => {
   if (e.target.textContent === 'All categories') {
+    createMurkUpAllBooks();
     return;
   }
   if (e.target.nodeName === 'BUTTON') {
@@ -30,3 +31,8 @@ const onHandleCategories = e => {
 };
 
 listElem.addEventListener('click', onHandleCategories);
+
+
+
+
+sectionBooksEl.addEventListener('click', onHandleCategoriesForButton)
