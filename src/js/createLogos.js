@@ -50,9 +50,9 @@ export function createLogos(charities) {
   let count = 1;
   return charities
     .map(charity => {
-      const markup = `<li class="support-item">
+      const markup = `<li class="support-item block">
           <span class="support-nmbr">${count.toString().padStart(2, '0')}</span>
-          <a href="${charity.url}" class="support-link">
+          <a href="${charity.url}" class="support-link" target="_new">
             <svg class="icon">
               <use href=${require('../images/support/support-svg.svg')}${
         charity.img

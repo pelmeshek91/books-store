@@ -1,7 +1,7 @@
 .support-container {
-  position: absolute;
+  position: relative;
   width: 335px;
-  height: 100%;
+  height: fit-content;
   left: 20px;
   top: 372px;
   background: radial-gradient(
@@ -12,6 +12,14 @@
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
+  overflow: hidden;
+}
+
+.support-list {
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 .support-main {
   display: flex;
@@ -67,4 +75,26 @@
   justify-content: center;
   margin-bottom: 20px;
   margin-top: 16px;
+}
+
+.scroll-btn._active {
+  transform: rotate(0deg);
+}
+
+.support-list {
+  display: none;
+}
+
+.hide-btn {
+  display: none;
+}
+.show {
+  display: block;
+}
+.icon {
+  max-height: 32px;
+  max-width: 130px;
+}
+.toggle {
+  display: none;
 }
