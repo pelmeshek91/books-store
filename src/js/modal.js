@@ -3,22 +3,20 @@ import { sectionBooksEl } from './allBooks.js';
 
 const divchik = document.querySelector('.backdrop');
 
-sectionBooksEl.addEventListener('click', selectBook);
-
-async function selectBook(e) {
-  divchik.classList.remove('is-hidden');
+sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
   if (!item) {
     return;
   }
-  const id = item.getAttribute('data-id');
-  console.log(id);
+  selectBook(item);
+});
 
+async function selectBook(item) {
+  divchik.classList.remove('is-hidden');
+  const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
   const { _id } = res;
-
-  console.log(res._id);
-
+  const settings = { _id };
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
 
@@ -32,10 +30,10 @@ async function selectBook(e) {
   chooseToLSBtn.addEventListener('click', e => {
     if (chooseToLSBtn.classList.contains('active')) {
       localStorage.setItem('settings', JSON.stringify(settings));
-      chooseToLSBtn.textContent = 'remove from the shopping list';
+      chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
       chooseToLSBtn.classList.remove('active');
     } else {
-      chooseToLSBtn.textContent = 'Add to shopping list';
+      chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
       chooseToLSBtn.classList.add('active');
       localStorage.removeItem('settings');
     }

@@ -1,33 +1,47 @@
-.logo {
-    fill:$second-color;
-    stroke:$accent-text-color;
+.header-container {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.logo{
+    text-align: center;
 }
 .logo-span{
     color:$primary-color;
+    margin-left: 8px;
 }
 .home-btn{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 8px 16px;
-    gap: 10px;
-    width: 72px;
-    height: 34px;
-    border-radius: 36px;
-    background-color:$accent-button-color ;
-    color:$primary-color;
+    display: none;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: flex-start;
+    // padding: 8px 16px;
+    // gap: 10px;
+    // width: 72px;
+    // height: 34px;
+    // border-radius: 36px;
+    // background-color:$accent-button-color ;
+    // color:$primary-color;
 }
 .shop-btn{
+    display: none;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // padding: 0px;
+    // gap: 4px;
+    // width: 118px;
+    // height: 20px;
+    // color:$primary-color;
+}
+.autorithation-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    padding: 0px;
-    gap: 4px;
-    width: 118px;
-    height: 20px;
-    color:$primary-color;
-}
+    justify-content: flex-end;
+  }
 .shop-logo{
     fill:$second-color;
     stroke:$primary-color;
@@ -45,24 +59,30 @@
     align-items: center;
     padding: 0px;
     gap: 90px;
+    margin-left: 24px;
+    margin-right: 0;
 }
 .arrow{
-    fill:$second-color;
+    fill:$accent-button-color;
+    stroke: $accent-button-color;
 }
 .icon-burger{
     background-color:$second-color;
     stroke:$primary-color ;
 }
+.display-none{
+    display: none;
+}
 
 .theme-switch__control {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
     position: relative;
     width: 40px;
     height: 24px;
     border-radius: 50em;
     padding: 3px 0;
+    margin-left: auto;
   }
 .theme-switch__toggle {
     position: absolute;
