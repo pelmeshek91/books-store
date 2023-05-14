@@ -21,7 +21,7 @@ export async function handleClickOnFilter(category) {
 
 function createMarkup(book) {
   const { book_image, title, author, list_name } = book;
-  return `<li class="book-card">
+  return `<li class="filtered-book">
         <img class="book-image" src="${book_image}" alt="${list_name}" />
         <h3 class="book-title">${
           title.length > 20 ? title.slice(0, 20) + '...' : title
