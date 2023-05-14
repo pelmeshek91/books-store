@@ -8,7 +8,7 @@ export async function handleClickOnFilter(category) {
     sectionBooksEl.innerHTML = '';
 
     const list = document.createElement('ul');
-    list.classList.add('categories');
+    list.classList.add('category-books');
     sectionBooksEl.append(list);
 
     bookItems

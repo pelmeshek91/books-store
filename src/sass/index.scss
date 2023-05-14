@@ -2,12 +2,12 @@
 @import './utils/variabls';
 @import './utils/mixin';
 //base
+@import './base/container';
 @import './base/body';
 @import './base/common';
 @import './base/reset';
 
 //components
-@import './components/container';
 @import './components/modal';
 
 //layout
@@ -16,4 +16,4 @@
 @import './layout/homePage';
 @import './layout/store';
 @import './layout/support';
-@import './layout/autoriz';
+@import './components/autoriz-modal';
