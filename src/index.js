@@ -4,6 +4,7 @@ import { markupCategories } from './js/markupCategories.js';
 import { createMurkUpAllBooks, sectionBooksEl, onHandleCategoriesForButton } from './js/allBooks.js';
 import { handleClickOnFilter } from './js/categories.js';
 import './js/support.js';
+import './js/loader.js';
 const listElem = document.querySelector('.categories_list');
 const fetchList = '/category-list';
 
