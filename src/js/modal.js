@@ -12,13 +12,16 @@ sectionBooksEl.addEventListener('click', e => {
 });
 
 async function selectBook(item) {
+  const chooseToLSBtn = document.querySelector('.btn-chose-book');
+
   divchik.classList.remove('is-hidden');
+
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
   const { _id } = res;
-  const settings = { _id };
+
   const markup = createMarkupForModal(res);
-  divchik.innerHTML = markup;
+  divchik.insertAdjacentHTML('beforeend', markup);
 
   const closeBtn = document.querySelector('.close-btn-modal');
   closeBtn.addEventListener('click', e => {
@@ -26,18 +29,24 @@ async function selectBook(item) {
     divchik.classList.add('is-hidden');
   });
 
-  const chooseToLSBtn = document.querySelector('.btn-chose-book');
   chooseToLSBtn.addEventListener('click', e => {
-    if (chooseToLSBtn.classList.contains('active')) {
-      localStorage.setItem('settings', JSON.stringify(settings));
-      chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
-      chooseToLSBtn.classList.remove('active');
-    } else {
-      chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
-      chooseToLSBtn.classList.add('active');
-      localStorage.removeItem('settings');
-    }
+    addAndRemuveBooksToLS(_id);
   });
+}
+
+function addAndRemuveBooksToLS(id) {
+  let data = JSON.parse(localStorage.getItem('bookId')) || [];
+  const chooseToLSBtn = document.querySelector('.btn-chose-book');
+
+  if (data.includes(id)) {
+    chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
+    data = data.filter(item => item !== id);
+  } else {
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    data.push(id);
+  }
+
+  localStorage.setItem('bookId', JSON.stringify(data));
 }
 
 function createMarkupForModal({
