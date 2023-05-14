@@ -64,7 +64,8 @@
     margin-right: 0;
 }
 .arrow{
-    fill:$second-color;
+    fill:$accent-button-color;
+    stroke: $accent-button-color;
 }
 .icon-burger{
     background-color:$second-color;
