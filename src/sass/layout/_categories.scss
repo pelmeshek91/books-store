@@ -7,7 +7,24 @@
   height: 472px;
   width: 328px;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $accent-text-color;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+.btn-categoty {
+  @include text(400, 17px, 1.33, -0.03em);
+  color: rgba(17, 17, 17, 0.6);
 }
 .item-category:not(:last-child) {
   margin-bottom: 32px;
+}
+.active-text {
+  font-weight: 700;
+  color: $accent-text-color;
+  text-transform: uppercase;
 }
