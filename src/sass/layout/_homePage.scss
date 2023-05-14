@@ -3,11 +3,11 @@
     flex-wrap: wrap;
     gap: 24px;
 }
-.book-card{
+.book-card, .filtered-book{
 width: 180px;
 }
 
-.book-card{
+.book-item{
   @include mq(mob-only) {
     &:not(:first-child) {
       display: none;
