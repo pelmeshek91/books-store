@@ -1,23 +1,23 @@
 
-(() => {
-  const autorizMenu = document.querySelector('.autoriz-menu-container');
-  const openMenuBtn = document.querySelector('.autoriz-open-menu');
-  const closeMenuBtn = document.querySelectorAll('.autoriz-close-menu');
 
-  const toggleMenu = () => {
-    const isMenuOpen =
-      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    autorizMenu.classList.toggle('autoriz-is-hidden');
-  }
 
-  //   const scrollLockMethod = !isMenuOpen
-  //     ? 'disableBodyScroll'
-  //     : 'enableBodyScroll';
-  //   bodyScrollLock[scrollLockMethod](document.body);
-  // };
+const backdrop = document.querySelector('.backdrop-autoriz');
+const modal = document.querySelector('.autoriz-modal');
+const closeBtn = document.querySelector('[autoriz-close-menu]');
+const openBtn = document.querySelector('[autoriz-open-menu]');
 
-  openMenuBtn.addEventListener('click', toggleMenu);
-  closeMenuBtn.forEach(closeMenuBtn => closeMenuBtn.addEventListener('click', toggleMenu));  
-})();
 
+function openModal() {
+  backdrop.removeAttribute('autoriz-is-hidden');
+  modal.classList.add('autoriz-is-active');
+}
+
+
+function closeModal() {
+  backdrop.setAttribute('autoriz-is-hidden', true);
+  modal.classList.remove('autoriz-is-active');
+}
+
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
