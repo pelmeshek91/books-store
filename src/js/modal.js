@@ -6,9 +6,7 @@ const divchik = document.querySelector('.backdrop');
 sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
   if (!item) {
-    {
-      return;
-    }
+    return;
   }
   selectBook(item);
 });
