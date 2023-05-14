@@ -5,6 +5,7 @@ import { createMurkUpAllBooks, sectionBooksEl, onHandleCategoriesForButton } fro
 import { handleClickOnFilter } from './js/categories.js';
 import './js/support.js';
 import './js/loader.js';
+import './js/theme';
 const listElem = document.querySelector('.categories_list');
 const fetchList = '/category-list';
 
