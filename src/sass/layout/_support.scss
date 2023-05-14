@@ -58,8 +58,7 @@
   margin-right: 16px;
 }
 .scroll-btn {
-  display: flex;
-  justify-content: center;
+  margin-bottom: 20px;
   margin-top: 16px;
   cursor: pointer;
   border-radius: 50px;
@@ -69,6 +68,9 @@
   border: #ffffff;
   background-color: #fff;
   transition: all 0.5s ease-in-out;
+}
+.scroll-btn .scroll-icon {
+  fill: #4f2ee8;
 }
 .scroll-btn:hover {
   background-color: #4f2ee8;
