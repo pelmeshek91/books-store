@@ -40,5 +40,16 @@
         <symbol id="icon-x-close" viewBox="0 0 32 32">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.43" d="M24 8 8 24M8 8l16 16" />
         </symbol>
+        <symbol id="icon-scrol-up" viewBox="0 0 32 32">
+            <path
+                d="M4.5 19.6 15.7 8.37c.13-.14.28-.23.43-.29s.33-.08.5-.08c.18 0 .35.03.5.08s.3.15.44.29L28.8 19.6c.31.31.47.7.47 1.17s-.17.86-.5 1.2a1.6 1.6 0 0 1-2.34 0l-9.8-9.8-9.8 9.8c-.3.3-.7.46-1.15.46s-.85-.16-1.18-.5a1.62 1.62 0 0 1 0-2.33z" />
+        </symbol>
+        <symbol id="icon-arrow-narrow-right" viewBox="0 0 32 32">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"
+                d="M5.33 16h21.34m0 0-8-8m8 8-8 8" />
+        </symbol>
+        <symbol id="icon-down-arrow" viewBox="0 0 28 32">
+            <path d="M5.9 12H22.4L15 20.4a1.1 1.1 0 0 1-1.67 0L5.9 12z" />
+        </symbol>
     </defs>
 </svg>
