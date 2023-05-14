@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="icon-image-amazon" viewBox="0 0 99 32">
+      <path d="M0 .8h99.2v30.4H0V.8z" />
+    </symbol>
+    <symbol id="icon-image-book" viewBox="0 0 33 32">
+      <path d="M0 0h33v32H0V0z" />
+    </symbol>
+    <symbol id="icon-image-book-shop" viewBox="0 0 34 32">
+      <path d="M0 0h33.78v32H0V0z" />
+    </symbol>
+  </defs>
+</svg>
