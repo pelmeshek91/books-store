@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  padding-bottom: 32px;
 }
 .book-card, .filtered-book{
 width: 180px;
@@ -29,13 +30,21 @@ width: 180px;
   height: 256px;
 }
 .title-hero {
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 52px;
-  letter-spacing: -0.04em;
+  padding-bottom: 40px;
+
+  @include text(700, 48px, 1.08, -0.04em);
   span {
     color: $accent-text-color;
   }
+}
+.category-items {
+  padding-bottom: 40px;
+}
+.category-title {
+  @include text(400, 14px, 1.71, 0.03em);
+  text-transform: uppercase;
+  color: $second-text-color;
+  padding-bottom: 18px;
 }
 .books {
   max-width: 996px;
@@ -51,8 +60,17 @@ width: 180px;
 }
 
 .button-see-more {
+  @include text(700, 14px, 1.29, -0.01em);
+
   display: block;
   margin-left: auto;
+
+  width: 124px;
+  height: 46px;
+
+  background-color: transparent;
+  border: 2px solid $accent-text-color;
+  border-radius: 40px;
 }
 .main {
   display: flex;

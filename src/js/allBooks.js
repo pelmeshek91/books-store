@@ -21,8 +21,8 @@ export async function createMurkUpAllBooks() {
 function createCategoryBooks(data) {
   return data
     .map(category => {
-      return `  <li>
-      <h2>${category.list_name}</h2>
+      return `  <li class='category-items'>
+      <h2 class='category-title'>${category.list_name}</h2>
       <ul class="category-books">
       ${createBooks(category.books)}
       </ul>
