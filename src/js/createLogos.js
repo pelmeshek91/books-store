@@ -10,14 +10,14 @@ export const charities = [
     img: '#icon-image2',
   },
   {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: '#icon-image3',
-  },
-  {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
     img: '#icon-image4',
+  },
+  {
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
+    img: '#icon-image6',
   },
   {
     title: 'Medicins Sans Frontieres',
@@ -25,9 +25,14 @@ export const charities = [
     img: '#icon-image5',
   },
   {
-    title: 'RAZOM',
-    url: 'https://www.razomforukraine.org/',
-    img: '#icon-image6',
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: '#icon-image9',
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: '#icon-image3',
   },
   {
     title: 'Action against hunger',
@@ -38,11 +43,6 @@ export const charities = [
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
     img: '#icon-image8',
-  },
-  {
-    title: 'Serhiy Prytula Charity Foundation',
-    url: 'https://prytulafoundation.org/en',
-    img: '#icon-image9',
   },
 ];
 
