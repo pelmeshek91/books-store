@@ -33,7 +33,7 @@ function onScrollBtnClick() {
         item.style.display = 'block'; // Показую всі елементи
       }
     });
-    supportContainer.style.height = '100%';
+    
     // supportList.classList.remove('show');
     scrollBtn.style.transform = 'rotate(180deg)';
   } else {

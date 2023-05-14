@@ -35,7 +35,7 @@ function createBooks(books) {
       return ` <li class="book-card" data-id="${book._id}">
           <img
             src=${book.book_image}
-            alt=${book.list_name}
+            alt=${book.list_name} class="book-img"
           />
           <h3>${
             book.title.length > 20
