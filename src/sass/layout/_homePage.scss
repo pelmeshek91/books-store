@@ -4,11 +4,12 @@
   gap: 24px;
   padding-bottom: 32px;
 }
-.book-card, .filtered-book{
-width: 180px;
+.book-card,
+.filtered-book {
+  width: 180px;
 }
 
-.book-item{
+.book-item {
   @include mq(mob-only) {
     &:not(:first-child) {
       display: none;
@@ -25,10 +26,7 @@ width: 180px;
   width: 180px;
   height: 256px;
 }
-.book-image {
-  width: 180px;
-  height: 256px;
-}
+
 .title-hero {
   padding-bottom: 40px;
 
@@ -46,11 +44,9 @@ width: 180px;
   color: $second-text-color;
   padding-bottom: 18px;
 }
-.books {
-  max-width: 996px;
-}
 
 .books {
+  max-width: 996px;
   @include mq(mob-only) {
     max-width: 335px;
   }
@@ -58,7 +54,16 @@ width: 180px;
     max-width: 776px;
   }
 }
-
+.book-title {
+  @include text(700, 16px, 1.12, -0.04em);
+  padding-top: 14px;
+  padding-bottom: 4px;
+}
+.book-author {
+  @include text(400, 12px, 1.17, -0.04em);
+  font-style: italic;
+  color: $second-text-color;
+}
 .button-see-more {
   @include text(700, 14px, 1.29, -0.01em);
 
