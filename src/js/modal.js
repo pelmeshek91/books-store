@@ -4,8 +4,8 @@ import { sectionBooksEl } from './allBooks.js';
 const divchik = document.querySelector('.backdrop');
 
 sectionBooksEl.addEventListener('click', e => {
-  const item = e.target.closest('.book-card');
-  if (!item) {
+  // const item = e.target.closest('.book-card');
+  if (e.target.nodeName !== 'LI') {
     return;
   }
   selectBook(item);
@@ -13,7 +13,6 @@ sectionBooksEl.addEventListener('click', e => {
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
-
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
   const { _id } = res;
@@ -87,6 +86,5 @@ function createMarkupForModal({
             </ul>
           </div>  
       </div>
-          <button class="btn-chose-book active">ADD TO SHOPING LIST</button>
     </div>`;
 }

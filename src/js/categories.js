@@ -1,5 +1,6 @@
 import { categoriesList, sectionBooksEl } from './allBooks';
 import { fetchBooks } from './booksApi';
+import { createMarkup } from './createMarkup';
 
 export async function handleClickOnFilter(category) {
   try {
@@ -17,15 +18,4 @@ export async function handleClickOnFilter(category) {
   } catch (error) {
     console.log(error);
   }
-}
-
-function createMarkup(book) {
-  const { book_image, title, author, list_name } = book;
-  return `<li class="filtered-book">
-        <img class="book-image" src="${book_image}" alt="${list_name}" />
-        <h3 class="book-title">${
-          title.length > 20 ? title.slice(0, 20) + '...' : title
-        }</h3>
-        <p class="book-author">${author}</p>
-      </li>`;
 }
