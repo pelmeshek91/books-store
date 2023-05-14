@@ -1,7 +1,7 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
 
-const divchik = document.querySelector('.modal-add-book-window');
+const divchik = document.querySelector('.backdrop');
 
 sectionBooksEl.addEventListener('click', selectBook);
 
@@ -25,7 +25,7 @@ async function selectBook(e) {
     buy_links,
     list_name,
   };
-  console.log(res);
+  // console.log(res);
 
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
@@ -58,31 +58,38 @@ function createMarkupForModal({
   buy_links,
   list_name,
 }) {
-  return `<button class="close-btn-modal">
-    <svg class="close-svg-modal" width="28" height="28">
-      <use href="./images/svg/general-svg.svg.svg#icon-x-close"></use>
-    </svg>
-  </button>
-  <img src="${book_image}" alt="${list_name}" />
-  <div>
-    <h3>${title}</h3>
-    <p>${author}</p>
-    <p>${description}</p>
-    <ul>
-      <li>
-        <a href="${buy_links[0]}"><img src="./images/modal/image1@1x.png" alt="Amazon" /></a>
-      </li>
-      <li>
-        <a href="${buy_links[1]}"
-          ><img src="./images/modal/image2@1x.png" alt="Apple Books"
-        /></a>
-      </li>
-      <li>
-        <a href="${buy_links[4]}"
-          ><img src="./images/modal/image3@1x.png" alt="Bookshop"
-        /></a>
-      </li>
-    </ul>
-  </div>
-  <button class="btn-chose-book active">Add to shopping list</button>`;
+  return `
+    <div class="modal-add-book-window">
+      <div class="all-book-modal">
+        <button class="close-btn-modal">
+          <svg class="close-svg-modal" width="28" height="28">
+            <use href="./images/svg/general-svg.svg.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <img class="img-book-modal" src="${book_image}" alt="${list_name}" />
+          <div class="book-modal">
+            <h3 class="title-book-modal">${title}</h3>
+            <p class="author-book-modal">${author}</p>
+            <p class="text-book-modal">${description || "no description"}</p>
+            <ul class="logo-list">
+              <li class="logo-item">
+                <a href="${buy_links[0].url}" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
+                  <img src="./images/modal/image1@1x.png" alt="Amazon" width="62" height="19"/>
+                </a>
+              </li class="logo-item">
+              <li>
+                <a href="${buy_links[1].url}" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
+                  <img src="./images/modal/image2@1x.png" alt="Apple Books" width="32" height="33"/>
+                </a>
+              </li>
+              <li class="logo-item">
+                <a href="${buy_links[4].url}" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
+                  <img src="./images/modal/image3@1x.png" alt="Bookshop" width="38" height="36"/>
+                  </a>
+              </li>
+            </ul>
+          </div>  
+      </div>
+          <button class="btn-chose-book active">Add to shopping list</button>
+    </div>`
 }

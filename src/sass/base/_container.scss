@@ -1,6 +1,5 @@
 .container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
   @include mq(mob) {
