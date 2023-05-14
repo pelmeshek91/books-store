@@ -1,7 +1,5 @@
 .support-container {
-  position: relative;
   width: 335px;
-  height: fit-content;
   left: 20px;
   top: 372px;
   background: radial-gradient(
@@ -12,12 +10,11 @@
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
-  overflow: hidden;
+  margin-top: 40px;
+  transition: all 500ms ease-out;
 }
 
 .support-list {
-  left: 0;
-  top: 0;
   width: 100%;
   transition: all 0.3s ease-in-out;
 }
@@ -45,18 +42,8 @@
   display: flex;
   justify-content: flex-start;
 }
-
-.support-item:not(:last-child) {
-  margin-bottom: 20px;
-}
 .support-link {
   display: flex;
-}
-.support-item:first-child {
-  margin-top: 40px;
-}
-.support-item {
-  max-height: 32px;
 }
 .support-nmbr {
   font-family: 'DM Sans';
@@ -73,28 +60,33 @@
 .scroll-btn {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
   margin-top: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+  margin-left: 150px;
+  border: #ffffff;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
 }
-
-.scroll-btn._active {
-  transform: rotate(0deg);
+.scroll-btn:hover {
+  background-color: #4f2ee8;
 }
-
-.support-list {
-  display: none;
-}
-
-.hide-btn {
-  display: none;
+.scroll-btn:hover .scroll-icon,
+.scroll-btn:focus .scroll-icon {
+  stroke: #fff;
+  fill: #ffffff;
 }
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-top: 40px;
+}
+.scroll-icon {
+  margin-top: 8px;
 }
 .icon {
-  max-height: 32px;
-  max-width: 130px;
-}
-.toggle {
-  display: none;
+  max-width: 135px;
 }
