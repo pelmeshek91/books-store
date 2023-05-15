@@ -18,7 +18,7 @@ export async function createMurkUpAllBooks() {
   } catch {
     console.log('Error');
   }
-  removeMask();
+  // removeMask();
 }
 
 function createCategoryBooks(data) {
