@@ -32,18 +32,18 @@ const autorizText = document.querySelector('.autoriz-text');
 async function checkAuth() {
   const user = await getUser();
   if (user) {
-    autorizText.innerHTML = `<button class="autoriz-sub-btn" type="submit">sing in</button>`;
+    autorizText.innerHTML = `<button class="autoriz-sub-btn" type="submit">sign in</button>`;
     autorizBtn.classList.add('hidden');
-    singUpBtn.innerHTML = 'sing in';
+    singUpBtn.innerHTML = 'sign in';
     autorizBtn.addEventListener('click', () => {
      
     });
   } else {
     autorizText.innerHTML = `
-      <button class="autoriz-sub-btn" type="submit">sing up</button>
-      <button class="autoriz-sub-btn" type="submit">sing in</button>`;
+      <button class="autoriz-sub-btn" type="submit">sign up</button>
+      <button class="autoriz-sub-btn" type="submit">sign in</button>`;
     singUpBtn.classList.remove('hidden');
-    autorizBtn.innerHTML = 'sing up';
+    autorizBtn.innerHTML = 'sign up';
     autorizBtn.addEventListener('click', () => {
      
     });

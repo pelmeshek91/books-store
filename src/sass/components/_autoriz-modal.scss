@@ -4,9 +4,14 @@
   stroke: $primary-color;
   width: 14px;
   height: 14px;
+
   @include mq(tablet) {
     width: 28px;
     height: 28px;
+    &:hover,
+    &:focus {
+      stroke: $accent-text-color;
+    }
   }
 }
 
@@ -64,6 +69,11 @@
   width: 20px;
   height: 20px;
   border: 1px solid transparent;
+  &:hover,
+  &:focus {
+    border: 1px solid 8px 8px 9px -2px rgba(0, 0, 0, 0.14);
+  }
+
   @include mq(tablet) {
     top: 24px;
     right: 24px;
@@ -86,7 +96,9 @@
   align-items: center;
   padding: 16px 5px 16px 24px;
   margin-bottom: 24px;
-
+  &:focus {
+    color: #7ea0f5;
+  }
   @include text(700, 16px, 1.12, -0.01em);
 
   @include mq(tablet) {
@@ -105,6 +117,9 @@
   top: 16px;
   width: 18px;
   height: 18px;
+  &:focus {
+    color: #7ea0f5;
+  }
   @include mq(tablet) {
     top: 18px;
     left: 439px;
@@ -131,6 +146,9 @@
     @include text(700, 18px, 1.33, -0.01em);
   }
 }
+// .active {
+// }
+
 .autoriz-sub-btn {
   color: rgba(17, 17, 17, 0.5);
   border: none;
@@ -140,11 +158,12 @@
   &:hover,
   &:focus {
     color: $accent-text-color;
-    text-decoration-line: underline;}
-    @include mq(tablet) {
-      @include text(700, 18px, 1.33, -0.01em);
-    }
+    text-decoration-line: underline;
   }
+  @include mq(tablet) {
+    @include text(700, 18px, 1.33, -0.01em);
+  }
+}
 
 .autoriz-text {
   display: flex;
