@@ -12,7 +12,6 @@ sectionBooksEl.addEventListener('click', e => {
 });
 
 async function selectBook(item) {
-  const chooseToLSBtn = document.querySelector('.btn-chose-book');
 
   divchik.classList.remove('is-hidden');
 
@@ -28,7 +27,7 @@ async function selectBook(item) {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
   });
-
+ const chooseToLSBtn = document.querySelector('.btn-chose-book');
   chooseToLSBtn.addEventListener('click', e => {
     addAndRemuveBooksToLS(_id);
   });
@@ -57,7 +56,7 @@ function createMarkupForModal({
   buy_links,
   list_name,
 }) {
-  return `
+ return `
     <div class="modal-add-book-window">
       <div class="all-book-modal">
         <button class="close-btn-modal">
@@ -75,7 +74,7 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[0].url
                 }" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
-                  <img src="./images/modal/image1@1x.png" alt="Amazon" width="62" height="19"/>
+                  <img src=${require('../images/mobal-mobile/image10@x1.png')} alt="Amazon" width="62" height="19"/>
                 </a>
               </li class="logo-item">
               <li>
