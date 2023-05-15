@@ -6,7 +6,7 @@
         border: 2px solid #4F2EE8;
         border-radius: 18px;
         width: 579px;
-        height: 465px;
+        min-height: 465px;
         background-color: #FFFFFF;
 }
 
@@ -47,6 +47,8 @@ body{
 }
 
 .close-btn-modal{
+    background-color: #FFFFFF;
+    border: none;
     position: absolute;
     width: 28px;
     height: 28px;
@@ -55,7 +57,8 @@ body{
 }
 
 .close-svg-modal{
-    color: #111111;
+    stroke: $primary-color;
+   
 }
 
 .img-book-modal{
