@@ -36,14 +36,12 @@
     font-weight: 500;
     align-items: center;
     justify-content: center;
-    &:hover{
+    &:hover,
+    :focus{
     background-color:$accent-button-color;
     font-weight: 700;
     }
-    &:focus{
-      background-color:$accent-button-color;
-      font-weight: 700;
-        }
+    
   }
   @include mq(desktop){
     margin-right: 24px;
@@ -65,11 +63,7 @@
     color: $primary-color;
     white-space: nowrap;
     font-weight: 500;
-    &:hover{
-      background-color:$accent-button-color;
-      font-weight: 700;
-      }
-    &:focus{
+    &:hover,:focus{
       background-color:$accent-button-color;
       font-weight: 700;
         }
