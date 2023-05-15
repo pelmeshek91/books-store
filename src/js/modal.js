@@ -12,7 +12,7 @@ sectionBooksEl.addEventListener('click', e => {
 });
 
 async function selectBook(item) {
-  const chooseToLSBtn = document.querySelector('.btn-chose-book');
+  
 
   divchik.classList.remove('is-hidden');
 
@@ -28,6 +28,7 @@ async function selectBook(item) {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
   });
+  const chooseToLSBtn = document.querySelector('.btn-chose-book');
 
   chooseToLSBtn.addEventListener('click', e => {
     addAndRemuveBooksToLS(_id);
