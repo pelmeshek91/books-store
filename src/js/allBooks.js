@@ -1,10 +1,11 @@
 import { fetchBooks } from './booksApi';
 import { handleClickOnFilter } from './categories';
-import { removeMask } from './loader';
+import { createLoader, removeMask } from './loader';
 import { createMarkup } from './createMarkup';
 export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
+  createLoader();
   const urlAllBooks = 'top-books';
   try {
     const res = await fetchBooks(urlAllBooks);
