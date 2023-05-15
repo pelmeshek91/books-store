@@ -1,7 +1,7 @@
 .mask {
     width: 100%;
     height: 100%;
-    background: #FFFFFF;
+    background: rgb(100, 100, 100, 0.5);
     position: fixed;
     top: 0;
     z-index: 100;
@@ -11,21 +11,142 @@
     align-items: center;
 }
 
-.loader {
-    width: 100px;
-    height: 100px;
-    border: 8px solid rgba(13, 71, 161, 0.6);
-    border-radius: 50%;
-    border-left-color: #404BBF;
-    animation: loader 1.3s linear infinite;
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform:rotate(1);
 }
 
-@keyframes loader {
+* {
+    box-sizing: border-box;
+}
+
+.loader {
+    margin: 5% auto 30px;
+}
+
+.bookLoader {
+    border: 4px solid #FFFFFF;
+    width: 60px;
+    height: 45px;
+    position: relative;
+    perspective: 150px;
+}
+
+.page {
+    display: block;
+    width: 30px;
+    height: 45px;
+    border: 4px solid #FFFFFF;
+    border-left: 1px solid #8455b2;
+    margin: 0;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    overflow: hidden;
+    background: #8455b2;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.bookLoader .page:nth-child(1) {
+    -webkit-animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.6s infinite;
+    animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.6s infinite;
+}
+
+.bookLoader .page:nth-child(2) {
+    -webkit-animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.45s infinite;
+    animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.45s infinite;
+}
+
+.bookLoader .page:nth-child(3) {
+    -webkit-animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
+    animation: pageTurn 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
+}
+
+
+/* Page turn */
+
+@-webkit-keyframes pageTurn {
+    0% {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    20% {
+        background: #4b1e77;
+    }
+
+    40% {
+        background: rebeccapurple;
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+
     100% {
-        transform: rotate(360deg);
+        background: rebeccapurple;
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
     }
 }
 
-.hide {
-    opacity: 0;
+@keyframes pageTurn {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    20% {
+        background: #4b1e77;
+    }
+
+    40% {
+        background: rebeccapurple;
+        transform: rotateY(-180deg);
+    }
+
+    100% {
+        background: rebeccapurple;
+        transform: rotateY(-180deg);
+    }
+}
+
+
+/* Dots */
+
+@-webkit-keyframes Dots {
+    0% {
+        content: "";
+    }
+
+    33% {
+        content: ".";
+    }
+
+    66% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
+}
+
+@keyframes Dots {
+    0% {
+        content: "";
+    }
+
+    33% {
+        content: ".";
+    }
+
+    66% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
 }
