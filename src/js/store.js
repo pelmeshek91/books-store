@@ -1,4 +1,34 @@
-function renderBookList(pageNumber = 1, pageSize = 1) {
+function renderBuyLinks(buyLinks) {
+  const allowedLinks = ['Amazon', 'Apple Books', 'Bookshop'];
+
+  const logoList = buyLinks
+    .filter(buyLink => allowedLinks.includes(buyLink.name))
+    .map(buyLink => {
+      let logoImageSrc = '';
+      if (buyLink.name === 'Amazon') {
+        logoImageSrc = './images/modal/image1@1x.png';
+      } else if (buyLink.name === 'Apple Books') {
+        logoImageSrc = './images/modal/image2@1x.png';
+      } else if (buyLink.name === 'Bookshop') {
+        logoImageSrc = './images/modal/image3@1x.png';
+      }
+      return `
+        <li class="logo-item">
+          <a href="${buyLink.url}" target="_new" rel="noopener noreferer" aria-label="link to ${buyLink.name}">
+            <img src="${logoImageSrc}" alt="${buyLink.name}" width="62" height="19"/>
+          </a>
+        </li>
+      `;
+    });
+
+  return `
+    <ul class="logo-list">
+      ${logoList.join('')}
+    </ul>
+  `;
+}
+
+function renderBookList() {
   const bookIdsJson = localStorage.getItem('bookIds');
   const bookIds = JSON.parse(bookIdsJson) || [];
   const promises = bookIds.map(bookId =>
@@ -8,25 +38,20 @@ function renderBookList(pageNumber = 1, pageSize = 1) {
   Promise.all(promises)
     .then(responses => Promise.all(responses.map(res => res.json())))
     .then(data => {
-      const booksMarkup = data
-        .slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
-        .map(book => {
-          return `
-            <div class="book">
-              <img class="book__image" src="${book.book_image}" alt="${
-            book.title
-          }">
-          <div class="container-card">
-              <h2 class="book__title">${book.title}</h2>
-              <p class="book__description">${book.description}</p>
-              <p class="book__author">Author: ${book.author}</p>
-              
-            
-              ${renderBuyLinks(book.buy_links)}
-              <button class="delete-book" data-id="${book._id}">Delete</button>
-            </div></div>
-          `;
-        });
+      const booksMarkup = data.map(book => {
+        return `
+          <div class="book">
+            <h2 class="book__title">${book.title}</h2>
+            <p class="book__author">Author: ${book.author}</p>
+            <p class="book__description">${book.description}</p>
+            <img class="book__image" src="${book.book_image}" alt="${
+          book.title
+        }">
+            ${renderBuyLinks(book.buy_links)}
+            <button class="delete-book" data-id="${book._id}">Delete</button>
+          </div>
+        `;
+      });
 
       const bookList = document.getElementById('bookList');
       bookList.innerHTML = booksMarkup.join('');
@@ -34,65 +59,6 @@ function renderBookList(pageNumber = 1, pageSize = 1) {
     .catch(error => {
       console.error(error);
     });
-}
-
-function renderBuyLinks(buyLinks) {
-  const allowedStores = ['Amazon', 'IndieBound', 'Bookshop'];
-
-  const filteredLinks = buyLinks.filter(link => {
-    const storeName = link.name.split(' ')[0];
-    return allowedStores.includes(storeName);
-  });
-
-  return filteredLinks
-    .map(link => {
-      return `
-        <a class="book__buy-link" href="${link.url}">
-          <img src="${link.icon_url}" class="ico-buy" alt="${link.name}">
-        </a>
-      `;
-    })
-    .join('');
-}
-
-function renderPaginationButtons(pageNumber, totalPages) {
-  const paginationContainer = document.getElementById('pagination');
-  const paginationButtons = [];
-
-  for (let i = 1; i <= totalPages; i++) {
-    paginationButtons.push(`
-      <button class="pagination__button ${
-        i === pageNumber ? 'active' : ''
-      }" data-page="${i}">
-        ${i}
-      </button>
-    `);
-  }
-
-  paginationContainer.innerHTML = `
-    <div class="pagination__buttons">
-      ${paginationButtons.join('')}
-    </div>
-  `;
-
-  paginationContainer.addEventListener('click', function (event) {
-    if (event.target.classList.contains('pagination__button')) {
-      const pageNumber = parseInt(event.target.getAttribute('data-page'), 10);
-      renderBookList(pageNumber);
-      renderPaginationButtons(pageNumber, totalPages);
-    }
-  });
-}
-
-function initPagination() {
-  const bookIdsJson = localStorage.getItem('bookIds');
-  const bookIds = JSON.parse(bookIdsJson) || [];
-
-  const pageSize = 1;
-  const totalPages = Math.ceil(bookIds.length / pageSize);
-
-  renderPaginationButtons(1, totalPages);
-  renderBookList(1, pageSize);
 }
 
 const bookList = document.getElementById('bookList');
@@ -106,13 +72,14 @@ bookList.addEventListener('click', function (event) {
   }
 });
 
-function removeBook(book) {
+function removeBook(bookId) {
   const bookIdsJson = localStorage.getItem('bookIds');
   let bookIds = JSON.parse(bookIdsJson) || [];
-  bookIds = bookIds.filter(id => id !== book);
+  bookIds = bookIds.filter(id => id !== bookId);
   localStorage.setItem('bookIds', JSON.stringify(bookIds));
 
-  localStorage.removeItem(book);
+  // Remove the book from localStorage based on its bookId
+  localStorage.removeItem(bookId);
 }
 
-initPagination();
+renderBookList();
