@@ -5,7 +5,11 @@ const backdrop = document.querySelector('.backdrop-autoriz');
 const modal = document.querySelector('.autoriz-modal');
 const closeBtn = document.querySelector('[autoriz-close-menu]');
 const openBtn = document.querySelector('[autoriz-open-menu]');
-
+// ===================================================
+const form = document.querySelector('.autoriz-modal-form');
+const singUpBtn = document.querySelector('.autoriz-sing-up-btn');
+const autorizBtn = document.querySelector('.autoriz-sub-btn');
+const autorizText = document.querySelector('.autoriz-text');
 
 function openModal() {
   backdrop.removeAttribute('autoriz-is-hidden');
@@ -23,11 +27,7 @@ openBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 
 
-// ===================================================
-const form = document.querySelector('.autoriz-modal-form');
-const singUpBtn = document.querySelector('.autoriz-sing-up-btn');
-const autorizBtn = document.querySelector('.autoriz-sub-btn');
-const autorizText = document.querySelector('.autoriz-text');
+
 
 async function checkAuth() {
   const user = await getUser();
@@ -35,18 +35,14 @@ async function checkAuth() {
     autorizText.innerHTML = `<button class="autoriz-sub-btn" type="submit">sign in</button>`;
     autorizBtn.classList.add('hidden');
     singUpBtn.innerHTML = 'sign in';
-    autorizBtn.addEventListener('click', () => {
-     
-    });
+    
   } else {
     autorizText.innerHTML = `
       <button class="autoriz-sub-btn" type="submit">sign up</button>
       <button class="autoriz-sub-btn" type="submit">sign in</button>`;
     singUpBtn.classList.remove('hidden');
     autorizBtn.innerHTML = 'sign up';
-    autorizBtn.addEventListener('click', () => {
-     
-    });
+  
   }
 }
 
@@ -67,6 +63,7 @@ form.addEventListener('submit', async (event) => {
   const user = { name, email, password };
   await setUser(user);
   checkAuth();
+  form.reset();
 });
 
 checkAuth();
