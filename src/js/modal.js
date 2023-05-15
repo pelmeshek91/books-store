@@ -20,7 +20,7 @@ async function selectBook(item) {
   const { _id } = res;
 
   const markup = createMarkupForModal(res);
-  divchik.innerHTML=markup
+  divchik.innerHTML = markup;
   // divchik.insertAdjacentHTML('beforeend', markup);
 
   const closeBtn = document.querySelector('.close-btn-modal');
@@ -76,12 +76,12 @@ function createMarkupForModal({
   buy_links,
   list_name,
 }) {
- return `
+  return `
     <div class="modal-add-book-window">
       <div class="all-book-modal">
         <button class="close-btn-modal">
           <svg class="close-svg-modal" width="28" height="28">
-            <use href="./images/svg/general-svg.svg.svg#icon-x-close"></use>
+            <use href=${require('../images/svg/general-svg.svg.svg')}#icon-x-close></use>
           </svg>
         </button>
         <img class="img-book-modal" src="${book_image}" alt="${list_name}" />
@@ -95,7 +95,7 @@ function createMarkupForModal({
                   buy_links[0].url
                 }" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
                  <svg class="svg-shop-link" width="62" height="19">
-    <use href=${require('../images/symbol-defs.svg')}#icon-instagram></use>
+    <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
   </svg>
                 </a>
               </li class="logo-item">
@@ -104,7 +104,7 @@ function createMarkupForModal({
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
                   <svg class="svg-shop-link" width="62" height="19">
-    <use href=${require('../images/symbol-defs.svg')}#icon-twitter></use>
+    <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
   </svg>
                 </a>
               </li>
@@ -113,7 +113,7 @@ function createMarkupForModal({
                   buy_links[4].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
                   <svg class="svg-shop-link" width="62" height="19">
-    <use href=${require('../images/symbol-defs.svg')}#icon-facebook></use>
+    <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
   </svg>
                   </a>
               </li>
