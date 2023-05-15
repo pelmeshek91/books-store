@@ -1,8 +1,11 @@
 import { fetchBooks } from './booksApi';
 import { handleClickOnFilter } from './categories';
+import { createLoader, removeMask } from './loader';
+import { createMarkup } from './createMarkup';
 export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
+  createLoader();
   const urlAllBooks = 'top-books';
   try {
     const res = await fetchBooks(urlAllBooks);
@@ -10,16 +13,19 @@ export async function createMurkUpAllBooks() {
       '<h1 class="title-hero">Best Sellers <span>Books</span></h1><ul class="categories"></ul>';
     const categoriesList = document.querySelector('.categories');
     categoriesList.innerHTML = createCategoryBooks(res);
+    const li = document.querySelector('.book-card');
+    li.classList.add('book-item');
   } catch {
     console.log('Error');
   }
+  removeMask();
 }
 
 function createCategoryBooks(data) {
   return data
     .map(category => {
-      return `  <li>
-      <h2>${category.list_name}</h2>
+      return `  <li class='category-items'>
+      <h2 class='category-title'>${category.list_name}</h2>
       <ul class="category-books">
       ${createBooks(category.books)}
       </ul>
@@ -30,22 +36,7 @@ function createCategoryBooks(data) {
 }
 
 function createBooks(books) {
-  return books
-    .map(book => {
-      return ` <li class="book-card" data-id="${book._id}">
-          <img
-            src=${book.book_image}
-            alt=${book.list_name} class="book-image"
-          />
-          <h3>${
-            book.title.length > 20
-              ? book.title.slice(0, 20) + '...'
-              : book.title
-          }</h3>
-          <p>${book.author}</p>
-        </li>`;
-    })
-    .join('');
+  return books.map(book => createMarkup(book)).join('');
 }
 
 export function onHandleCategoriesForButton(e) {

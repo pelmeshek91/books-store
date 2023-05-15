@@ -1,31 +1,32 @@
 import { categoriesList, sectionBooksEl } from './allBooks';
 import { fetchBooks } from './booksApi';
+import { createMarkup } from './createMarkup';
 
 export async function handleClickOnFilter(category) {
   try {
     const categoryBooks = `/category?category=${category}`;
     const bookItems = await fetchBooks(categoryBooks);
     sectionBooksEl.innerHTML = '';
+    const categoryArray = category.split(' ');
+    const firstWords = categoryArray
+      .slice(0, categoryArray.length - 1)
+      .join(' ');
+    const lastWord = categoryArray[categoryArray.length - 1];
 
+    sectionBooksEl.insertAdjacentHTML(
+      'afterbegin',
+      `<h2 class="title-hero">${firstWords} <span>${lastWord}</span></h2>`
+    );
     const list = document.createElement('ul');
     list.classList.add('category-books');
     sectionBooksEl.append(list);
 
     bookItems
-      .map(book => list.insertAdjacentHTML('beforeend', createMarkup(book)))
+      .map(book => {
+        list.insertAdjacentHTML('beforeend', createMarkup(book));
+      })
       .join('');
   } catch (error) {
     console.log(error);
   }
-}
-
-function createMarkup(book) {
-  const { book_image, title, author, list_name } = book;
-  return `<li class="filtered-book">
-        <img class="book-image" src="${book_image}" alt="${list_name}" />
-        <h3 class="book-title">${
-          title.length > 20 ? title.slice(0, 20) + '...' : title
-        }</h3>
-        <p class="book-author">${author}</p>
-      </li>`;
 }

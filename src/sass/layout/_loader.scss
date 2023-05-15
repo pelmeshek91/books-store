@@ -1,0 +1,150 @@
+.mask {
+  width: 100%;
+  height: 100%;
+  background: rgb(100, 100, 100, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: rotate(1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.loader {
+  margin: 5% auto 30px;
+}
+
+.bookLoader {
+  border: 4px solid #ffffff;
+  width: 120px;
+  height: 90px;
+  position: relative;
+  perspective: 150px;
+}
+
+.page {
+  display: block;
+  width: 60px;
+  height: 90px;
+  border: 4px solid #ffffff;
+  border-left: 1px solid #8455b2;
+  margin: 0;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  overflow: hidden;
+  background: #8455b2;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.bookLoader .page:nth-child(1) {
+  -webkit-animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.6s infinite;
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.6s infinite;
+}
+
+.bookLoader .page:nth-child(2) {
+  -webkit-animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.45s infinite;
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.45s infinite;
+}
+
+.bookLoader .page:nth-child(3) {
+  -webkit-animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.2s infinite;
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.2s infinite;
+}
+
+/* Page turn */
+
+@-webkit-keyframes pageTurn {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  20% {
+    background: #4b1e77;
+  }
+
+  40% {
+    background: rebeccapurple;
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+
+  100% {
+    background: rebeccapurple;
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+}
+
+@keyframes pageTurn {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  20% {
+    background: #4b1e77;
+  }
+
+  40% {
+    background: rebeccapurple;
+    transform: rotateY(-180deg);
+  }
+
+  100% {
+    background: rebeccapurple;
+    transform: rotateY(-180deg);
+  }
+}
+
+/* Dots */
+
+@-webkit-keyframes Dots {
+  0% {
+    content: '';
+  }
+
+  33% {
+    content: '.';
+  }
+
+  66% {
+    content: '..';
+  }
+
+  100% {
+    content: '...';
+  }
+}
+
+@keyframes Dots {
+  0% {
+    content: '';
+  }
+
+  33% {
+    content: '.';
+  }
+
+  66% {
+    content: '..';
+  }
+
+  100% {
+    content: '...';
+  }
+}
