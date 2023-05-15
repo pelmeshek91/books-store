@@ -29,6 +29,14 @@ async function selectBook(item) {
     divchik.classList.add('is-hidden');
   });
 
+ document.addEventListener('keydown', onEscapePress);
+ function onEscapePress(e) {
+     if (e.key === 'Escape') {
+      divchik.classList.add('is-hidden');
+      document.removeEventListener('keydown', onEscapePress)
+     }   
+ }
+
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
 
