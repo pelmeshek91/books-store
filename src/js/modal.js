@@ -29,6 +29,14 @@ async function selectBook(item) {
     divchik.classList.add('is-hidden');
   });
 
+ document.addEventListener('keydown', onEscapePress);
+ function onEscapePress(e) {
+     if (e.key === 'Escape') {
+      divchik.classList.add('is-hidden');
+      document.removeEventListener('keydown', onEscapePress)
+     }   
+ }
+
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
 
@@ -45,7 +53,7 @@ async function selectBook(item) {
 
   let data = JSON.parse(localStorage.getItem('bookId')) || [];
   if (data.includes(id)) {
-    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
   } else {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
@@ -61,7 +69,7 @@ function addAndRemuveBooksToLS(id) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
     data = data.filter(item => item !== id);
   } else {
-    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     data.push(id);
   }
 
@@ -103,7 +111,7 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
-                  <svg class="svg-shop-link" width="62" height="19">
+                  <svg class="svg-shop-link" width="33" height="32">
     <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
   </svg>
                 </a>
@@ -112,7 +120,7 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[4].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
-                  <svg class="svg-shop-link" width="62" height="19">
+                  <svg class="svg-shop-link" width="38" height="36">
     <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
   </svg>
                   </a>
