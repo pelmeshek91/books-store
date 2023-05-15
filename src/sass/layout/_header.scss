@@ -1,8 +1,14 @@
 .header-container {
   display: flex;
+  height: 72px;
+  border: 1.5px solid #111;
+  border-radius: 0 0 8px 8px;
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
+}
+.logo-link{
+  margin-right: 76px;
 }
 .logo {
   text-align: center;
@@ -15,14 +21,16 @@
   // display: none;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   padding: 8px 16px;
-  gap: 10px;
   width: 72px;
   height: 34px;
   border-radius: 36px;
   background-color: $accent-button-color;
   color: $primary-color;
+  margin-right: 24px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
 }
 .shop-btn {
   //   display: none;
@@ -32,9 +40,10 @@
   align-items: center;
   padding: 0px;
   gap: 4px;
-  width: 118px;
   height: 20px;
   color: $primary-color;
+  white-space: nowrap;
+  font-weight: 500;
 }
 .autorithation-container {
   display: flex;
@@ -50,7 +59,7 @@
   width: 184px;
   height: 48px;
   background-color: $accent-text-color;
-  border-radius: 18px;
+  border-radius: 36px;
   color: $second-color;
   border: 1.5px solid #111111;
   display: flex;

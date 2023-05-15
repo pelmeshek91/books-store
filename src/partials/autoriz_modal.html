@@ -12,10 +12,11 @@
       <div class="input-wrapper">
         <label class="autoriz-label-email" for="user_email"
           ><input
-            class="autoriz-modal-input"
+            class="autoriz-modal-input autoriz-email"
             type="email"
             placeholder="EMAIL"
-            name="user_email" />
+            id ="user_email"
+            name="autoriz_email" />
           <svg class="autoriz-icon" width="20" height="20">
             <use href="./images/svg/general-svg.svg.svg#icon-lock"></use>
             </svg></label>
@@ -27,7 +28,9 @@
             class="autoriz-modal-input"
             type="password"
             placeholder="PASSWORD"
-            name="user_password" />
+            id ="user_password"
+            name="autoriz_password" 
+            minlength="6"/>
           <svg class="autoriz-icon" width="20" height="20">
             <use href="./images/svg/general-svg.svg.svg#icon-mail"></use>
             </svg></label>
@@ -35,9 +38,10 @@
 
       <button class="autoriz-sing-up-btn" type="submit">sing up</button>
       <div class="autoriz-text">
-        <p class="sing-text">sing up</p>
-        <p class="sing-text">sing in</p>
+        <button class="autoriz-sub-btn" type="submit">sing up</button>
+        <button class="autoriz-sub-btn" type="submit">sing in</button>
       </div>
     </form>
   </div>
 </div>
+
