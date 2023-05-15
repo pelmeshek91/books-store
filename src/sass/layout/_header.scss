@@ -7,7 +7,11 @@
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.logo-link {
+.current{
+  background-color:$accent-button-color;
+}
+
+.logo-link{
   margin-right: 76px;
 }
 .logo {
@@ -18,32 +22,52 @@
   margin-left: 8px;
 }
 .home-btn {
-  // display: none;
-  display: flex;
-  flex-direction: row;
-  padding: 8px 16px;
-  width: 72px;
-  height: 34px;
-  border-radius: 36px;
-  background-color: $accent-button-color;
-  color: $primary-color;
-  margin-right: 24px;
-  font-weight: 700;
-  align-items: center;
-  justify-content: center;
+  display: none;
+
+  @include mq(tablet){
+    display: flex;
+    flex-direction: row;
+    padding: 8px 16px;
+    width: 72px;
+    height: 34px;
+    border-radius: 36px;
+    color: $primary-color;
+    margin-right: 16px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    &:hover,
+    :focus{
+    background-color:$accent-button-color;
+    font-weight: 700;
+    }
+    
+  }
+  @include mq(desktop){
+    margin-right: 24px;
+  }
 }
 .shop-btn {
-  //   display: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-  gap: 4px;
-  height: 20px;
-  color: $primary-color;
-  white-space: nowrap;
-  font-weight: 500;
+    display: none;
+
+  @include mq(tablet){
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    border-radius: 36px;
+    gap: 4px;
+    height: 34px;
+    width: 156px;
+    color: $primary-color;
+    white-space: nowrap;
+    font-weight: 500;
+    &:hover,:focus{
+      background-color:$accent-button-color;
+      font-weight: 700;
+        }
+  }
 }
 .autorithation-container {
   display: flex;
@@ -52,17 +76,21 @@
   justify-content: flex-end;
 }
 .shop-logo {
-  fill: $second-color;
-  stroke: $primary-color;
+  fill:$second-color ;
+  stroke:$primary-color ;
+  
 }
 .sign-btn {
+  display:none;
+
+@include mq(tablet){
+  display: flex;
   width: 184px;
-  height: 48px;
+  height: 45px;
   background-color: $accent-text-color;
   border-radius: 36px;
   color: $second-color;
   border: 1.5px solid #111111;
-  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -70,6 +98,7 @@
   gap: 90px;
   margin-left: 24px;
   margin-right: 0;
+}
 }
 .arrow {
   fill: $accent-button-color;
@@ -79,8 +108,15 @@
   background-color: $second-color;
   stroke: $primary-color;
 }
-.display-none {
+.menu-toggle {
+  border:none;
+  background-color:$second-color;
+  margin-left: auto;
+  margin-left: 14px;
+
+@include mq(tablet){
   display: none;
+}
 }
 
 .theme-switch__control {

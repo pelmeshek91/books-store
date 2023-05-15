@@ -13,8 +13,11 @@ export async function createMurkUpAllBooks() {
       '<h1 class="title-hero">Best Sellers <span>Books</span></h1><ul class="categories"></ul>';
     const categoriesList = document.querySelector('.categories');
     categoriesList.innerHTML = createCategoryBooks(res);
-    const li = document.querySelector('.book-card');
-    li.classList.add('book-item');
+    const cardList = document.querySelectorAll('.book-card');
+
+    cardList.forEach(li => {
+      li.classList.add('book-item');
+    });
   } catch {
     console.log('Error');
   }
