@@ -103,7 +103,7 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
-                  <svg class="svg-shop-link" width="62" height="19">
+                  <svg class="svg-shop-link" width="33" height="32">
     <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
   </svg>
                 </a>
@@ -112,7 +112,7 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[4].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
-                  <svg class="svg-shop-link" width="62" height="19">
+                  <svg class="svg-shop-link" width="38" height="36">
     <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
   </svg>
                   </a>
