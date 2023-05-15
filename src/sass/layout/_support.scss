@@ -1,24 +1,35 @@
 .support-container {
-  width: 335px;
-  left: 20px;
-  top: 372px;
-  background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
-    )
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-  border-radius: 16px;
-  margin-top: 40px;
-  transition: all 500ms ease-out;
+  @include mq(mob) {
+    width: 335px;
+    left: 20px;
+    top: 372px;
+    background: radial-gradient(
+        183.6% 183.01% at 59.76% -23.42%,
+        #4f2ee8 18.03%,
+        #ffffff 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    border-radius: 16px;
+    margin-top: 40px;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @include mq(tablet) {
+    left: 24px;
+    top: 670px;
+  }
+  @include mq(desktop) {
+    width: 356px;
+    left: 24px;
+    top: 670px;
+  }
 }
 
 .support-list {
   width: 100%;
-  transition: all 0.3s ease-in-out;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.support-main {
+.support-header {
   display: flex;
 }
 .support-title {
@@ -67,7 +78,7 @@
   margin-left: 150px;
   border: #ffffff;
   background-color: #fff;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .scroll-btn .scroll-icon {
   fill: #4f2ee8;
