@@ -10,11 +10,11 @@
   margin-bottom: 86px;
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: $accent-text-color;
+    border-radius: 12px;
+    background-color: #e0e0e0;
   }
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 }
 .btn-categoty {
