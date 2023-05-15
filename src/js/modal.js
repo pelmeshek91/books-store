@@ -8,11 +8,11 @@ sectionBooksEl.addEventListener('click', e => {
   if (!item) {
     return;
   }
+
   selectBook(item);
 });
 
 async function selectBook(item) {
-
   divchik.classList.remove('is-hidden');
 
   const id = item.getAttribute('data-id');
@@ -20,17 +20,37 @@ async function selectBook(item) {
   const { _id } = res;
 
   const markup = createMarkupForModal(res);
-  divchik.insertAdjacentHTML('beforeend', markup);
+  divchik.innerHTML = markup;
+  // divchik.insertAdjacentHTML('beforeend', markup);
 
   const closeBtn = document.querySelector('.close-btn-modal');
   closeBtn.addEventListener('click', e => {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
   });
- const chooseToLSBtn = document.querySelector('.btn-chose-book');
+
+  const chooseToLSBtn = document.querySelector('.btn-chose-book');
+  const peshka = document.querySelector('.peshka');
+
   chooseToLSBtn.addEventListener('click', e => {
     addAndRemuveBooksToLS(_id);
+
+    let data = JSON.parse(localStorage.getItem('bookId')) || [];
+    if (data.includes(id)) {
+      peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
+    } else {
+      peshka.innerHTML = '';
+    }
   });
+
+  let data = JSON.parse(localStorage.getItem('bookId')) || [];
+  if (data.includes(id)) {
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
+  } else {
+    chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
+    peshka.innerHTML = '';
+  }
 }
 
 function addAndRemuveBooksToLS(id) {
@@ -56,12 +76,12 @@ function createMarkupForModal({
   buy_links,
   list_name,
 }) {
- return `
+  return `
     <div class="modal-add-book-window">
       <div class="all-book-modal">
         <button class="close-btn-modal">
           <svg class="close-svg-modal" width="28" height="28">
-            <use href="./images/svg/general-svg.svg.svg#icon-x-close"></use>
+            <use href=${require('../images/svg/general-svg.svg.svg')}#icon-x-close></use>
           </svg>
         </button>
         <img class="img-book-modal" src="${book_image}" alt="${list_name}" />
@@ -74,26 +94,33 @@ function createMarkupForModal({
                 <a href="${
                   buy_links[0].url
                 }" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
-                  <img src=${require('../images/mobal-mobile/image10@x1.png')} alt="Amazon" width="62" height="19"/>
+                 <svg class="svg-shop-link" width="62" height="19">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
+  </svg>
                 </a>
               </li class="logo-item">
               <li>
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
-                  <img src="./images/modal/image2@1x.png" alt="Apple Books" width="32" height="33"/>
+                  <svg class="svg-shop-link" width="62" height="19">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
+  </svg>
                 </a>
               </li>
               <li class="logo-item">
                 <a href="${
                   buy_links[4].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
-                  <img src="./images/modal/image3@1x.png" alt="Bookshop" width="38" height="36"/>
+                  <svg class="svg-shop-link" width="62" height="19">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
+  </svg>
                   </a>
               </li>
             </ul>
           </div>  
       </div>
           <button class="btn-chose-book active">Add to shopping list</button>
+          <p class="peshka"></p>
     </div>`;
 }
