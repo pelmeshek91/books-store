@@ -1,5 +1,6 @@
 import { fetchBooks } from './booksApi';
 import { handleClickOnFilter } from './categories';
+import { removeMask } from './loader';
 export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
@@ -13,6 +14,7 @@ export async function createMurkUpAllBooks() {
   } catch {
     console.log('Error');
   }
+  removeMask();
 }
 
 function createCategoryBooks(data) {
