@@ -1,0 +1,26 @@
+.scroll-up-btn {
+  @include mq(mob) {
+    display: block;
+    width: 54px;
+    height: 54px;
+    bottom: 85px;
+    left: 620px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: #4f2ee8;
+    border: transparent;
+  }
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.scroll-up-btn:hover,
+.scroll-up-btn:focus {
+  background-color: #17017a;
+}
+
+.scroll-up-btn.show {
+  display: flex;
+}
