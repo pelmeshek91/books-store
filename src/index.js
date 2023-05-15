@@ -1,11 +1,17 @@
 import './js/modal';
 import { fetchBooks } from './js/booksApi.js';
 import { markupCategories } from './js/markupCategories.js';
-import { createMurkUpAllBooks, sectionBooksEl, onHandleCategoriesForButton } from './js/allBooks.js';
+import {
+  createMurkUpAllBooks,
+  sectionBooksEl,
+  onHandleCategoriesForButton,
+} from './js/allBooks.js';
 import { handleClickOnFilter } from './js/categories.js';
 import './js/support.js';
 import './js/loader.js';
 import './js/theme';
+import './js/autoriz_modal.js';
+
 const listElem = document.querySelector('.categories_list');
 const fetchList = '/category-list';
 
@@ -19,23 +25,29 @@ const categoriesList = async point => {
     console.log(error);
   }
 };
+
 categoriesList(fetchList);
 createMurkUpAllBooks();
 
 const onHandleCategories = e => {
-  if (e.target.textContent === 'All categories') {
+  const selectCateg = e.target.textContent;
+  if (selectCateg === 'All categories') {
+    switchTextDecor(e);
     createMurkUpAllBooks();
     return;
   }
   if (e.target.nodeName === 'BUTTON') {
-    const categoryName = e.target.textContent;
+    switchTextDecor(e);
+    const categoryName = selectCateg;
     handleClickOnFilter(categoryName);
   }
 };
 
+function switchTextDecor(e) {
+  const activeClass = listElem.querySelectorAll('.active-text');
+  activeClass.forEach(activeEl => activeEl.classList.remove('active-text'));
+  e.target.classList.add('active-text');
+}
+
 listElem.addEventListener('click', onHandleCategories);
-
-
-
-
-sectionBooksEl.addEventListener('click', onHandleCategoriesForButton)
+sectionBooksEl.addEventListener('click', onHandleCategoriesForButton);
