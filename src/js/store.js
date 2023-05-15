@@ -1,3 +1,6 @@
+import './support.js';
+import './theme';
+
 const booksPerPage = 3;
 let currentPage = 1;
 let bookIds = [];
