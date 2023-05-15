@@ -76,7 +76,7 @@ function createMarkupForModal({
   buy_links,
   list_name,
 }) {
-  return `
+ return `
     <div class="modal-add-book-window">
       <div class="all-book-modal">
         <button class="close-btn-modal">
