@@ -6,11 +6,12 @@ function renderBuyLinks(buyLinks) {
     .map(buyLink => {
       let logoImageSrc = '';
       if (buyLink.name === 'Amazon') {
-        logoImageSrc = './images/modal/image1@1x.png';
+        logoImageSrc =
+          require('../images/modal/modal-img.svg') + '#icon-amazon';
       } else if (buyLink.name === 'Apple Books') {
-        logoImageSrc = './images/modal/image2@1x.png';
+        logoImageSrc = require('../images/modal/modal-img.svg') + '#icon-apple';
       } else if (buyLink.name === 'Bookshop') {
-        logoImageSrc = './images/modal/image3@1x.png';
+        logoImageSrc = require('../images/modal/modal-img.svg') + '#icon-apple';
       }
       return `
         <li class="logo-item">
