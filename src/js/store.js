@@ -1,3 +1,6 @@
+const booksPerPage = 3;
+let currentPage = 1;
+let bookIds = [];
 function renderBuyLinks(buyLinks) {
   const allowedLinks = ['Amazon', 'Apple Books', 'Bookshop'];
 
@@ -34,12 +37,16 @@ function renderBuyLinks(buyLinks) {
 `;
 }
 
-function renderBookList() {
+function renderBookList(page) {
   const bookIdsJson = localStorage.getItem('bookId');
   const bookIds = JSON.parse(bookIdsJson) || [];
-  const promises = bookIds.map(bookId =>
-    fetch(`https://books-backend.p.goit.global/books/${bookId}`)
-  );
+  const startIndex = (page - 1) * booksPerPage;
+  const endIndex = startIndex + booksPerPage;
+  const promises = bookIds
+    .slice(startIndex, endIndex)
+    .map(bookId =>
+      fetch(`https://books-backend.p.goit.global/books/${bookId}`)
+    );
 
   Promise.all(promises)
     .then(responses => Promise.all(responses.map(res => res.json())))
@@ -47,35 +54,70 @@ function renderBookList() {
       const booksMarkup = data.map(book => {
         return `
           <div class="book">
-          <img class="book__image" src="${book.book_image}" alt="${book.title}">
-          <div class="tablet">
-          <div class="information"><h2 class="book__title">${book.title}</h2>
-          <p class="book__author">Author: ${book.author}</p>
-          
-          </div><p class="book__description">${book.description}</p></div>
-          <div class="shoping-box">
-
-            
-            
-            
-            
-            ${renderBuyLinks(book.buy_links)}
-            
+            <img class="book__image" src="${book.book_image}" alt="${
+          book.title
+        }">
+            <div class="tablet">
+              <div class="information">
+                <h2 class="book__title">${book.title}</h2>
+                <p class="book__author">Author: ${book.author}</p>
+              </div>
+              <p class="book__description">${book.description}</p>
+            </div>
+            <div class="shoping-box">
+              ${renderBuyLinks(book.buy_links)}
+            </div>
+            <button class="delete-book" data-id="${book._id}">Delete</button>
           </div>
-                    <button class="delete-book" data-id="${
-                      book._id
-                    }">Delete</button>
-          </div>
-
         `;
       });
 
       const bookList = document.getElementById('bookList');
       bookList.innerHTML = booksMarkup.join('');
+      renderPagination(bookIds);
     })
     .catch(error => {
       console.error(error);
     });
+}
+function renderPagination(bookIds) {
+  const totalPages = Math.ceil(bookIds.length / booksPerPage);
+  let buttons = '';
+
+  buttons += `
+    <button class="pagination-button black" data-page="1">&lt;&lt;</button>
+    <button class="pagination-button black" data-page="${
+      currentPage > 1 ? currentPage - 1 : 1
+    }">&lt;</button>
+  `;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const activeClass = i === currentPage ? 'active' : '';
+    buttons += `
+      <button class="pagination-button ${activeClass}" data-page="${i}">
+        ${i}
+      </button>
+    `;
+  }
+
+  buttons += `
+    <button class="pagination-button yellow" data-page="${
+      currentPage < totalPages ? currentPage + 1 : totalPages
+    }">&gt;</button>
+    <button class="pagination-button yellow" data-page="${totalPages}">&gt;&gt;</button>
+  `;
+
+  const paginationContainer = document.getElementById('pagination');
+  paginationContainer.innerHTML = buttons;
+
+  const paginationButtons = document.querySelectorAll('.pagination-button');
+  paginationButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      currentPage = parseInt(this.getAttribute('data-page'));
+      renderBookList(currentPage);
+      renderPagination(bookIds);
+    });
+  });
 }
 
 const bookList = document.getElementById('bookList');
@@ -99,4 +141,5 @@ function removeBook(bookId) {
   localStorage.removeItem(bookId);
 }
 
-renderBookList();
+renderBookList(currentPage);
+renderPagination(bookIds);

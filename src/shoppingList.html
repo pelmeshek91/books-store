@@ -133,7 +133,39 @@
       .booklist {
         margin-left: 400px;
       }
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      .pagination-button {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.22em;
+        background-color: white;
+        padding: 15px 20px;
+        border-radius: 50%;
+        width: 60px;
+        text-align: center;
+      }
+      .pagination-button.active {
+        background-color: black;
+        color: white;
+      }
+      .pagination-button.black {
+        background-color: black;
+        color: white;
+      }
+      .pagination-button.yellow {
+        background-color: #eac645;
+
+        color: black;
+      }
     </style>
     <div id="empty-message">Вы не выбрали книги</div>
+    <div id="pagination" class="pagination">
+      <button><</button>
+    </div>
   </body>
 </html>
