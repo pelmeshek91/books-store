@@ -45,7 +45,7 @@ async function selectBook(item) {
 
   let data = JSON.parse(localStorage.getItem('bookId')) || [];
   if (data.includes(id)) {
-    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
   } else {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
@@ -61,7 +61,7 @@ function addAndRemuveBooksToLS(id) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
     data = data.filter(item => item !== id);
   } else {
-    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING';
+    chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     data.push(id);
   }
 

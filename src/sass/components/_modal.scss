@@ -26,12 +26,15 @@ body{
 
 .btn-chose-book {
     border: 2px solid #4F2EE8;
-        border-radius: 40px;
-        width: 499px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
-        margin-left: 40px;
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    width: 499px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+    margin-left: 40px;
+    font-weight: 700;
+    line-height: 1.33;
 }
 
 .is-hidden {
@@ -58,7 +61,6 @@ body{
 
 .close-svg-modal{
     stroke: $primary-color;
-   
 }
 
 .img-book-modal{
@@ -74,7 +76,7 @@ body{
 
 .title-book-modal{
     max-width: 192px;
-       font-weight: 700;
+    font-weight: 700;
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.04em;
@@ -85,8 +87,7 @@ body{
 .author-book-modal{
     font-style: italic;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+    line-height: 1.28;
     letter-spacing: -0.04em;
     color: #B4AFAF;
     margin-bottom: 20px;
@@ -95,8 +96,7 @@ body{
 .text-book-modal{
     max-width: 279px;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+    line-height: 1.28;
     letter-spacing: -0.04em;
     color: #111111;
     margin-bottom: 20px;
@@ -107,4 +107,14 @@ body{
     gap: 20px;
 }
 
-
+.peshka{
+    margin: 0 auto;
+    max-width: 324px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: rgba(17, 17, 17, 0.5);
+    margin-bottom: 40px;
+}
