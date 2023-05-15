@@ -17,13 +17,12 @@
     <include src="./partials/store.html"></include>
     <script src="./js/store.js" type="module"></script>
     <div id="bookList" class="booklist"></div>
-    <style>
+    <!-- <style>
       img {
         width: 200px;
         height: 300px;
       }
       .booklist {
-        position: relative;
         display: flex;
         gap: 24px;
         margin-left: 10px;
@@ -43,6 +42,7 @@
         flex-wrap: wrap;
         justify-content: start;
         text-align: start;
+        position: relative;
       }
 
       .book__image {
@@ -65,6 +65,73 @@
       }
       .container-card {
         display: block;
+      }
+      .delete-book {
+        width: 60px;
+        height: 30px;
+        position: absolute;
+        top: 10;
+        right: 10;
+      }
+    </style> -->
+    <style>
+      .tablet {
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+      }
+      .book__author {
+        color: #b4afaf;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 1.17;
+      }
+      .book__title {
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.12;
+      }
+      .book {
+        width: 996px;
+        border: 2px solid #4f2ee866;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+      }
+      .delete-book {
+        width: 28px;
+        height: 28px;
+        background-color: #4f2ee8;
+        border: none;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        display: flex;
+        position: absolute;
+        top: 14px;
+        right: 14px;
+      }
+      .book__image {
+        max-width: 98px;
+        max-height: 139px;
+        flex-shrink: 0;
+        margin-bottom: 4px;
+        margin-right: 20px;
+      }
+      .shoping-box {
+        align-items: flex-end;
+        margin-top: auto;
+        display: flex;
+      }
+      .logo-list {
+        justify-content: end;
+      }
+      .booklist {
+        margin-left: 400px;
       }
     </style>
     <div id="empty-message">Вы не выбрали книги</div>
