@@ -98,12 +98,11 @@
   margin-bottom: 24px;
    transition: border-color cubic-bezier(0.21, 0.06, 0.79, 1.07);
   @include text(700, 16px, 1.12, -0.01em);
-  &:focus {
-    border: 2px solid #7ea0f5;
+  &:focus + .autoriz-icon {
+    stroke: #7ea0f5;
   }
-  &.autoriz-icon:focus
-  {
-     stroke: #7ea0f5;
+  &:focus-within {
+    border-color: #7ea0f5;
   }
    @include mq(tablet) {
   margin-bottom: 28px;
@@ -167,6 +166,7 @@
   &:focus {
     color: $accent-text-color;
     text-decoration-line: underline;
+    text-shadow: 4px 2px 14px rgba(71,17,213,0.6);
   }
   @include mq(tablet) {
     @include text(700, 18px, 1.33, -0.01em);
