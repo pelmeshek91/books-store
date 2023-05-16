@@ -23,6 +23,11 @@
     min-width: 328px;
   }
 }
+.categories_list {
+  @include mq(mob-only) {
+    margin-bottom: 0px;
+  }
+}
 // .btn-categoty {
 //   color: rgba(17, 17, 17, 0.6);
 // }
