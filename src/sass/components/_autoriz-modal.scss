@@ -96,23 +96,22 @@
   align-items: center;
   padding: 16px 5px 16px 24px;
   margin-bottom: 24px;
-   transition: border-color cubic-bezier(0.21, 0.06, 0.79, 1.07);
+  transition: border-color cubic-bezier(0.21, 0.06, 0.79, 1.07);
   @include text(700, 16px, 1.12, -0.01em);
-  &:focus {
-    border: 2px solid #7ea0f5;
+  &:focus + .autoriz-icon {
+    stroke: #7ea0f5;
   }
-  &.autoriz-icon:focus
-  {
-     stroke: #7ea0f5;
+  &:focus-within {
+    border-color: #7ea0f5;
   }
-   @include mq(tablet) {
-  margin-bottom: 28px;
-  width: 499px;
-  height: 64px;
-  padding: 20px 5px 20px 40px;
-  @include text(700, 18px, 1.33, -0.01em);
-}}
-
+  @include mq(tablet) {
+    margin-bottom: 28px;
+    width: 499px;
+    height: 64px;
+    padding: 20px 5px 20px 40px;
+    @include text(700, 18px, 1.33, -0.01em);
+  }
+}
 
 .autoriz-icon {
   stroke: $primary-color;
@@ -141,7 +140,7 @@
   margin-bottom: 14px;
   &:hover,
   &:focus {
-    box-shadow: -4px 19px 39px -22px rgba(0, 0, 0, 0.49);
+    box-shadow: 1px 6px 32px -4px rgba(9, 36, 240, 1);
   }
 
   @include text(700, 16px, 1.12, -0.01em);
@@ -167,6 +166,7 @@
   &:focus {
     color: $accent-text-color;
     text-decoration-line: underline;
+    text-shadow: 4px 2px 14px rgba(71, 17, 213, 0.6);
   }
   @include mq(tablet) {
     @include text(700, 18px, 1.33, -0.01em);
