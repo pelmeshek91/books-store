@@ -1,6 +1,8 @@
 import './support.js';
 import './theme';
+//
 
+//
 const booksPerPage = 3;
 let currentPage = 1;
 let bookIds = [];
@@ -45,6 +47,7 @@ function renderBookList(page) {
   const bookIds = JSON.parse(bookIdsJson) || [];
   const startIndex = (page - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
+
   const promises = bookIds
     .slice(startIndex, endIndex)
     .map(bookId =>
@@ -77,16 +80,38 @@ function renderBookList(page) {
 
       const bookList = document.getElementById('bookList');
       bookList.innerHTML = booksMarkup.join('');
-      renderPagination(bookIds);
+
+      // check books
+      if (data.length === 0) {
+        // if not books here
+        if (currentPage === 1) {
+          bookList.innerHTML = '<p>No books found</p>';
+        } else {
+          // Иначе перенаправляем пользователя на предыдущую страницу
+          const previousPage = currentPage - 1;
+          const previousUrl = `${window.location.pathname}?page=${previousPage}`;
+          window.location.replace(previousUrl);
+        }
+      } else {
+        renderPagination(bookIds);
+      }
     })
     .catch(error => {
       console.error(error);
     });
+  const bookImages = document.querySelectorAll('.book__image');
+  bookImages.forEach(image => {
+    image.classList.add('animate');
+  });
 }
 function renderPagination(bookIds) {
   const totalPages = Math.ceil(bookIds.length / booksPerPage);
-  let buttons = '';
+  if (totalPages < 2) {
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
 
+  let buttons = '';
   buttons += `
     <button class="pagination-button black" data-page="1">&lt;&lt;</button>
     <button class="pagination-button black" data-page="${
@@ -94,13 +119,55 @@ function renderPagination(bookIds) {
     }">&lt;</button>
   `;
 
-  for (let i = 1; i <= totalPages; i++) {
+  const maxVisibleButtons = 4;
+  const maxVisiblePages = maxVisibleButtons - 1; // max count visible
+  const halfVisibleButtons = Math.floor(maxVisibleButtons / 2);
+  let firstVisiblePage = 1;
+  let lastVisiblePage = totalPages;
+
+  if (totalPages > maxVisibleButtons) {
+    const leftSideButtons = halfVisibleButtons;
+    const rightSideButtons = maxVisibleButtons - leftSideButtons - 1;
+
+    if (currentPage <= halfVisibleButtons) {
+      lastVisiblePage = maxVisiblePages;
+    } else if (currentPage >= totalPages - halfVisibleButtons + 1) {
+      firstVisiblePage = totalPages - maxVisiblePages + 1;
+    } else {
+      firstVisiblePage = currentPage - halfVisibleButtons + 1;
+      lastVisiblePage = currentPage + rightSideButtons - 1;
+    }
+
+    if (firstVisiblePage > 1) {
+      buttons += `
+        <button class="pagination-button notclick">...</button>
+      `;
+    }
+  }
+
+  for (let i = firstVisiblePage; i <= lastVisiblePage; i++) {
     const activeClass = i === currentPage ? 'active' : '';
     buttons += `
       <button class="pagination-button ${activeClass}" data-page="${i}">
         ${i}
       </button>
     `;
+  }
+
+  if (totalPages > maxVisibleButtons) {
+    if (lastVisiblePage < totalPages) {
+      buttons += `
+        <button class="pagination-button notclick">...</button>
+      `;
+    }
+
+    if (lastVisiblePage !== totalPages) {
+      buttons += `
+        <button class="pagination-button ${
+          lastVisiblePage === totalPages ? 'active' : ''
+        }" data-page="${totalPages}">${totalPages}</button>
+      `;
+    }
   }
 
   buttons += `
@@ -118,6 +185,7 @@ function renderPagination(bookIds) {
     button.addEventListener('click', function () {
       currentPage = parseInt(this.getAttribute('data-page'));
       renderBookList(currentPage);
+
       renderPagination(bookIds);
     });
   });
@@ -142,7 +210,11 @@ function removeBook(bookId) {
 
   // Remove the book from localStorage based on its bookId
   localStorage.removeItem(bookId);
+  renderBookList(currentPage);
+  renderPagination(bookIds);
 }
+//
 
+//
 renderBookList(currentPage);
 renderPagination(bookIds);
