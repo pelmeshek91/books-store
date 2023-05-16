@@ -1,6 +1,8 @@
 import './support.js';
 import './theme';
+//
 
+//
 const booksPerPage = 3;
 let currentPage = 1;
 let bookIds = [];
@@ -43,11 +45,9 @@ function renderBuyLinks(buyLinks) {
 function renderBookList(page) {
   const bookIdsJson = localStorage.getItem('bookId');
   const bookIds = JSON.parse(bookIdsJson) || [];
-  console.log(bookList);
-  bookList.classList.remove('backgound');
-
   const startIndex = (page - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
+
   const promises = bookIds
     .slice(startIndex, endIndex)
     .map(bookId =>
@@ -57,52 +57,74 @@ function renderBookList(page) {
   Promise.all(promises)
     .then(responses => Promise.all(responses.map(res => res.json())))
     .then(data => {
-      const booksMarkup = data.map(book => {
-        return `
-          <div class="book">
-            <img class="book__image" src="${book.book_image}" alt="${
-          book.title
-        }">
-            <div class="tablet">
-              <div class="information">
-                <h2 class="book__title">${book.title}</h2>
-                <p class="book__author">Author: ${book.author}</p>
-              </div>
-              <p class="book__description">${book.description}</p>
-            </div>
-            <div class="shoping-box">
-              ${renderBuyLinks(book.buy_links)}
-            </div>
-            <button class="delete-book" data-id="${book._id}">Delete</button>
-          </div>
-        `;
-      });
-
+      const booksMarkup = data
+        .map(
+          ({
+            book_image,
+            title,
+            author,
+            description,
+            buy_links,
+            _id,
+            list_name,
+          }) => {
+            return ` <div class=“book”>
+  <img class=“book__image” src=${book_image} alt=${title}>
+  <div class=“tablet”>
+    <div class=“information”>
+      <h2 class=“book__title”>${
+        title.length > 16 ? title.slice(0, 16) + '...' : title
+      }</h2>
+      <p class=“book__categ”>${list_name}</p>
+      <p class=“book__description”>${description || 'no description'}</p>
+    </div>
+    <div>
+      <p class=“book__author”>${author}</p>
+      <div class=“shoping-box”>
+        ${renderBuyLinks(buy_links)}
+      </div>
+    </div>
+    <button class=“delete-book” data-id=“${_id}“>Delete</button>
+  </div>
+</div>`;
+          }
+        )
+        .join('');
+      console.log(booksMarkup);
       const bookList = document.getElementById('bookList');
-      console.log(bookIds);
+      bookList.innerHTML = booksMarkup;
 
-      bookList.innerHTML = booksMarkup.join('');
-      renderPagination(bookIds);
+      // check books
+      if (data.length === 0) {
+        // if not books here
+        if (currentPage === 1) {
+          bookList.innerHTML = '<p>No books found</p>';
+        } else {
+          // Иначе перенаправляем пользователя на предыдущую страницу
+          const previousPage = currentPage - 1;
+          const previousUrl = `${window.location.pathname}?page=${previousPage}`;
+          window.location.replace(previousUrl);
+        }
+      } else {
+        renderPagination(bookIds);
+      }
     })
     .catch(error => {
       console.error(error);
     });
-
-  if (bookIds.length === 0) {
-    console.log('Ця категорія на даний час пуста');
-    bookList.innerHTML = '';
-    bookList.classList.add('backgound');
-    bookList.insertAdjacentHTML(
-      'afterbegin',
-      `<h3 class="empty-section">This page is empty, add some books and proceed to order</h3>`
-    );
-    return;
-  }
+  const bookImages = document.querySelectorAll('.book__image');
+  bookImages.forEach(image => {
+    image.classList.add('animate');
+  });
 }
 function renderPagination(bookIds) {
   const totalPages = Math.ceil(bookIds.length / booksPerPage);
-  let buttons = '';
+  if (totalPages < 2) {
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
 
+  let buttons = '';
   buttons += `
     <button class="pagination-button black" data-page="1">&lt;&lt;</button>
     <button class="pagination-button black" data-page="${
@@ -110,13 +132,55 @@ function renderPagination(bookIds) {
     }">&lt;</button>
   `;
 
-  for (let i = 1; i <= totalPages; i++) {
+  const maxVisibleButtons = 4;
+  const maxVisiblePages = maxVisibleButtons - 1; // max count visible
+  const halfVisibleButtons = Math.floor(maxVisibleButtons / 2);
+  let firstVisiblePage = 1;
+  let lastVisiblePage = totalPages;
+
+  if (totalPages > maxVisibleButtons) {
+    const leftSideButtons = halfVisibleButtons;
+    const rightSideButtons = maxVisibleButtons - leftSideButtons - 1;
+
+    if (currentPage <= halfVisibleButtons) {
+      lastVisiblePage = maxVisiblePages;
+    } else if (currentPage >= totalPages - halfVisibleButtons + 1) {
+      firstVisiblePage = totalPages - maxVisiblePages + 1;
+    } else {
+      firstVisiblePage = currentPage - halfVisibleButtons + 1;
+      lastVisiblePage = currentPage + rightSideButtons - 1;
+    }
+
+    if (firstVisiblePage > 1) {
+      buttons += `
+        <button class="pagination-button notclick">...</button>
+      `;
+    }
+  }
+
+  for (let i = firstVisiblePage; i <= lastVisiblePage; i++) {
     const activeClass = i === currentPage ? 'active' : '';
     buttons += `
       <button class="pagination-button ${activeClass}" data-page="${i}">
         ${i}
       </button>
     `;
+  }
+
+  if (totalPages > maxVisibleButtons) {
+    if (lastVisiblePage < totalPages) {
+      buttons += `
+        <button class="pagination-button notclick">...</button>
+      `;
+    }
+
+    if (lastVisiblePage !== totalPages) {
+      buttons += `
+        <button class="pagination-button ${
+          lastVisiblePage === totalPages ? 'active' : ''
+        }" data-page="${totalPages}">${totalPages}</button>
+      `;
+    }
   }
 
   buttons += `
@@ -134,6 +198,7 @@ function renderPagination(bookIds) {
     button.addEventListener('click', function () {
       currentPage = parseInt(this.getAttribute('data-page'));
       renderBookList(currentPage);
+
       renderPagination(bookIds);
     });
   });
@@ -158,7 +223,11 @@ function removeBook(bookId) {
 
   // Remove the book from localStorage based on its bookId
   localStorage.removeItem(bookId);
+  renderBookList(currentPage);
+  renderPagination(bookIds);
 }
+//
 
+//
 renderBookList(currentPage);
 renderPagination(bookIds);

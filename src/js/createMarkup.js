@@ -3,8 +3,12 @@ export function createMarkup(book) {
   return `<li class="book-card" data-id="${_id}">
         <img class="book-image" src="${book_image}" alt="${list_name}" />
         <h3 class="book-title">${
-          title.length > 18 ? title.slice(0, 18) + '...' : title
+          title.length > 16 ? title.slice(0, 16) + '...' : title
         }</h3>
         <p class="book-author">${author}</p>
-      </li>`;
+        </li>`;
 }
+
+// <p class="card-text">
+//          QUICK VIEW
+//         </p>

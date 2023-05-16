@@ -7,15 +7,12 @@
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.current{
-  background-color:$accent-button-color;
-}
-
 .logo-link{
   margin-right: 76px;
 }
 .logo {
   text-align: center;
+  margin-right: 8px;
 }
 .logo-span {
   color: $primary-color;
@@ -66,9 +63,13 @@
     &:hover,:focus{
       background-color:$accent-button-color;
       font-weight: 700;
+      & .shop-logo{
+        fill:$accent-button-color;
+          }
         }
   }
 }
+
 .autorithation-container {
   display: flex;
   flex-direction: row;
@@ -78,7 +79,9 @@
 .shop-logo {
   fill:$second-color ;
   stroke:$primary-color ;
-  
+  &:hover,:focus{
+    fill:$accent-button-color;
+      }
 }
 .sign-btn {
   display:none;
@@ -120,7 +123,7 @@
 }
 
 .theme-switch__control {
-  display: flex;
+  display: inline-block;
   align-items: center;
   position: relative;
   width: 40px;
@@ -129,6 +132,7 @@
   padding: 3px 0;
   margin-left: auto;
 }
+
 .theme-switch__toggle {
   position: absolute;
   left: 0;
@@ -140,6 +144,7 @@
   width: 0;
   pointer-events: none;
 }
+
 .theme-switch__track {
   position: absolute;
   left: 0;
@@ -152,32 +157,166 @@
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
+  
 }
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-image: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  
+}
+
 .theme-switch__marker {
-  position: relative;
-  background-color: $second-color;
+  position: absolute;
+  background-color: #fff;
   width: 18px;
   height: 18px;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-}
-.theme-switch__toggle:checked + .theme-switch__track {
-  background-image: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
   transform: translateX(20px);
+  
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
 .theme-switch__toggle:active + .theme-switch__track {
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+
+
 body.light-theme {
   background-color: $second-color;
 }
 body.dark-theme {
-  background-color: $primary-color;
+  background-color: $second-body-color;
+
+  & .header-container{
+    border-color:$second-color;
+  }
+  & .shop-btn{
+    color:$second-color;
+    &:hover,:focus{
+      color:$primary-color;
+      & .shop-logo{
+        fill:$accent-button-color;
+        stroke: $primary-color;
+          }
+          box-shadow: 0 0 5px rgb(255, 196, 0),
+          0 0 25px rgba(255, 187, 0, 0.445),
+          0 0 50px rgba(251, 255, 0, 0.89),
+          0 0 100px rgb(255, 208, 0);
+    }
+  }
+  & .home-btn{
+    color:$second-color;
+    &:hover,:focus{
+      color:$primary-color;
+      box-shadow: 0 0 5px rgb(255, 196, 0),
+                0 0 25px rgba(255, 187, 0, 0.445),
+                0 0 50px rgba(251, 255, 0, 0.89),
+                0 0 100px rgb(255, 208, 0);
+    }
+  }
+
+  & .shop-logo {
+    fill:$second-body-color;
+    stroke:$second-color ;
+  }
+
+  & .logo-book{
+    fill:$second-color;
+  }
+
+  & .btn-categoty{
+    color: rgba(255, 255, 255, 0.6);
+  }
+  & .active-text{
+    color:$accent-button-color;
+  }
+
+  & .title-hero{
+    color:$second-color;
+  }
+
+  & .book-title{
+    color:$second-color;
+  }
+
+  & .button-see-more{
+    color:$second-color;
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
+  }
+
+  & .modal-icon-cross{
+    stroke: $second-color;
+    background-color:$second-body-color;
+    
+  }
+  & .autoriz-modal-btn{
+    background: $second-body-color;
+  }
+
+  & .autoriz-modal{
+    background:$second-body-color;
+    border-color:#F6F6F6;
+  }
+
+  & .autoriz-modal-form{
+    background: $second-body-color;
+  }
+  & .autoriz-modal-input{
+    border-color:$second-color;
+    background-color:$second-body-color;
+  }
+
+  & .autoriz-icon{
+    stroke: $second-color;
+    fill: $second-body-color;
+  }
+
+  & .autoriz-sing-up-btn{
+    background: #F6F6F6;
+    color:$second-body-color;
+    border:none;
+  }
+  & .autoriz-sub-btn{
+    color:rgba(246, 246, 246, 0.5);
+  }
+  & ::placeholder{
+    color:#F6F6F6;
+  }
+  & .icon-burger{
+    background-color:$second-body-color;
+    stroke:$second-color;
+  }
+  & .menu-toggle{
+    background-color:$second-body-color;
+  }
+  & .sign-btn{
+    border:none;
+    &:hover{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
+  }
+  & .theme-switch__control{
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
+  }
+  
 }
