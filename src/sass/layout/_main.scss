@@ -7,12 +7,16 @@
   }
 }
 .aside {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
   @include mq(mob-only) {
     margin-bottom: 40px;
   }
 
   @include mq(tablet-only) {
-    display: flex;
+    flex-direction: row;
     gap: 32px;
+    margin-bottom: 100px;
   }
 }
