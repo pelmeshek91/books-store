@@ -32,9 +32,6 @@
   }
 }
 .book {
-  display: flex;
-  gap: 14px;
-  padding: 14px;
   width: 335px;
   border: 2px solid #4f2ee866;
   border-radius: 16px;
@@ -57,38 +54,20 @@
   transition: ease-in;
 }
 .book__image {
-  border-radius: 8px;
   min-width: 100px;
   height: 142px;
   //   flex-shrink: 0;
   //   margin-bottom: 4px;
   //   margin-right: 20px;
 }
-// .shoping-box {
-//   align-items: flex-end;
-//   margin-top: auto;
-//   display: flex;
+.shoping-box {
+  align-items: flex-end;
+  margin-top: auto;
+  display: flex;
+}
+// .logo__list {
+//   justify-content: end;
 // }
-.book__categ {
-  @include text(400, 12px, 1.29, 0.03em);
-  color: #b4afaf;
-}
-.book__description {
-  width: 193px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-
-  @include text(400, 14px, 1.29, -0.04em);
-
-  margin-bottom: 14px;
-}
-
-.logo-list {
-  justify-content: end;
-}
 
 .pagination {
   display: flex;

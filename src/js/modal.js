@@ -110,7 +110,7 @@ function createMarkupForModal({
             <h3 class="title-book-modal">${title}</h3>
             <p class="author-book-modal">${author}</p>
             <p class="text-book-modal">${description || 'no description'}</p>
-            <ul class="logo-list">
+            <ul class="logotip-list">
               <li class="logo-item">
                 <a href="${
                   buy_links[0].url

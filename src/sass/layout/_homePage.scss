@@ -10,10 +10,10 @@
   // min-width: 335px;
 
   @include mq(tablet) {
-    min-width: 218px;
+    width: 218px;
   }
   @include mq(desktop) {
-    min-width: 18%;
+    width: 18%;
   }
 }
 .book-item {
@@ -47,6 +47,7 @@
     &:hover,
     &:focus {
       transform: scale(1.1);
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 0 30px #7ea0f5;
 
       outline: none;
