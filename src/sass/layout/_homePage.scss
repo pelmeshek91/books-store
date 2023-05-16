@@ -6,20 +6,14 @@
 }
 .book-card,
 .filtered-book {
-  min-width: 335px;
+  cursor: pointer;
+  // min-width: 335px;
 
   @include mq(tablet) {
     min-width: 218px;
   }
   @include mq(desktop) {
-    min-width: 180px;
-  }
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px #7ea0f5;
-
-    outline: none;
+    min-width: 18%;
   }
 }
 .book-item {
@@ -36,10 +30,12 @@
 }
 
 .book-image {
-  @include mq(mob-only) {
-    width: 335px;
-    height: 485px;
-  }
+  // border-radius: 8px;
+
+  // @include mq(mob-only) {
+  //   width: 335px;
+  //   height: 485px;
+  // }
 
   @include mq(tablet-only) {
     width: 218px;
@@ -48,6 +44,13 @@
   @include mq(desktop) {
     width: 180px;
     height: 256px;
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #7ea0f5;
+
+      outline: none;
+    }
   }
 }
 
@@ -102,3 +105,25 @@
   border: 2px solid $accent-text-color;
   border-radius: 40px;
 }
+
+// .card-text {
+//   @include text(false, 18px, 1.56, 0.03em);
+
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   // padding: 63px 24px;
+
+//   width: 100%;
+//   height: 26%;
+
+//   color: $primary-color;
+//   background-color: $accent-button-color;
+
+//   transform: translateY(238%);
+//   transition: transform 250ms linear;
+
+//   .card-overlay:hover & {
+//     transform: translateY(0);
+//   }
+// }

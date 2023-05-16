@@ -157,16 +157,12 @@
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
-  transition-delay: .4s;
-  transition: .4s;
-  right: 0;
-  bottom: 0;
+  
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
   background-image: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
-  transform: rotate(90deg);
-  transform-origin: 25% 50%;
+  
 }
 
 .theme-switch__marker {
@@ -178,13 +174,12 @@
   z-index: 2;
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transition-delay: .4s;
-  transition: .4s;
+  
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateY(20px);
-  transition-delay: 400ms;
+  transform: translateX(20px);
+  
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
@@ -206,11 +201,29 @@ body.dark-theme {
     color:$second-color;
     &:hover,:focus{
       color:$primary-color;
+      & .shop-logo{
+        fill:$accent-button-color;
+        stroke: $primary-color;
+          }
+          box-shadow: 0 0 5px rgb(255, 196, 0),
+          0 0 25px rgba(255, 187, 0, 0.445),
+          0 0 50px rgba(251, 255, 0, 0.89),
+          0 0 100px rgb(255, 208, 0);
+    }
+  }
+  & .home-btn{
+    color:$second-color;
+    &:hover,:focus{
+      color:$primary-color;
+      box-shadow: 0 0 5px rgb(255, 196, 0),
+                0 0 25px rgba(255, 187, 0, 0.445),
+                0 0 50px rgba(251, 255, 0, 0.89),
+                0 0 100px rgb(255, 208, 0);
     }
   }
 
   & .shop-logo {
-    fill:$primary-color;
+    fill:$second-body-color;
     stroke:$second-color ;
   }
 
@@ -235,6 +248,12 @@ body.dark-theme {
 
   & .button-see-more{
     color:$second-color;
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
   }
 
   & .modal-icon-cross{
@@ -275,4 +294,29 @@ body.dark-theme {
   & ::placeholder{
     color:#F6F6F6;
   }
+  & .icon-burger{
+    background-color:$second-body-color;
+    stroke:$second-color;
+  }
+  & .menu-toggle{
+    background-color:$second-body-color;
+  }
+  & .sign-btn{
+    border:none;
+    &:hover{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
+  }
+  & .theme-switch__control{
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(0, 4, 255),
+                0 0 25px rgba(68, 0, 255, 0.445),
+                0 0 50px rgba(76, 0, 255, 0.658),
+                0 0 100px rgb(25, 0, 255);
+    }
+  }
+  
 }
