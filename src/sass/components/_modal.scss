@@ -19,6 +19,14 @@
   @include mq(tablet) {
     width: 579px;
     min-height: 465px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -30,6 +38,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
+  background: rgba(17, 17, 17, 0.4);
 }
 
 body {
@@ -48,12 +57,12 @@ body {
 
   @include mq(tablet) {
     width: 499px;
-    margin-left: 40px;
+    &:hover,:focus{
+      background-color: $accent-text-color;
+      color: $second-color;
+    }
+
     @include text(700, false, 1.33, false);
-  }
-  &:hover,:focus{
-    background-color: $accent-text-color;
-    color: $second-color;
   }
 }
 
@@ -103,6 +112,7 @@ body {
     width: 192px;
     height: 281px;
     margin-right: 24px;
+    margin-bottom: 0px;
   }
 }
 
@@ -132,6 +142,7 @@ body {
   letter-spacing: -0.04em;
   color: $primary-color;
   margin-bottom: 20px;
+  padding-right: 44px;
 }
 
 .logo-list {
