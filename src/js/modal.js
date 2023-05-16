@@ -17,8 +17,7 @@ async function selectBook(item) {
   divchik.innerHTML = '';
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
-  // const { _id } = res;
-  console.log(id);
+
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
   // divchik.insertAdjacentHTML('beforeend', markup);
