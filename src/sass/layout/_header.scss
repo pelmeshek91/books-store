@@ -276,6 +276,7 @@ body.dark-theme {
   & .autoriz-modal-input{
     border-color:$second-color;
     background-color:$second-body-color;
+    color:$second-color;
   }
 
   & .autoriz-icon{
@@ -287,9 +288,18 @@ body.dark-theme {
     background: #F6F6F6;
     color:$second-body-color;
     border:none;
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(140, 141, 214),
+                0 0 25px rgba(190, 184, 206, 0.445),
+                0 0 50px rgba(112, 88, 168, 0.658),
+                0 0 100px rgb(182, 179, 207);
+    }
   }
   & .autoriz-sub-btn{
     color:rgba(246, 246, 246, 0.5);
+    &:hover,:focus{
+      color:$accent-text-color;
+    }
   }
   & ::placeholder{
     color:#F6F6F6;
@@ -318,5 +328,27 @@ body.dark-theme {
                 0 0 100px rgb(25, 0, 255);
     }
   }
-  
+  & .modal-add-book-window{
+    background-color:$second-body-color;
+    border-color:$second-color;
+  }
+  & .btn-chose-book{
+    background-color:$second-body-color;
+    color:$second-color;
+    &:hover,:focus{
+      box-shadow: 0 0 5px rgb(140, 141, 214),
+                0 0 25px rgba(190, 184, 206, 0.445),
+                0 0 50px rgba(112, 88, 168, 0.658),
+                0 0 100px rgb(182, 179, 207);
+    }
+  }
+  & .title-book-modal{
+    color:$second-color;
+  }
+  & .text-book-modal{
+    color:$second-color;
+  }
+  & .logo-item{
+    fill:$second-text-color;
+  }
 }
