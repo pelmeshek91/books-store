@@ -23,10 +23,17 @@
     right: 100px;
   }
 }
+.scroll-up-btn {
+  opacity: 0;
+  position: fixed;
+  border-color: #4f2ee8;
+  color: #fff;
+  transition: all 300ms ease-in-out;
+  outline: none;
 
-.scroll-up-btn:hover,
-.scroll-up-btn:focus {
-  background-color: #17017a;
+  &:hover {
+    box-shadow: 0 0 10px 0 #4f2ee8 inset, 0 0 10px 4px #4f2ee8;
+  }
 }
 
 .scroll-up-btn.show {

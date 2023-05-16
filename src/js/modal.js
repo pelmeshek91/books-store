@@ -119,8 +119,8 @@ function createMarkupForModal({
     <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
   </svg>
                 </a>
-              </li class="logo-item">
-              <li>
+              </li>
+              <li class="logo-item">
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
