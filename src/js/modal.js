@@ -3,6 +3,7 @@ import { sectionBooksEl } from './allBooks.js';
 
 const divchik = document.querySelector('.backdrop');
 
+
 sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
   if (!item) {
@@ -11,6 +12,9 @@ sectionBooksEl.addEventListener('click', e => {
 
   selectBook(item);
 });
+
+
+
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
