@@ -89,7 +89,7 @@ body {
 }
 
 .close-btn-modal {
-  background-color: $second-color;
+  background-color: rgba(0,0,0,0);
   border: none;
   position: absolute;
   width: 28px;
@@ -145,7 +145,7 @@ body {
   @include text(400, 14px, 1.29, -0.04em);
 }
 
-.logo-list {
+.logotip-list {
   display: flex;
   align-items: center;
   gap: 20px;
