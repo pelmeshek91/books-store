@@ -6,8 +6,8 @@
   color: rgba(17, 17, 17, 0.6);
 }
 .categories_list {
-  height: 472px;
-  min-width: 328px;
+  height: 228px;
+  min-width: 335px;
   overflow-y: scroll;
   margin-bottom: 86px;
 
@@ -17,6 +17,10 @@
   }
   &::-webkit-scrollbar {
     width: 8px;
+  }
+  @include mq(tablet) {
+    height: 472px;
+    min-width: 328px;
   }
 }
 .categories_list {
@@ -28,7 +32,10 @@
 //   color: rgba(17, 17, 17, 0.6);
 // }
 .item-category:not(:last-child) {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  @include mq(tablet) {
+    margin-bottom: 32px;
+  }
 }
 .active-text {
   font-weight: 700;
