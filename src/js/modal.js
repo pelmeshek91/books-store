@@ -27,9 +27,6 @@ async function selectBook(item) {
   closeBtn.addEventListener('click', e => {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
-    // if(e.target !== divchik){
-    //   console.log('divchik');
-    // }
   });
 
   document.addEventListener('click', clickBackdrop)
