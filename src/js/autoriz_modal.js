@@ -136,7 +136,6 @@ form.addEventListener('submit', e => {
   const textBtn = singUpBtn.textContent.toUpperCase();
   console.log(textBtn);
   if (textBtn === 'SIGN UP') {
-    console.log('sign up');
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -158,7 +157,6 @@ form.addEventListener('submit', e => {
       });
   }
   if (textBtn === 'SIGN IN') {
-    console.log('sign in');
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
