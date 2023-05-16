@@ -2,6 +2,7 @@ import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
 
 const divchik = document.querySelector('.backdrop');
+const body = document.querySelector('body');
 
 
 sectionBooksEl.addEventListener('click', e => {
@@ -13,7 +14,6 @@ sectionBooksEl.addEventListener('click', e => {
   selectBook(item);
 });
 
-const body = document.querySelector('body')
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
@@ -30,6 +30,7 @@ async function selectBook(item) {
   closeBtn.addEventListener('click', e => {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
+    body.classList.remove('no-scroll');
   });
 
   document.addEventListener('click', clickBackdrop)
@@ -37,7 +38,8 @@ async function selectBook(item) {
   function clickBackdrop(e) {
     if (e.target === divchik){
       divchik.classList.add('is-hidden');
-      document.removeEventListener('click', clickBackdrop)
+      document.removeEventListener('click', clickBackdrop);
+      body.classList.remove('no-scroll');
       }
   }
 
@@ -45,6 +47,7 @@ async function selectBook(item) {
  function onEscapePress(e) {
      if (e.key === 'Escape') {
       divchik.classList.add('is-hidden');
+      body.classList.remove('no-scroll');
       document.removeEventListener('keydown', onEscapePress)
      }   
  }
