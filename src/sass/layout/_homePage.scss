@@ -22,7 +22,6 @@
     outline: none;
   }
 }
-
 .book-item {
   @include mq(mob-only) {
     &:not(:first-child) {
@@ -37,14 +36,17 @@
 }
 
 .book-image {
-  min-width: 335px;
-  height: 485px;
-  @include mq(tablet) {
-    min-width: 218px;
+  @include mq(mob-only) {
+    width: 335px;
+    height: 485px;
+  }
+
+  @include mq(tablet-only) {
+    width: 218px;
     height: 366px;
   }
   @include mq(desktop) {
-    min-width: 180px;
+    width: 180px;
     height: 256px;
   }
 }
