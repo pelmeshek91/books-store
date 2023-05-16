@@ -57,29 +57,42 @@ function renderBookList(page) {
   Promise.all(promises)
     .then(responses => Promise.all(responses.map(res => res.json())))
     .then(data => {
-      const booksMarkup = data.map(book => {
-        return `
-          <div class="book">
-            <img class="book__image" src="${book.book_image}" alt="${
-          book.title
-        }">
-            <div class="tablet">
-              <div class="information">
-                <h2 class="book__title">${book.title}</h2>
-                <p class="book__author">Author: ${book.author}</p>
-              </div>
-              <p class="book__description">${book.description}</p>
-            </div>
-            <div class="shoping-box">
-              ${renderBuyLinks(book.buy_links)}
-            </div>
-            <button class="delete-book" data-id="${book._id}">Delete</button>
-          </div>
-        `;
-      });
-
+      const booksMarkup = data
+        .map(
+          ({
+            book_image,
+            title,
+            author,
+            description,
+            buy_links,
+            _id,
+            list_name,
+          }) => {
+            return ` <div class=“book”>
+  <img class=“book__image” src=${book_image} alt=${title}>
+  <div class=“tablet”>
+    <div class=“information”>
+      <h2 class=“book__title”>${
+        title.length > 16 ? title.slice(0, 16) + '...' : title
+      }</h2>
+      <p class=“book__categ”>${list_name}</p>
+      <p class=“book__description”>${description || 'no description'}</p>
+    </div>
+    <div>
+      <p class=“book__author”>${author}</p>
+      <div class=“shoping-box”>
+        ${renderBuyLinks(buy_links)}
+      </div>
+    </div>
+    <button class=“delete-book” data-id=“${_id}“>Delete</button>
+  </div>
+</div>`;
+          }
+        )
+        .join('');
+      console.log(booksMarkup);
       const bookList = document.getElementById('bookList');
-      bookList.innerHTML = booksMarkup.join('');
+      bookList.innerHTML = booksMarkup;
 
       // check books
       if (data.length === 0) {
