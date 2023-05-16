@@ -1,17 +1,18 @@
 .scroll-up-btn {
-  @include mq(mob) {
-    display: block;
-    width: 54px;
-    height: 54px;
-    bottom: 85px;
-    right: 0px;
-    // left: 620px;
-    position: absolute;
-    cursor: pointer;
-    border-radius: 50px;
-    background-color: #4f2ee8;
-    border: transparent;
-  }
+  display: block;
+  width: 54px;
+  height: 54px;
+  bottom: 85px;
+  right: 0px;
+  // left: 620px;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #4f2ee8;
+  border: transparent;
+}
+
+.scroll-up-btn {
   @include mq(tablet) {
     display: none;
   }
