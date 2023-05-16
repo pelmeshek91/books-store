@@ -11,6 +11,7 @@ const backdrop = document.querySelector('.backdrop-autoriz');
 const modal = document.querySelector('.autoriz-modal');
 const closeBtn = document.querySelector('[autoriz-close-menu]');
 const openBtn = document.querySelector('[autoriz-open-menu]');
+const openBtnBurger = document.querySelector('.autoriz-open-menu');
 // ===================================================
 const form = document.querySelector('.autoriz-modal-form');
 const singUpBtn = document.querySelector('.autoriz-sing-up-btn');
@@ -52,6 +53,7 @@ function closeModal() {
 }
 
 openBtn.addEventListener('click', openModal);
+openBtnBurger.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 
 // async function checkAuth() {
