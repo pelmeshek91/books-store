@@ -1,21 +1,22 @@
 .support-container {
- 
-    width: 335px;
-    left: 20px;
-    top: 372px;
-    margin-top: 40px;
-    background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
-    );
-    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-    border-radius: 16px;
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
- 
+  // width: 335px;
+  left: 20px;
+  top: 372px;
+  margin-top: 40px;
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
   @include mq(tablet) {
     left: 24px;
     top: 670px;
+    width: 335px;
+    margin-top: 0px;
   }
   @include mq(desktop) {
     width: 356px;
@@ -25,34 +26,28 @@
 }
 
 .support-list {
-  
-    width: 100%;
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+  width: 100%;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .support-header {
   display: flex;
 }
 .support-title {
- 
-    color: $second-color;
-    padding-left: 40px;
-    padding-top: 24px;
-    margin-right: 12px;
+  color: $second-color;
+  padding-left: 40px;
+  padding-top: 24px;
+  margin-right: 12px;
 
-    @include text(700, 28px, 32px, 1.14);
- 
+  @include text(700, 28px, 32px, 1.14);
 }
 .ukraine-icon {
   margin-top: 24px;
 }
 .support-item {
- 
-    max-height: 32px;
-    margin-left: 40px;
-    display: flex;
-    justify-content: flex-start;
- 
+  max-height: 32px;
+  margin-left: 40px;
+  display: flex;
+  justify-content: flex-start;
 }
 .support-link {
   display: flex;
@@ -67,17 +62,16 @@
   @include text(400, 14px, 1.29, -0.04em);
 }
 .scroll-btn {
- 
-    width: 32px;
-    height: 32px;
-    margin-bottom: 20px;
-    margin-top: 16px;
-    cursor: pointer;
-    border-radius: 50px;
-    margin-left: 150px;
-    border: #ffffff;
-    background-color: #fff;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 32px;
+  height: 32px;
+  margin-bottom: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-left: 150px;
+  border: #ffffff;
+  background-color: #fff;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   @include mq(tablet) {
     margin-bottom: 14px;
@@ -94,11 +88,9 @@
   fill: #4f2ee8;
 }
 .scroll-btn {
-  
-    &:hover {
-      background-color: #4f2ee8;
-    }
-
+  &:hover {
+    background-color: #4f2ee8;
+  }
 }
 .scroll-btn:hover .scroll-icon,
 .scroll-btn:focus .scroll-icon {
@@ -112,10 +104,8 @@
   margin-top: 40px;
 }
 .scroll-icon {
-  
-    margin-top: 5px;
-    margin-left: -1px;
-  
+  margin-top: 5px;
+  margin-left: -1px;
 }
 .icon {
   max-width: 135px;

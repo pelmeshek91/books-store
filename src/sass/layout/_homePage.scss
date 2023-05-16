@@ -6,7 +6,21 @@
 }
 .book-card,
 .filtered-book {
-  width: 180px;
+  min-width: 335px;
+
+  @include mq(tablet) {
+    min-width: 218px;
+  }
+  @include mq(desktop) {
+    min-width: 180px;
+  }
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #7ea0f5;
+
+    outline: none;
+  }
 }
 
 .book-item {
@@ -23,8 +37,16 @@
 }
 
 .book-image {
-  width: 180px;
-  height: 256px;
+  min-width: 335px;
+  height: 485px;
+  @include mq(tablet) {
+    min-width: 218px;
+    height: 366px;
+  }
+  @include mq(desktop) {
+    min-width: 180px;
+    height: 256px;
+  }
 }
 
 .title-hero {
