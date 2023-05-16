@@ -12,7 +12,14 @@
     min-width: 218px;
   }
   @include mq(desktop) {
-    width: 180px;
+    min-width: 180px;
+  }
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #7ea0f5;
+
+    outline: none;
   }
 }
 
@@ -37,7 +44,7 @@
     height: 366px;
   }
   @include mq(desktop) {
-    width: 180px;
+    min-width: 180px;
     height: 256px;
   }
 }
