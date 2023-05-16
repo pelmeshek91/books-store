@@ -14,10 +14,9 @@ sectionBooksEl.addEventListener('click', e => {
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
-
+  divchik.innerHTML = '';
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
-  const { _id } = res;
 
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
@@ -28,6 +27,15 @@ async function selectBook(item) {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
   });
+
+  document.addEventListener('click', clickBackdrop)
+
+  function clickBackdrop(e) {
+    if (e.target === divchik){
+      divchik.classList.add('is-hidden');
+      document.removeEventListener('click', clickBackdrop)
+      }
+  }
 
  document.addEventListener('keydown', onEscapePress);
  function onEscapePress(e) {
@@ -41,7 +49,7 @@ async function selectBook(item) {
   const peshka = document.querySelector('.peshka');
 
   chooseToLSBtn.addEventListener('click', e => {
-    addAndRemuveBooksToLS(_id);
+    addAndRemuveBooksToLS(id);
 
     let data = JSON.parse(localStorage.getItem('bookId')) || [];
     if (data.includes(id)) {

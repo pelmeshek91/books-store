@@ -8,18 +8,25 @@
   flex-direction: column;
   align-items: center;
 
-  border: 2px solid #4f2ee8;
+  border: 2px solid $accent-text-color;
   border-radius: 18px;
   min-width: 335px;
   min-height: 762px;
-  background-color: #ffffff;
-
+  background-color: $second-color;
+  
   padding: 40px 24px;
 
   @include mq(tablet) {
     width: 579px;
     min-height: 465px;
-    flex-direction: row;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -31,6 +38,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
+  background: rgba(17, 17, 17, 0.4);
 }
 
 body {
@@ -40,16 +48,20 @@ body {
 .btn-chose-book {
   min-width: 211px;
   min-height: 46px;
-  border: 2px solid #4f2ee8;
-  background-color: #ffffff;
+  border: 2px solid $accent-text-color;
+  background-color: $second-color;
   border-radius: 40px;
   margin-bottom: 8px;
   @include text(700, 14px, 1.33, false);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @include mq(tablet) {
     width: 499px;
+    &:hover,:focus{
+      background-color: $accent-text-color;
+      color: $second-color;
+    }
 
-    margin-left: 40px;
     @include text(700, false, 1.33, false);
   }
 }
@@ -64,23 +76,29 @@ body {
   margin-bottom: 40px;
   @include mq(tablet) {
     display: flex;
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 }
 
 .close-btn-modal {
-  background-color: #ffffff;
+  background-color: $second-color;
   border: none;
   position: absolute;
   width: 28px;
   height: 28px;
   top: 12px;
   right: 12px;
+  @include mq(tablet){
+    top: 20px;
+    right: 24px;
+  }
 }
 
 .close-svg-modal {
   stroke: $primary-color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover{
+    stroke: $accent-text-color;
+  }
 }
 
 .img-book-modal {
@@ -91,42 +109,31 @@ body {
   @include mq(tablet) {
     width: 192px;
     height: 281px;
+    margin-right: 24px;
+    margin-bottom: 0px;
   }
-
-  //   margin-left: 40px;
 }
-
-// .book-modal {
-
-//   padding-left: 24px;
-// }
 
 .title-book-modal {
   max-width: 192px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: -0.04em;
-  color: #111111;
+  color: $primary-color;
   margin-bottom: 8px;
+  @include text(700, 24px, 1.17, -0.04em);
 }
 
 .author-book-modal {
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.28;
-  letter-spacing: -0.04em;
-  color: #b4afaf;
+  font-style: italic;;
+  color: $second-text-color;
   margin-bottom: 20px;
+  @include text(400, 14px, 1.29, -0.04em);
 }
 
 .text-book-modal {
   max-width: 279px;
-  font-weight: 400;
-  line-height: 1.28;
-  letter-spacing: -0.04em;
-  color: #111111;
+  color: $primary-color;
   margin-bottom: 20px;
+  padding-right: 44px;
+  @include text(400, 14px, 1.29, -0.04em);
 }
 
 .logo-list {
@@ -138,8 +145,10 @@ body {
 .peshka {
   @include text(400, 10px, 1.2, -0.04em);
   margin: 0 auto;
-  max-width: 324px;
+  max-width: 242px;
   text-align: center;
   color: rgba(17, 17, 17, 0.5);
-  //   margin-bottom: 40px;
+  @include mq(tablet){
+    max-width: 324px;
+  }
 }
