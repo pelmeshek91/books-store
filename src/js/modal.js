@@ -13,11 +13,11 @@ sectionBooksEl.addEventListener('click', e => {
   selectBook(item);
 });
 
-
-
+const body = document.querySelector('body')
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
+  body.classList.add('no-scroll')
   divchik.innerHTML = '';
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
