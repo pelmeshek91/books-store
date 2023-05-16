@@ -7,6 +7,10 @@
   }
 }
 .aside {
+  @include mq(mob-only) {
+    margin-bottom: 40px;
+  }
+
   @include mq(tablet-only) {
     display: flex;
     gap: 32px;
