@@ -43,6 +43,20 @@ function renderBuyLinks(buyLinks) {
 function renderBookList(page) {
   const bookIdsJson = localStorage.getItem('bookId');
   const bookIds = JSON.parse(bookIdsJson) || [];
+  console.log(bookList);
+  bookList.classList.remove('backgound');
+
+  if (bookIds.length === 0) {
+    console.log('Ця категорія на даний час пуста');
+    bookList.innerHTML = '';
+    bookList.classList.add('backgound');
+    bookList.insertAdjacentHTML(
+      'afterbegin',
+      `<h3 class="empty-section">This page is empty, add some books and proceed to order</h3>`
+    );
+    return;
+  }
+
   const startIndex = (page - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
   const promises = bookIds
@@ -76,6 +90,8 @@ function renderBookList(page) {
       });
 
       const bookList = document.getElementById('bookList');
+      console.log(bookIds);
+
       bookList.innerHTML = booksMarkup.join('');
       renderPagination(bookIds);
     })
