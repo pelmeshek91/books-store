@@ -2,6 +2,7 @@ import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
 
 const divchik = document.querySelector('.backdrop');
+const body = document.querySelector('body');
 
 sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
@@ -14,10 +15,10 @@ sectionBooksEl.addEventListener('click', e => {
 
 async function selectBook(item) {
   divchik.classList.remove('is-hidden');
-
+  body.classList.add('no-scroll');
+  divchik.innerHTML = '';
   const id = item.getAttribute('data-id');
   const res = await fetchBooks(id);
-  const { _id } = res;
 
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
@@ -27,21 +28,33 @@ async function selectBook(item) {
   closeBtn.addEventListener('click', e => {
     divchik.innerHTML = '';
     divchik.classList.add('is-hidden');
+    body.classList.remove('no-scroll');
   });
 
- document.addEventListener('keydown', onEscapePress);
- function onEscapePress(e) {
-     if (e.key === 'Escape') {
+  document.addEventListener('click', clickBackdrop);
+
+  function clickBackdrop(e) {
+    if (e.target === divchik) {
       divchik.classList.add('is-hidden');
-      document.removeEventListener('keydown', onEscapePress)
-     }   
- }
+      document.removeEventListener('click', clickBackdrop);
+      body.classList.remove('no-scroll');
+    }
+  }
+
+  document.addEventListener('keydown', onEscapePress);
+  function onEscapePress(e) {
+    if (e.key === 'Escape') {
+      divchik.classList.add('is-hidden');
+      body.classList.remove('no-scroll');
+      document.removeEventListener('keydown', onEscapePress);
+    }
+  }
 
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
 
   chooseToLSBtn.addEventListener('click', e => {
-    addAndRemuveBooksToLS(_id);
+    addAndRemuveBooksToLS(id);
 
     let data = JSON.parse(localStorage.getItem('bookId')) || [];
     if (data.includes(id)) {
@@ -106,8 +119,8 @@ function createMarkupForModal({
     <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
   </svg>
                 </a>
-              </li class="logo-item">
-              <li>
+              </li>
+              <li class="logo-item">
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">

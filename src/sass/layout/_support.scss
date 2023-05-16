@@ -2,7 +2,7 @@
   // width: 335px;
   left: 20px;
   top: 372px;
-  margin-top: 40px;
+
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
@@ -16,7 +16,7 @@
     left: 24px;
     top: 670px;
     width: 335px;
-    margin-top: 0px;
+    // margin-top: 0px;
   }
   @include mq(desktop) {
     width: 356px;
@@ -84,18 +84,15 @@
     margin-top: 40px;
   }
 }
-.scroll-btn .scroll-icon {
-  fill: #4f2ee8;
-}
 .scroll-btn {
+  border-color: #4f2ee8;
+  color: #fff;
+  transition: all 300ms ease-in-out;
+  outline: none;
+
   &:hover {
-    background-color: #4f2ee8;
+    box-shadow: 0 0 10px 0 #4f2ee8 inset, 0 0 10px 4px #4f2ee8;
   }
-}
-.scroll-btn:hover .scroll-icon,
-.scroll-btn:focus .scroll-icon {
-  stroke: #fff;
-  fill: #ffffff;
 }
 .show {
   display: flex;

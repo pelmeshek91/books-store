@@ -14,14 +14,30 @@
 
 .scroll-up-btn {
   @include mq(tablet) {
-    display: none;
+    right: 55px;
+    margin-bottom: 10px;
+  }
+}
+.scroll-up-btn {
+  @include mq(desktop) {
+    right: 100px;
+  }
+}
+.scroll-up-btn {
+  border-color: #4f2ee8;
+  color: #fff;
+  transition: all 300ms ease-in-out;
+  outline: none;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 #4f2ee8 inset, 0 0 10px 4px #4f2ee8;
   }
 }
 
-.scroll-up-btn:hover,
-.scroll-up-btn:focus {
-  background-color: #17017a;
-}
+// .scroll-up-btn:hover,
+// .scroll-up-btn:focus {
+//   background-color: #17017a;
+// }
 
 .scroll-up-btn.show {
   display: flex;

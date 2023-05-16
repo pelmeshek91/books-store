@@ -10,14 +10,15 @@
 //components
 @import './components/burger.scss';
 @import './components/modal';
+@import './components/autoriz-modal';
 
 //layout
 @import './layout/main';
 @import './layout/categories';
 @import './layout/header';
 @import './layout/homePage';
+@import './layout/mainStore';
 @import './layout/store';
 @import './layout/support';
-@import './components/autoriz-modal';
 @import './layout/loader';
 @import './layout/scroll';
