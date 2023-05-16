@@ -1,0 +1,8 @@
+@import './utils/mixin';
+
+.support-container {
+  display: none;
+  @include mq(desktop) {
+    display: block;
+  }
+}
