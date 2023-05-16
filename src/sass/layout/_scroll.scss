@@ -14,7 +14,13 @@
 
 .scroll-up-btn {
   @include mq(tablet) {
-    display: none;
+    right: 55px;
+    margin-bottom: 10px;
+  }
+}
+.scroll-up-btn {
+  @include mq(desktop) {
+    right: 100px;
   }
 }
 
