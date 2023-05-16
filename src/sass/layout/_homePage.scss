@@ -7,7 +7,7 @@
 .book-card,
 .filtered-book {
   cursor: pointer;
-  min-width: 335px;
+  // min-width: 335px;
 
   @include mq(tablet) {
     min-width: 218px;
@@ -32,10 +32,10 @@
 .book-image {
   // border-radius: 8px;
 
-  @include mq(mob-only) {
-    width: 335px;
-    height: 485px;
-  }
+  // @include mq(mob-only) {
+  //   width: 335px;
+  //   height: 485px;
+  // }
 
   @include mq(tablet-only) {
     width: 218px;
@@ -44,13 +44,13 @@
   @include mq(desktop) {
     width: 180px;
     height: 256px;
-  }
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px #7ea0f5;
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #7ea0f5;
 
-    outline: none;
+      outline: none;
+    }
   }
 }
 

@@ -16,7 +16,11 @@
 
   @include mq(tablet-only) {
     flex-direction: row;
+
     gap: 32px;
     margin-bottom: 100px;
+  }
+  @include mq(desktop) {
+    row-gap: 86px;
   }
 }
