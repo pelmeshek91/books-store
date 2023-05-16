@@ -27,7 +27,7 @@ supportList.classList.add('show');
 
 function onScrollBtnClick() {
   visibleItemsCount = getVisibleItemsCount();
-  console.log(visibleItemsCount);
+
   if (!isExpanded && !isContainerExpanded) {
     supportItems.forEach((item, index) => {
       if (index >= visibleItemsCount) {
@@ -59,4 +59,17 @@ function getVisibleItemsCount() {
   } else {
     return 4;
   }
+}
+
+window.addEventListener('resize', onWindowResize);
+
+function onWindowResize() {
+  visibleItemsCount = getVisibleItemsCount();
+  supportItems.forEach((item, index) => {
+    if (index >= visibleItemsCount) {
+      item.style.display = 'none';
+    } else {
+      item.style.display = 'flex';
+    }
+  });
 }
