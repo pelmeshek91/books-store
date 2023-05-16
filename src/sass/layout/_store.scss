@@ -54,8 +54,8 @@
   transition: ease-in;
 }
 .book__image {
-  max-width: 100px;
-  max-height: 142px;
+  min-width: 100px;
+  height: 142px;
   //   flex-shrink: 0;
   //   margin-bottom: 4px;
   //   margin-right: 20px;

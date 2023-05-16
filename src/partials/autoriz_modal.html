@@ -7,7 +7,13 @@
     </button>
 
     <form class="autoriz-modal-form">
-      <input class="autoriz-modal-input" type="text" placeholder="NAME" />
+      <input
+        class="autoriz-modal-input"
+        type="text"
+        placeholder="NAME"
+        minlength="3"
+        required
+      />
 
       <div class="input-wrapper">
         <label class="autoriz-label-email" for="user_email"
@@ -15,11 +21,12 @@
             class="autoriz-modal-input autoriz-email"
             type="email"
             placeholder="EMAIL"
-            id ="user_email"
-            name="autoriz_email" />
+            id="user_email"
+            name="autoriz_email"
+            required />
           <svg class="autoriz-icon">
-            <use href="./images/svg/general-svg.svg.svg#icon-lock"></use>
-            </svg></label>
+            <use href="./images/svg/general-svg.svg.svg#icon-lock"></use></svg
+        ></label>
       </div>
 
       <div class="input-wrapper">
@@ -28,20 +35,20 @@
             class="autoriz-modal-input"
             type="password"
             placeholder="PASSWORD"
-            id ="user_password"
-            name="autoriz_password" 
-            minlength="6"/>
+            id="user_password"
+            name="autoriz_password"
+            minlength="6"
+            required />
           <svg class="autoriz-icon">
-            <use href="./images/svg/general-svg.svg.svg#icon-mail"></use>
-            </svg></label>
+            <use href="./images/svg/general-svg.svg.svg#icon-mail"></use></svg
+        ></label>
       </div>
 
       <button class="autoriz-sing-up-btn" type="submit">sign up</button>
       <div class="autoriz-text">
-        <button class="autoriz-sub-btn" type="submit">sign up</button>
-        <button class="autoriz-sub-btn" type="submit">sign in</button>
+        <button class="autoriz-sub-btn" id="up" type="button">sign up</button>
+        <button class="autoriz-sub-btn" id="in" type="button">sign in</button>
       </div>
     </form>
   </div>
 </div>
-
