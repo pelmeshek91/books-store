@@ -82,6 +82,7 @@
     padding: 20px;
     position: relative;
     display: flex;
+    transition: ease-in 5s;
   }
   .delete-book {
     width: 28px;
@@ -96,6 +97,7 @@
     position: absolute;
     top: 14px;
     right: 14px;
+    transition: ease-in;
   }
   .book__image {
     max-width: 98px;
@@ -143,6 +145,22 @@
     background-color: #eac645;
 
     color: black;
+  }
+  .pagination-button.notclick {
+    pointer-events: none;
+  }
+  .book {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 5;
+    }
   }
 </style>
 <div id="empty-message">Вы не выбрали книги</div>
