@@ -18,10 +18,7 @@
   color: $primary-color;
   margin-left: 8px;
 }
-.active-link{
-  background-color:$accent-button-color;
-    font-weight: 700;
-}
+
 .home-btn {
   display: none;
 
@@ -369,4 +366,9 @@ body.dark-theme {
   & .peshka{
     color: rgba(255, 255, 255, 0.5);
   }
+}
+.active {
+  background-color:$accent-button-color;
+  color:$primary-color;
+    font-weight: 700;
 }
