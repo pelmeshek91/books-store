@@ -1,10 +1,11 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
+import Notiflix from 'notiflix';
 import { getDB, setDB } from './authfirebase';
 
 const divchik = document.querySelector('.backdrop');
 const body = document.querySelector('body');
-
+const signBtn = document.querySelector('.sign-btn');
 sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
   if (!item) {
@@ -52,6 +53,11 @@ async function selectBook(item) {
 
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
+  const text = signBtn.textContent.trim();
+  if (text === 'Sign up') {
+    chooseToLSBtn.disabled = true;
+    Notiflix.Report.info('', 'To make a purchase, please log in or register');
+  }
 
   let data = [];
   if (localStorage.getItem('currentUser')) {
@@ -87,7 +93,6 @@ async function addAndRemuveBooksToLS(id) {
 
   // let data = JSON.parse(localStorage.getItem('bookId')) || [];
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
-
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
     data = data.filter(item => item !== id);
