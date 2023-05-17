@@ -86,7 +86,27 @@
   }
 }
 .sign-btn {
-  display: none;
+    display:flex;
+    width: 184px;
+    height: 45px;
+    background-color: $accent-text-color;
+    border-radius: 36px;
+    color: $second-color;
+    border: 1.5px solid #111111;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 90px;
+  @include mq(mob-only){
+    position: absolute;
+    z-index: 300;
+    left:20px;
+    top:104px;
+    & .is-hidden{
+      display: none;
+    }
+  }
 
   @include mq(tablet) {
     display: flex;
@@ -370,9 +390,4 @@ body.dark-theme {
   & .peshka{
     color: rgba(255, 255, 255, 0.5);
   }
-}
-.active {
-  background-color:$accent-button-color;
-  color:$primary-color;
-    font-weight: 700;
 }
