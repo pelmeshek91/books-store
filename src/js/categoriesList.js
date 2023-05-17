@@ -1,6 +1,7 @@
 import { fetchBooks } from './booksApi.js';
 import { markupCategories } from './markupCategories.js';
 import { handleClickOnFilter } from './categories.js';
+import { createMurkUpAllBooks } from './allBooks.js';
 export const listElem = document.querySelector('.categories_list');
 export const fetchList = '/category-list';
 
