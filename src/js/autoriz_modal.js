@@ -232,13 +232,11 @@ export async function getDB() {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    console.log(docSnap.data().booksArray);
     return docSnap.data().booksArray;
   } else {
     console.log('No such document!');
   }
 }
-getDB();
 
 /**
  * отримання даних з фаєербейс , метод гет, create
