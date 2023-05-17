@@ -1,8 +1,18 @@
 @import './utils/mixin';
+@import './utils/variabls';
 
 .support-container {
   display: none;
   @include mq(desktop) {
     display: block;
+  }
+}
+.active-shop{
+  background-color:$accent-button-color;
+  font-weight: 700;
+  box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
+  & .shop-logo {
+    fill: $accent-button-color;
   }
 }
