@@ -54,8 +54,8 @@
   transition: ease-in;
 }
 .book__image {
-  max-width: 100px;
-  max-height: 142px;
+  min-width: 100px;
+  height: 142px;
   //   flex-shrink: 0;
   //   margin-bottom: 4px;
   //   margin-right: 20px;
@@ -65,9 +65,9 @@
   margin-top: auto;
   display: flex;
 }
-.logo-list {
-  justify-content: end;
-}
+// .logo__list {
+//   justify-content: end;
+// }
 
 .pagination {
   display: flex;
