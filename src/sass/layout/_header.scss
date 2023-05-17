@@ -38,6 +38,8 @@
     :focus {
       background-color: $accent-button-color;
       font-weight: 700;
+      box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
     }
   }
   @include mq(desktop) {
@@ -64,6 +66,8 @@
     :focus {
       background-color: $accent-button-color;
       font-weight: 700;
+      box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
       & .shop-logo {
         fill: $accent-button-color;
       }
@@ -99,6 +103,12 @@
   align-items: center;
   padding: 0px;
   gap: 90px;
+  &:hover,:focus{
+    border:none;
+    box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
+        0 0 40px rgb(128, 117, 228);
+  }
   @include mq(mob-only) {
     position: absolute;
     z-index: 300;
@@ -154,6 +164,11 @@
   border-radius: 50em;
   padding: 3px 0;
   margin-left: auto;
+  &:hover,:focus{
+    box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
+        0 0 40px rgb(128, 117, 228);
+  }
 }
 
 .theme-switch__toggle {
@@ -214,6 +229,12 @@
     border: none;
   }
 }
+.active-home{
+  background-color:$accent-button-color;
+  font-weight: 700;
+  box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
+}
 body.light-theme {
   background-color: $second-color;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -223,6 +244,7 @@ body.dark-theme {
 
   & .header-container {
     border-color: $second-color;
+    background-color:$primary-color;
   }
   & .shop-btn {
     color: $second-color;
@@ -390,5 +412,37 @@ body.dark-theme {
   }
   & .peshka {
     color: rgba(255, 255, 255, 0.5);
+  }
+  & .active-home{
+    color:$primary-color;
+    box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
+        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+  }
+  & .active-shop{
+    color:$primary-color;
+    box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
+        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+    & .shop-logo{
+      fill:$accent-button-color;
+      stroke:$primary-color;
+    }
+  }
+  & .book{
+    background-color:$primary-color;
+    &:hover,
+    :focus {
+      box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 25px rgba(190, 184, 206, 0.445), 0 0 50px rgba(112, 88, 168, 0.658),
+        0 0 100px rgb(182, 179, 207);
+    }
+  }
+  & .book__title{
+    color:$second-color;
+  }
+  & .book__description{
+    color:$second-color;
+  }
+  & .shopping-title{
+    color:$second-color;
   }
 }
