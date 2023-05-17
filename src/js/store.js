@@ -33,7 +33,7 @@ export async function getDB() {
   }
 }
 
-getDB()
+getDB();
 
 //
 const booksPerPage = 3;
