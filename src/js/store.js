@@ -6,41 +6,37 @@ import './theme';
 const booksPerPage = 3;
 let currentPage = 1;
 let bookIds = [];
-function renderBuyLinks(buyLinks) {
-  const allowedLinks = ['Amazon', 'Apple Books', 'Bookshop'];
+// function renderBuyLinks(buyLinks) {
+//   const allowedLinks = ['Amazon', 'Apple Books', 'Bookshop'];
 
-  const logoList = buyLinks
-    .filter(buyLink => allowedLinks.includes(buyLink.name))
-    .map(buyLink => {
-      let iconId = '';
-      if (buyLink.name === 'Amazon') {
-        iconId = 'icon-amazon';
-      } else if (buyLink.name === 'Apple Books') {
-        iconId = 'icon-apple';
-      } else if (buyLink.name === 'Bookshop') {
-        iconId = 'icon-book_shop';
-      }
-      return `
-      <li class="logo-item">
-        <a href="${
-          buyLink.url
-        }" target="_new" rel="noopener noreferer" aria-label="link to ${
-        buyLink.name
-      }">
-          <svg class="svg-shop-link" width="62" height="19">
-            <use href="${require('../images/modal/modal-img.svg')}#${iconId}"></use>
-          </svg>
-        </a>
-      </li>
-    `;
-    });
-
-  return `
-  <ul class="logo-list">
-    ${logoList.join('')}
-  </ul>
-`;
-}
+//   const logoList = buyLinks
+//     .filter(buyLink => allowedLinks.includes(buyLink.name))
+//     .map(buyLink => {
+//       let iconId = '';
+//       if (buyLink.name === 'Amazon') {
+//         iconId = 'icon-amazon';
+//       } else if (buyLink.name === 'Apple Books') {
+//         iconId = 'icon-apple';
+//       } else if (buyLink.name === 'Bookshop') {
+//         iconId = 'icon-book_shop';
+//       }
+//       return `
+//       <li class="logo-item">
+//         <a href="${
+//           buyLink.url
+//         }" target="_new" rel="noopener noreferer" aria-label="link to ${
+//         buyLink.name
+//       }">
+//           <svg class="svg-shop-link" width="62" height="19">
+//             <use href="${require('../images/modal/modal-img.svg')}#${iconId}"></use>
+//           </svg>
+//         </a>
+//       </li>
+//     `;
+//     })
+//     .join('');
+//   return logoList;
+// }
 
 function renderBookList(page) {
   const bookIdsJson = localStorage.getItem('bookId');
@@ -74,14 +70,44 @@ function renderBookList(page) {
       <h2 class='book__title'>${
         title.length > 16 ? title.slice(0, 16) + '...' : title
       }</h2>
-      <p class='book__categ'>${list_name}</p>
+      <p class='book__categ'>${
+        list_name.length > 20 ? list_name.slice(0, 20) + '...' : list_name
+      }</p>
       <p class='book__description'>${description || 'no description'}</p>
     </div>
-    <div>
+    <div class='shop__wrap'>
       <p class='book__author'>${author}</p>
-      <div class='shoping-box'>
-        ${renderBuyLinks(buy_links)}
-      </div>
+      
+        <ul class="logo__list">
+              <li class="logo-item">
+                <a href="${
+                  buy_links[0].url
+                }" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
+                 <svg class="svg-shop-link" width="32" height="11">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
+  </svg>
+                </a>
+              </li>
+              <li class="logo-item">
+                <a href="${
+                  buy_links[1].url
+                }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
+                  <svg class="svg-shop-link" width="16" height="16">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
+  </svg>
+                </a>
+              </li>
+              <li class="logo-item">
+                <a href="${
+                  buy_links[4].url
+                }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
+                  <svg class="svg-shop-link" width="16" height="16">
+    <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
+  </svg>
+                  </a>
+              </li>
+            </ul>
+ 
     </div>
     <button class='delete-book' data-id='${_id}'>Delete</button>
   </div>

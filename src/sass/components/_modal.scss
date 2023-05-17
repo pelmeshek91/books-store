@@ -151,6 +151,13 @@ body {
   gap: 20px;
 }
 
+.svg-shop-link{
+  mix-blend-mode: luminosity;
+  &:hover{
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  }
+}
+
 .peshka {
   @include text(400, 10px, 1.2, -0.04em);
   margin: 0 auto;
