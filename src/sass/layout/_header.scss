@@ -18,6 +18,7 @@
   color: $primary-color;
   margin-left: 8px;
 }
+
 .home-btn {
   display: none;
 
@@ -231,8 +232,9 @@ body.dark-theme {
   & .btn-categoty {
     color: rgba(255, 255, 255, 0.6);
   }
-  & .active-text {
-    color: $accent-button-color;
+  & .active-text{
+    color:$accent-button-color;
+    
   }
 
   & .title-hero {
@@ -346,4 +348,22 @@ body.dark-theme {
   & .logo-item{
     fill:$second-text-color;
   }
+  & .close-svg-modal{
+    fill: $second-color;
+    stroke:$second-color;
+    &:hover,:focus{
+      stroke:$accent-text-color;
+    }
+  }
+  & .close-btn-modal{
+    background-color: $second-body-color;
+  }
+  & .peshka{
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+.active {
+  background-color:$accent-button-color;
+  color:$primary-color;
+    font-weight: 700;
 }

@@ -43,7 +43,6 @@ function renderBookList(page) {
   const bookIds = JSON.parse(bookIdsJson) || [];
   const startIndex = (page - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
-
   const promises = bookIds
     .slice(startIndex, endIndex)
     .map(bookId =>
@@ -125,6 +124,12 @@ function renderBookList(page) {
         // if not books here
         if (currentPage === 1) {
           bookList.innerHTML = '<p>No books found</p>';
+          if (!bookIds.length) {
+            bookList.classList.add('empty-section');
+            bookList.innerHTML = `<h2>This page is empty, add some books and proceed to order.</h2> 
+             <img class="empty-image" src="${require('../images/shopping-list/img-books-322@2x.png')}" alt="">
+           `;
+          }
         } else {
           // Иначе перенаправляем пользователя на предыдущую страницу
           const previousPage = currentPage - 1;
