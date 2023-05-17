@@ -1,7 +1,7 @@
-import { fetchBooks } from './js/booksApi.js';
-import { markupCategories } from './js/markupCategories.js';
-import { handleClickOnFilter } from './js/categories.js';
-const listElem = document.querySelector('.categories_list');
+import { fetchBooks } from './booksApi.js';
+import { markupCategories } from './markupCategories.js';
+import { handleClickOnFilter } from './categories.js';
+export const listElem = document.querySelector('.categories_list');
 export const fetchList = '/category-list';
 
 export const categoriesList = async point => {
