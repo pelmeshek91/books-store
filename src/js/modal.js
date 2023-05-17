@@ -1,7 +1,6 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
-import { getDB, setDB } from './autoriz_modal';
-
+import { getDB, setDB } from './authfirebase';
 
 const divchik = document.querySelector('.backdrop');
 const body = document.querySelector('body');
@@ -24,7 +23,6 @@ async function selectBook(item) {
 
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
-
 
   const closeBtn = document.querySelector('.close-btn-modal');
   closeBtn.addEventListener('click', e => {
@@ -54,12 +52,17 @@ async function selectBook(item) {
 
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
- 
-  let data = await getDB()
-  chooseToLSBtn.addEventListener('click', async() => {
+
+  let data = [];
+  if (localStorage.getItem('currentUser')) {
+    data = await getDB();
+  }
+
+  chooseToLSBtn.addEventListener('click', async () => {
+    let data = await getDB();
+
     addAndRemuveBooksToLS(id);
-     let data = await getDB()
-   
+
     if (!data.includes(id)) {
       peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
     } else {
@@ -67,7 +70,6 @@ async function selectBook(item) {
     }
   });
 
- 
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
@@ -78,8 +80,11 @@ async function selectBook(item) {
 }
 
 async function addAndRemuveBooksToLS(id) {
+  let data = [];
+  if (localStorage.getItem('currentUser')) {
+    data = await getDB();
+  }
 
-    let data =await getDB()
   // let data = JSON.parse(localStorage.getItem('bookId')) || [];
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
 
@@ -91,7 +96,7 @@ async function addAndRemuveBooksToLS(id) {
     data.push(id);
   }
 
-  setDB(data)
+  setDB(data);
   // localStorage.setItem('bookId', JSON.stringify(data));
 }
 
