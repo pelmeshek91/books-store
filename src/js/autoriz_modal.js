@@ -197,17 +197,9 @@ form.addEventListener('submit', e => {
         const errorMessage = error.message;
         console.log(errorCode);
         if (errorCode === 'auth/wrong-password') {
-          Notiflix.Report.warning(
-            'Wrong password',
-            'Write correct password',
-            'Ok'
-          );
+          Notiflix.Notify.warning('Wrong password! Write correct password');
         } else {
-          Notiflix.Report.failure(
-            'User not found!',
-            'Please sign up!',
-            'Sign up'
-          );
+          Notiflix.Notify.failure('User not found! Please sign up!');
         }
       });
   }
