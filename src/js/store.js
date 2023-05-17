@@ -163,8 +163,8 @@ function renderBookList(page) {
           bookList.innerHTML = '<p>No books found</p>';
           if (!bookIds.length) {
             bookList.classList.add('empty-section');
-            bookList.innerHTML = `<h2>This page is empty, add some books and proceed to order.</h2> 
-             <img class="empty-image" src="${require('../images/shopping-list/img-books-322@2x.png')}" alt="">
+            bookList.innerHTML = `<p class="empty-store-text-img">This page is empty, add some books and proceed to order.</p> 
+             <img class="empty-image" src="${require('../images/shopping-list/img-books-322@2x.png')}" alt="books">
            `;
           }
         } else {
