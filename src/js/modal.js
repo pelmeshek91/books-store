@@ -1,9 +1,10 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
+import Notiflix from 'notiflix';
 
 const divchik = document.querySelector('.backdrop');
 const body = document.querySelector('body');
-
+const signBtn = document.querySelector('.sign-btn');
 sectionBooksEl.addEventListener('click', e => {
   const item = e.target.closest('.book-card');
   if (!item) {
@@ -52,10 +53,14 @@ async function selectBook(item) {
 
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   const peshka = document.querySelector('.peshka');
+  const text = signBtn.textContent.trim();
+  if (text === 'Sign up') {
+    chooseToLSBtn.disabled = true;
+    Notiflix.Report.info('', 'To make a purchase, please log in or register');
+  }
 
   chooseToLSBtn.addEventListener('click', e => {
     addAndRemuveBooksToLS(id);
-
     let data = JSON.parse(localStorage.getItem('bookId')) || [];
     if (data.includes(id)) {
       peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
@@ -65,6 +70,7 @@ async function selectBook(item) {
   });
 
   let data = JSON.parse(localStorage.getItem('bookId')) || [];
+  chooseToLSBtn.addEventListener('click', e => {});
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
@@ -77,7 +83,6 @@ async function selectBook(item) {
 function addAndRemuveBooksToLS(id) {
   let data = JSON.parse(localStorage.getItem('bookId')) || [];
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
-
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
     data = data.filter(item => item !== id);
