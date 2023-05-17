@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
     <defs>
-        <symbol id="icon-trash" viewBox="0 0 24 24">
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5" d="M9 3h6M3 6h18M19 6l-0.701 10.519c-0.105 1.578-0.158 2.367-0.499 2.966-0.3 0.527-0.753 0.95-1.298 1.215-0.62 0.3-1.411 0.3-2.992 0.3h-3.019c-1.582 0-2.373 0-2.992-0.3-0.546-0.264-0.998-0.688-1.298-1.215-0.341-0.598-0.393-1.387-0.499-2.966l-0.701-10.519M10 10.5v5M14 10.5v5"></path>
-</symbol>
         <symbol id="icon-dump" viewBox="0 0 32 32">
             <path d="M32 16a16 16 0 1 1-32 0 16 16 0 0 1 32 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.41"
