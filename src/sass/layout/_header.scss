@@ -269,6 +269,8 @@ body.dark-theme {
         0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
     }
   }
+  & .empty-store-text-img{
+    color: rgba(255, 255, 255, 0.6);} 
   & .home-btn {
     color: $second-color;
     &:hover,
