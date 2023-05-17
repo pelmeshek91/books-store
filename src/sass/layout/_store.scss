@@ -225,17 +225,18 @@
 
 .empty-section {
   width: 500px;
-  max-width: 100%;
-  color: rgba(0, 0, 0, 0.5);
-  display: block;
-  margin: 0 auto;
+  /* max-width: 100%; */
+  color: #00000080;
   text-align: center;
   letter-spacing: -0.02em;
+  margin-left: 271px;
+  display: flex;
+  align-items: center;
 }
 
-.empty-image {
-  margin: 100px auto 0;
-}
+// .empty-image {
+//   margin: 100px auto 0;
+// }
 /* <style>
       img {
         width: 200px;
