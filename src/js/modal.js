@@ -1,6 +1,7 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
 import Notiflix from 'notiflix';
+import { getDB, setDB } from './authfirebase';
 
 const divchik = document.querySelector('.backdrop');
 const body = document.querySelector('body');
@@ -23,7 +24,6 @@ async function selectBook(item) {
 
   const markup = createMarkupForModal(res);
   divchik.innerHTML = markup;
-  // divchik.insertAdjacentHTML('beforeend', markup);
 
   const closeBtn = document.querySelector('.close-btn-modal');
   closeBtn.addEventListener('click', e => {
@@ -59,18 +59,23 @@ async function selectBook(item) {
     Notiflix.Report.info('', 'To make a purchase, please log in or register');
   }
 
-  chooseToLSBtn.addEventListener('click', e => {
+  let data = [];
+  if (localStorage.getItem('currentUser')) {
+    data = await getDB();
+  }
+
+  chooseToLSBtn.addEventListener('click', async () => {
+    let data = await getDB();
+
     addAndRemuveBooksToLS(id);
-    let data = JSON.parse(localStorage.getItem('bookId')) || [];
-    if (data.includes(id)) {
+
+    if (!data.includes(id)) {
       peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
     } else {
       peshka.innerHTML = '';
     }
   });
 
-  let data = JSON.parse(localStorage.getItem('bookId')) || [];
-  chooseToLSBtn.addEventListener('click', e => {});
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'REMOVE FROM THE SHOPPING LIST';
     peshka.innerHTML = `Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.`;
@@ -80,8 +85,13 @@ async function selectBook(item) {
   }
 }
 
-function addAndRemuveBooksToLS(id) {
-  let data = JSON.parse(localStorage.getItem('bookId')) || [];
+async function addAndRemuveBooksToLS(id) {
+  let data = [];
+  if (localStorage.getItem('currentUser')) {
+    data = await getDB();
+  }
+
+  // let data = JSON.parse(localStorage.getItem('bookId')) || [];
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
@@ -91,7 +101,8 @@ function addAndRemuveBooksToLS(id) {
     data.push(id);
   }
 
-  localStorage.setItem('bookId', JSON.stringify(data));
+  setDB(data);
+  // localStorage.setItem('bookId', JSON.stringify(data));
 }
 
 function createMarkupForModal({

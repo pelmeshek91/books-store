@@ -109,7 +109,11 @@ function renderBookList(page) {
             </ul>
  
     </div>
-    <button class='delete-book' data-id='${_id}'>Delete</button>
+    <button class='delete-book' data-id='${_id}'>
+     <svg class="delete-icon" width='16px' height='16px'>
+              <use href=${require('../images/support/support-svg.svg')}#icon-trash></use>
+            </svg>
+    </button>
   </div>
 </div>`;
           }

@@ -38,6 +38,8 @@
     :focus {
       background-color: $accent-button-color;
       font-weight: 700;
+      box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
     }
   }
   @include mq(desktop) {
@@ -64,6 +66,8 @@
     :focus {
       background-color: $accent-button-color;
       font-weight: 700;
+      box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
       & .shop-logo {
         fill: $accent-button-color;
       }
@@ -87,6 +91,33 @@
 }
 .sign-btn {
   display: none;
+  // display: flex;
+  width: 184px;
+  height: 45px;
+  background-color: $accent-text-color;
+  border-radius: 36px;
+  color: $second-color;
+  border: 1.5px solid #111111;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 90px;
+  &:hover,:focus{
+    border:none;
+    box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
+        0 0 40px rgb(128, 117, 228);
+  }
+  @include mq(mob-only) {
+    position: absolute;
+    z-index: 300;
+    left: 20px;
+    top: 104px;
+    &.is-visible {
+      display: flex;
+    }
+  }
 
   @include mq(tablet) {
     display: flex;
@@ -103,6 +134,15 @@
     gap: 90px;
     margin-left: 24px;
     margin-right: 0;
+    &.sign-btn{
+      &:hover,
+    :focus {
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 5px rgb(0, 4, 255), 0 0 25px rgba(68, 0, 255, 0.445),
+        0 0 40px rgba(76, 0, 255, 0.658), 0 0 40px rgb(25, 0, 255);
+            border: none;
+    }
+    }
   }
 }
 .arrow {
@@ -133,6 +173,11 @@
   border-radius: 50em;
   padding: 3px 0;
   margin-left: auto;
+  &:hover,:focus{
+    box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
+        0 0 40px rgb(128, 117, 228);
+  }
 }
 
 .theme-switch__toggle {
@@ -184,25 +229,31 @@
 .theme-switch__toggle:active + .theme-switch__track {
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
- .button-see-more {
-    &:hover,
-    :focus {
-      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 0 5px rgb(0, 4, 255), 0 0 25px rgba(68, 0, 255, 0.445),
-        0 0 50px rgba(76, 0, 255, 0.658), 0 0 70px rgb(25, 0, 255);
-            border: none;
-    }
+.button-see-more {
+  &:hover,
+  :focus {
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 5px rgb(0, 4, 255), 0 0 25px rgba(68, 0, 255, 0.445),
+      0 0 50px rgba(76, 0, 255, 0.658), 0 0 70px rgb(25, 0, 255);
+    border: none;
   }
+}
+.active-home{
+  background-color:$accent-button-color;
+  font-weight: 700;
+  box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
+        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
+}
 body.light-theme {
   background-color: $second-color;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
- 
 }
 body.dark-theme {
   background-color: $second-body-color;
 
   & .header-container {
     border-color: $second-color;
+    background-color:$primary-color;
   }
   & .shop-btn {
     color: $second-color;
@@ -241,9 +292,8 @@ body.dark-theme {
   & .btn-categoty {
     color: rgba(255, 255, 255, 0.6);
   }
-  & .active-text{
-    color:$accent-button-color;
-    
+  & .active-text {
+    color: $accent-button-color;
   }
 
   & .title-hero {
@@ -280,10 +330,10 @@ body.dark-theme {
   & .autoriz-modal-form {
     background: $second-body-color;
   }
-  & .autoriz-modal-input{
-    border-color:$second-color;
-    background-color:$second-body-color;
-    color:$second-color;
+  & .autoriz-modal-input {
+    border-color: $second-color;
+    background-color: $second-body-color;
+    color: $second-color;
   }
 
   & .autoriz-icon {
@@ -291,21 +341,22 @@ body.dark-theme {
     fill: $second-body-color;
   }
 
-  & .autoriz-sing-up-btn{
-    background: #F6F6F6;
-    color:$second-body-color;
-    border:none;
-    &:hover,:focus{
+  & .autoriz-sing-up-btn {
+    background: #f6f6f6;
+    color: $second-body-color;
+    border: none;
+    &:hover,
+    :focus {
       box-shadow: 0 0 5px rgb(140, 141, 214),
-                0 0 25px rgba(190, 184, 206, 0.445),
-                0 0 50px rgba(112, 88, 168, 0.658),
-                0 0 100px rgb(182, 179, 207);
+        0 0 25px rgba(190, 184, 206, 0.445), 0 0 50px rgba(112, 88, 168, 0.658),
+        0 0 100px rgb(182, 179, 207);
     }
   }
-  & .autoriz-sub-btn{
-    color:rgba(246, 246, 246, 0.5);
-    &:hover,:focus{
-      color:$accent-text-color;
+  & .autoriz-sub-btn {
+    color: rgba(246, 246, 246, 0.5);
+    &:hover,
+    :focus {
+      color: $accent-text-color;
     }
   }
   & ::placeholder {
@@ -334,45 +385,76 @@ body.dark-theme {
         0 0 50px rgba(76, 0, 255, 0.658), 0 0 100px rgb(25, 0, 255);
     }
   }
-  & .modal-add-book-window{
-    background-color:$second-body-color;
-    border-color:$second-color;
+  & .modal-add-book-window {
+    background-color: $second-body-color;
+    border-color: $second-color;
   }
-  & .btn-chose-book{
-    background-color:$second-body-color;
-    color:$second-color;
-    &:hover,:focus{
+  & .btn-chose-book {
+    background-color: $second-body-color;
+    color: $second-color;
+    &:hover,
+    :focus {
       box-shadow: 0 0 5px rgb(140, 141, 214),
-                0 0 25px rgba(190, 184, 206, 0.445),
-                0 0 50px rgba(112, 88, 168, 0.658),
-                0 0 100px rgb(182, 179, 207);
+        0 0 25px rgba(190, 184, 206, 0.445), 0 0 50px rgba(112, 88, 168, 0.658),
+        0 0 100px rgb(182, 179, 207);
     }
   }
-  & .title-book-modal{
-    color:$second-color;
+  & .title-book-modal {
+    color: $second-color;
   }
-  & .text-book-modal{
-    color:$second-color;
+  & .text-book-modal {
+    color: $second-color;
   }
-  & .logo-item{
-    fill:$second-text-color;
+  & .logo-item {
+    fill: $second-text-color;
   }
-  & .close-svg-modal{
+  & .close-svg-modal {
     fill: $second-color;
-    stroke:$second-color;
-    &:hover,:focus{
-      stroke:$accent-text-color;
+    stroke: $second-color;
+    &:hover,
+    :focus {
+      stroke: $accent-text-color;
     }
   }
-  & .close-btn-modal{
+  & .close-btn-modal {
     background-color: $second-body-color;
   }
-  & .peshka{
+  & .peshka {
     color: rgba(255, 255, 255, 0.5);
   }
-}
-.active {
-  background-color:$accent-button-color;
-  color:$primary-color;
-    font-weight: 700;
+  & .active-home{
+    color:$primary-color;
+    box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
+        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+  }
+  & .active-shop{
+    color:$primary-color;
+    box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
+        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+    & .shop-logo{
+      fill:$accent-button-color;
+      stroke:$primary-color;
+    }
+  }
+  & .book{
+    background-color:$primary-color;
+    &:hover,
+    :focus {
+      box-shadow: 0 0 5px rgb(140, 141, 214),
+        0 0 25px rgba(190, 184, 206, 0.445), 0 0 50px rgba(112, 88, 168, 0.658),
+        0 0 100px rgb(182, 179, 207);
+    }
+  }
+  & .book__title{
+    color:$second-color;
+  }
+  & .book__description{
+    color:$second-color;
+  }
+  & .shopping-title{
+    color:$second-color;
+  }
+  & .empty-section{
+    color:$second-text-color;
+  }
 }
