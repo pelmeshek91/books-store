@@ -1,6 +1,39 @@
 import './support.js';
 import './theme';
-//
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+const firebaseConfig = {
+  apiKey: 'AIzaSyCKPIp5P57wGoGdcbR6QZHRmEbcDocx1gA',
+  authDomain: 'book-shop-dd444.firebaseapp.com',
+  projectId: 'book-shop-dd444',
+  storageBucket: 'book-shop-dd444.appspot.com',
+  messagingSenderId: '721371865689',
+  appId: '1:721371865689:web:842c8a5efa6226f21a0748',
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+export async function setDB(array) {
+  const userID = localStorage.getItem('currentUser');
+  await setDoc(doc(db, 'users', userID), {
+    booksArray: array,
+  });
+}
+export async function getDB() {
+  const userID = localStorage.getItem('currentUser');
+  const docRef = doc(db, 'users', userID);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data().booksArray;
+  } else {
+    console.log('No such document!');
+  }
+}
+
+getDB()
 
 //
 const booksPerPage = 3;
