@@ -58,10 +58,13 @@
 .title-hero {
   padding-bottom: 40px;
 
-  @include text(700, 48px, 1.08, -0.04em);
+  @include text(700, 32px, 1.19, -0.04em);
 
   span {
     color: $accent-text-color;
+  }
+  @include mq(tablet) {
+    @include text(700, 48px, 1.08, -0.04em);
   }
 }
 .category-items {
