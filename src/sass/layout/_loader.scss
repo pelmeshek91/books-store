@@ -7,7 +7,7 @@
   z-index: 100;
   transition: 0.6s;
   display: flex;
-  transform: translateX(-10%) translateY(120%);
+  transform: translateX(-7%) translateY(120%);
     @include mq(desktop) {
   transform: translateX(-10%) translateY(30%);
   }

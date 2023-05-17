@@ -12,6 +12,7 @@ import './js/loader.js';
 import './js/theme';
 import './js/autoriz_modal.js';
 import './js/scrollUp';
+import './js/burder'
 
 const listElem = document.querySelector('.categories_list');
 const fetchList = '/category-list';

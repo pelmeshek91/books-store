@@ -110,7 +110,7 @@ function createMarkupForModal({
             <h3 class="title-book-modal">${title}</h3>
             <p class="author-book-modal">${author}</p>
             <p class="text-book-modal">${description || 'no description'}</p>
-            <ul class="logo-list">
+            <ul class="logotip-list">
               <li class="logo-item">
                 <a href="${
                   buy_links[0].url
@@ -119,8 +119,8 @@ function createMarkupForModal({
     <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
   </svg>
                 </a>
-              </li class="logo-item">
-              <li>
+              </li>
+              <li class="logo-item">
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
