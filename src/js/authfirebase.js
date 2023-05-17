@@ -14,6 +14,7 @@ import {
   closeModal,
 } from './autoriz_modal';
 import Notiflix from 'notiflix';
+import { home, shopping } from './categories';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCKPIp5P57wGoGdcbR6QZHRmEbcDocx1gA',
@@ -39,12 +40,16 @@ export function openModal() {
     });
   localStorage.removeItem('userName');
   openBtn.textContent = 'Sign up';
+  shopping.classList.add('is-hidden');
+  home.classList.add('is-hidden');
 }
 firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     localStorage.setItem('currentUser', user.uid);
+    shopping.classList.remove('is-hidden');
+    home.classList.remove('is-hidden');
   } else {
     localStorage.removeItem('currentUser');
   }
