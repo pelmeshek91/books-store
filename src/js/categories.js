@@ -1,7 +1,6 @@
 import { categoriesList, sectionBooksEl } from './allBooks';
 import { fetchBooks } from './booksApi';
 import { createMarkup } from './createMarkup';
-
 export async function handleClickOnFilter(category) {
   try {
     const categoryBooks = `/category?category=${category}`;
@@ -30,3 +29,19 @@ export async function handleClickOnFilter(category) {
     console.log(error);
   }
 }
+
+const logoutBtn = document.querySelector('.sign-btn');
+const textBtn = logoutBtn.textContent.trim();
+logoutBtn.addEventListener('mouseover', function () {
+  if (textBtn === 'Sign up') {
+    return;
+  }
+  logoutBtn.textContent = 'log out';
+});
+
+logoutBtn.addEventListener('mouseout', function () {
+  if (textBtn === 'Sign up') {
+    return;
+  }
+  logoutBtn.textContent = textBtn;
+});
