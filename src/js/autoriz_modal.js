@@ -1,6 +1,9 @@
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+
 import { documentId } from '@firebase/firestore';
-import { collection, getDocs } from '@firebase/firestore';
+// import { collection, getDocs } from '@firebase/firestore';
 import { doc } from '@firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -106,12 +109,12 @@ closeBtn.addEventListener('click', closeModal);
 //   appId: '1:732619883198:web:aa953a342cb3e5ccc054ef',
 // };
 const firebaseConfig = {
-  apiKey: 'AIzaSyDdiX4miDnvSyE7S-piSDUDrOT024HmPxc',
-  authDomain: 'partybookshard.firebaseapp.com',
-  projectId: 'partybookshard',
-  storageBucket: 'partybookshard.appspot.com',
-  messagingSenderId: '572831827905',
-  appId: '1:572831827905:web:09a3282865bb9169df1140',
+  apiKey: 'AIzaSyCKPIp5P57wGoGdcbR6QZHRmEbcDocx1gA',
+  authDomain: 'book-shop-dd444.firebaseapp.com',
+  projectId: 'book-shop-dd444',
+  storageBucket: 'book-shop-dd444.appspot.com',
+  messagingSenderId: '721371865689',
+  appId: '1:721371865689:web:842c8a5efa6226f21a0748',
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -120,7 +123,7 @@ firebase.initializeApp(firebaseConfig);
  */
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('currentUser', user.uid);
   } else {
     localStorage.removeItem('currentUser');
   }
@@ -146,7 +149,6 @@ form.addEventListener('submit', e => {
   // console.log(name);
 
   const textBtn = singUpBtn.textContent.toUpperCase();
-  console.log(textBtn);
   if (textBtn === 'SIGN UP') {
     firebase
       .auth()
@@ -158,14 +160,23 @@ form.addEventListener('submit', e => {
         localStorage.setItem('userName', name);
         closeModal();
 
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            localStorage.setItem('currentUser', user.uid);
+          } else {
+            localStorage.removeItem('currentUser');
+          }
+        });
+         const emptyArray = [];
+         setDB(emptyArray);
         form.reset();
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // console.log('auth/email-already-in-use');
+       
         Notiflix.Notify.failure('This user already registered');
-        // console.error(`Registration failed: ${errorMessage} (${errorCode})`);
+       
       });
   }
   if (textBtn === 'SIGN IN') {
@@ -186,40 +197,38 @@ form.addEventListener('submit', e => {
         const errorMessage = error.message;
         console.log(errorCode);
         if (errorCode === 'auth/wrong-password') {
-          Notiflix.Report.warning(
-            'Wrong password',
-            'Write correct password',
-            'Ok'
-          );
+          Notiflix.Notify.warning('Wrong password! Write correct password');
         } else {
-          Notiflix.Report.failure(
-            'User not found!',
-            'Please sign up!',
-            'Sign up'
-          );
+          Notiflix.Notify.failure('User not found! Please sign up!');
         }
       });
   }
   form.reset();
-  // const auth = firebase.auth();
-
-  // function signIn(email, password) {
-  //   return auth.signInWithEmailAndPassword(email, password);
-  // }
-  // firebase.auth()
-  // .createUserWithEmailAndPassword(email, password)
-  // .then((userCredential) => {
-
-  //   const user = userCredential.user;
-  //   console.log(`User with email ${user.email} registered !`);
-  // })
-  // .catch((error) => {
-
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  //   console.error(`Registration failed: ${errorMessage} (${errorCode})`);
-  // });
 });
+
+const db = firebase.firestore();
+const booksColection = ['643282b1e85766588626a0d2', '643282b1e85766588626a0b2'];
+
+export async function setDB(array) {
+  const userID = localStorage.getItem('currentUser');
+  await setDoc(doc(db, 'users', userID), {
+    booksArray: array,
+  });
+}
+// const emptyArray = [];
+// setDB(emptyArray);
+
+export async function getDB() {
+  const userID = localStorage.getItem('currentUser');
+  const docRef = doc(db, 'users', userID);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    return docSnap.data().booksArray;
+  } else {
+    console.log('No such document!');
+  }
+}
 
 /**
  * отримання даних з фаєербейс , метод гет, create

@@ -13,11 +13,36 @@
   flex-direction: column;
   display: flex;
 }
+
+.book {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  width: 335px;
+  border: 2px solid #4f2ee866;
+  border-radius: 16px;
+  position: relative;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  //   transition: ease-in 5s;
+  @include mq(tablet) {
+    width: 704px;
+    gap: 24px;
+    padding: 24px;
+  }
+  @include mq(desktop) {
+    width: 996px;
+  }
+}
+
 .book__author {
   color: #b4afaf;
   font-size: 12px;
   font-style: italic;
   line-height: 1.17;
+  @include mq(tablet) {
+    margin-top: 14px;
+  }
 }
 .book__title {
   margin-bottom: 4px;
@@ -31,12 +56,14 @@
     @include text(700, 16px, 1.12, -0.04em);
   }
 }
-.book {
-  width: 335px;
-  border: 2px solid #4f2ee866;
-  border-radius: 16px;
-  position: relative;
-  //   transition: ease-in 5s;
+.book__categ {
+  @include text(400, 12px, 1.17, 0.03em);
+  margin-bottom: 8px;
+
+  color: #b4afaf;
+  @include mq(tablet) {
+    margin-bottom: 14px;
+  }
 }
 .delete-book {
   width: 28px;
@@ -52,6 +79,29 @@
   top: 14px;
   right: 14px;
   transition: ease-in;
+  @include mq(tablet) {
+    width: 34px;
+    height: 34px;
+    top: 24px;
+    right: 24px;
+  }
+  &:hover {
+    box-shadow: 0 0 10px 0 #4f2ee8 inset, 0 0 10px 4px #4f2ee8;
+  }
+}
+.delete-book .delete-icon {
+  &:hover {
+    animation: rotate 0.5s ease;
+    transform-origin: center;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
 }
 .book__image {
   min-width: 100px;
@@ -60,20 +110,55 @@
   //   margin-bottom: 4px;
   //   margin-right: 20px;
 }
-.shoping-box {
-  align-items: flex-end;
-  margin-top: auto;
-  display: flex;
+.book__image {
+  @include mq(tablet) {
+    min-width: 116px;
+    height: 165px;
+  }
 }
-// .logo__list {
-//   justify-content: end;
-// }
+.book__description {
+  @include text(400, 14px, 1.29, -0.04em);
+  margin-bottom: 14px;
+  width: 193px;
+  height: 68px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  @include mq(tablet) {
+    width: 508px;
+    height: 53px;
+    margin-bottom: 32px;
+  }
+  @include mq(desktop) {
+    width: 808px;
+  }
+}
+.shop__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo__list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  @include mq(tablet) {
+    gap: 16px;
+  }
+}
+.logo-item {
+  &:hover {
+    box-shadow: 0 0 10px 0 #6fa3ec inset, 0 0 10px 4px #6fa3ec;
+  }
+}
 
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
 }
 .pagination-button {
   font-weight: 700;
@@ -101,10 +186,6 @@
 .pagination-button.notclick {
   pointer-events: none;
 }
-.book {
-  animation-name: fadeIn;
-  animation-duration: 0.5s;
-}
 
 @keyframes fadeIn {
   from {
@@ -115,6 +196,25 @@
   }
 }
 
+.booklist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.empty-section {
+  width: 500px;
+  max-width: 100%;
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.empty-image {
+  margin: 100px auto 0;
+}
 /* <style>
       img {
         width: 200px;
