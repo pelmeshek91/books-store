@@ -1,5 +1,7 @@
 import { fetchBooks } from './booksApi';
 import { sectionBooksEl } from './allBooks.js';
+import { getDB, setDB } from './autoriz_modal';
+
 
 const divchik = document.querySelector('.backdrop');
 const body = document.querySelector('body');
