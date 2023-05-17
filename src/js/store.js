@@ -1,46 +1,45 @@
 import './support.js';
 import './theme';
-//
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+const firebaseConfig = {
+  apiKey: 'AIzaSyDdiX4miDnvSyE7S-piSDUDrOT024HmPxc',
+  authDomain: 'partybookshard.firebaseapp.com',
+  databaseURL:
+    'https://partybookshard-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'partybookshard',
+  storageBucket: 'partybookshard.appspot.com',
+  messagingSenderId: '572831827905',
+  appId: '1:572831827905:web:09a3282865bb9169df1140',
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+export async function setDB(array) {
+  const userID = localStorage.getItem('currentUser');
+  await setDoc(doc(db, 'users', userID), {
+    booksArray: array,
+  });
+}
+export async function getDB() {
+  const userID = localStorage.getItem('currentUser');
+  const docRef = doc(db, 'users', userID);
+  const docSnap = await getDoc(docRef);
 
-//
+  if (docSnap.exists()) {
+    return docSnap.data().booksArray;
+  } else {
+    console.log('No such document!');
+  }
+}
+
 const booksPerPage = 3;
 let currentPage = 1;
-let bookIds = [];
-// function renderBuyLinks(buyLinks) {
-//   const allowedLinks = ['Amazon', 'Apple Books', 'Bookshop'];
 
-//   const logoList = buyLinks
-//     .filter(buyLink => allowedLinks.includes(buyLink.name))
-//     .map(buyLink => {
-//       let iconId = '';
-//       if (buyLink.name === 'Amazon') {
-//         iconId = 'icon-amazon';
-//       } else if (buyLink.name === 'Apple Books') {
-//         iconId = 'icon-apple';
-//       } else if (buyLink.name === 'Bookshop') {
-//         iconId = 'icon-book_shop';
-//       }
-//       return `
-//       <li class="logo-item">
-//         <a href="${
-//           buyLink.url
-//         }" target="_new" rel="noopener noreferer" aria-label="link to ${
-//         buyLink.name
-//       }">
-//           <svg class="svg-shop-link" width="62" height="19">
-//             <use href="${require('../images/modal/modal-img.svg')}#${iconId}"></use>
-//           </svg>
-//         </a>
-//       </li>
-//     `;
-//     })
-//     .join('');
-//   return logoList;
-// }
+async function renderBookList(page) {
+  const bookIds = await getDB();
 
-function renderBookList(page) {
-  const bookIdsJson = localStorage.getItem('bookId');
-  const bookIds = JSON.parse(bookIdsJson) || [];
   const startIndex = (page - 1) * booksPerPage;
   const endIndex = startIndex + booksPerPage;
   const promises = bookIds
@@ -109,12 +108,12 @@ function renderBookList(page) {
             </ul>
  
     </div>
-    <button class='delete-book' data-id='${_id}'>
+     </div>
+   <button class='delete-book' data-id='${_id}'>
      <svg class="delete-icon" width='16px' height='16px'>
               <use href=${require('../images/support/support-svg.svg')}#icon-trash></use>
             </svg>
     </button>
-  </div>
 </div>`;
           }
         )
@@ -130,8 +129,8 @@ function renderBookList(page) {
           bookList.innerHTML = '<p>No books found</p>';
           if (!bookIds.length) {
             bookList.classList.add('empty-section');
-            bookList.innerHTML = `<h2>This page is empty, add some books and proceed to order.</h2> 
-             <img class="empty-image" src="${require('../images/shopping-list/img-books-322@2x.png')}" alt="">
+            bookList.innerHTML = `<p class="empty-store-text-img">This page is empty, add some books and proceed to order.</p> 
+             <img class="empty-image" src="${require('../images/shopping-list/img-books-322@2x.png')}" alt="books">
            `;
           }
         } else {
@@ -250,19 +249,16 @@ bookList.addEventListener('click', function (event) {
   }
 });
 
-function removeBook(bookId) {
-  const bookIdsJson = localStorage.getItem('bookId');
-  let bookIds = JSON.parse(bookIdsJson) || [];
+async function removeBook(bookId) {
+  let bookIds = await getDB();
   bookIds = bookIds.filter(id => id !== bookId);
-  localStorage.setItem('bookId', JSON.stringify(bookIds));
 
-  // Remove the book from localStorage based on its bookId
-  localStorage.removeItem(bookId);
-  renderBookList(currentPage);
+  setDB(bookIds);
+
   renderPagination(bookIds);
+  renderBookList(currentPage);
 }
-//
 
 //
 renderBookList(currentPage);
-renderPagination(bookIds);
+renderPagination(getDB());
