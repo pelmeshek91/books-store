@@ -103,11 +103,11 @@
   align-items: center;
   padding: 0px;
   gap: 90px;
-  &:hover,:focus{
-    border:none;
-    box-shadow: 0 0 5px rgb(140, 141, 214),
-        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
-        0 0 40px rgb(128, 117, 228);
+  &:hover,
+  :focus {
+    border: none;
+    box-shadow: 0 0 5px rgb(140, 141, 214), 0 0 15px rgba(110, 75, 204, 0.445),
+      0 0 20px rgba(112, 88, 168, 0.658), 0 0 40px rgb(128, 117, 228);
   }
   @include mq(mob-only) {
     // position: absolute;
@@ -117,22 +117,22 @@
     // display: flex;
 
     &.is-visible {
-          display: flex;
-            width: 184px;
-            height: 48px;
-            background-color: $accent-text-color;
-            border-radius: 18px;
-            color: $second-color;
-            border: 1.5px solid #111111;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 0px;
-            gap: 90px;
-            margin-right: 150px;
-            position: absolute;
-            z-index: 200;
-            top: 104px;
+      display: flex;
+      width: 184px;
+      height: 48px;
+      background-color: $accent-text-color;
+      border-radius: 18px;
+      color: $second-color;
+      border: 1.5px solid #111111;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      gap: 90px;
+      margin-right: 150px;
+      position: absolute;
+      z-index: 200;
+      top: 104px;
     }
   }
 
@@ -151,14 +151,14 @@
     gap: 90px;
     margin-left: 24px;
     margin-right: 0;
-    &.sign-btn{
+    &.sign-btn {
       &:hover,
-    :focus {
-      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 0 5px rgb(0, 4, 255), 0 0 25px rgba(68, 0, 255, 0.445),
-        0 0 40px rgba(76, 0, 255, 0.658), 0 0 40px rgb(25, 0, 255);
-            border: none;
-    }
+      :focus {
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 5px rgb(0, 4, 255), 0 0 25px rgba(68, 0, 255, 0.445),
+          0 0 40px rgba(76, 0, 255, 0.658), 0 0 40px rgb(25, 0, 255);
+        border: none;
+      }
     }
   }
 }
@@ -190,10 +190,10 @@
   border-radius: 50em;
   padding: 3px 0;
   margin-left: auto;
-  &:hover,:focus{
-    box-shadow: 0 0 5px rgb(140, 141, 214),
-        0 0 15px rgba(110, 75, 204, 0.445), 0 0 20px rgba(112, 88, 168, 0.658),
-        0 0 40px rgb(128, 117, 228);
+  &:hover,
+  :focus {
+    box-shadow: 0 0 5px rgb(140, 141, 214), 0 0 15px rgba(110, 75, 204, 0.445),
+      0 0 20px rgba(112, 88, 168, 0.658), 0 0 40px rgb(128, 117, 228);
   }
 }
 
@@ -255,11 +255,11 @@
     border: none;
   }
 }
-.active-home{
-  background-color:$accent-button-color;
+.active-home {
+  background-color: $accent-button-color;
   font-weight: 700;
   box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 15px rgba(255, 187, 0, 0.918),
-        0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
+    0 0 20px rgba(255, 208, 0, 0.89), 0 0 40px rgb(245, 220, 108);
 }
 body.light-theme {
   background-color: $second-color;
@@ -270,7 +270,7 @@ body.dark-theme {
 
   & .header-container {
     border-color: $second-color;
-    background-color:$primary-color;
+    background-color: $primary-color;
   }
   & .shop-btn {
     color: $second-color;
@@ -286,8 +286,9 @@ body.dark-theme {
         0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
     }
   }
-  & .empty-store-text-img{
-    color: rgba(255, 255, 255, 0.6);} 
+  & .empty-store-text-img {
+    color: rgba(255, 255, 255, 0.6);
+  }
   & .home-btn {
     color: $second-color;
     &:hover,
@@ -310,6 +311,10 @@ body.dark-theme {
 
   & .btn-categoty {
     color: rgba(255, 255, 255, 0.6);
+    &:hover,
+    :focus {
+      color: $accent-button-color;
+    }
   }
   & .active-text {
     color: $accent-button-color;
@@ -386,7 +391,7 @@ body.dark-theme {
     stroke: $second-color;
   }
   & .menu-toggle {
-    background-color:#111111;
+    background-color: #111111;
   }
   & .sign-btn {
     border: none;
@@ -441,22 +446,22 @@ body.dark-theme {
   & .peshka {
     color: rgba(255, 255, 255, 0.5);
   }
-  & .active-home{
-    color:$primary-color;
+  & .active-home {
+    color: $primary-color;
     box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
-        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+      0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
   }
-  & .active-shop{
-    color:$primary-color;
+  & .active-shop {
+    color: $primary-color;
     box-shadow: 0 0 5px rgb(255, 196, 0), 0 0 25px rgba(255, 187, 0, 0.445),
-        0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
-    & .shop-logo{
-      fill:$accent-button-color;
-      stroke:$primary-color;
+      0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
+    & .shop-logo {
+      fill: $accent-button-color;
+      stroke: $primary-color;
     }
   }
-  & .book{
-    background-color:$primary-color;
+  & .book {
+    background-color: $primary-color;
     &:hover,
     :focus {
       box-shadow: 0 0 5px rgb(140, 141, 214),
@@ -464,16 +469,16 @@ body.dark-theme {
         0 0 100px rgb(182, 179, 207);
     }
   }
-  & .book__title{
-    color:$second-color;
+  & .book__title {
+    color: $second-color;
   }
-  & .book__description{
-    color:$second-color;
+  & .book__description {
+    color: $second-color;
   }
-  & .shopping-title{
-    color:$second-color;
+  & .shopping-title {
+    color: $second-color;
   }
-  & .empty-section{
-    color:$second-text-color;
+  & .empty-section {
+    color: $second-text-color;
   }
 }
