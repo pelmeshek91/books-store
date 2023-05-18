@@ -4,12 +4,17 @@
   cursor: pointer;
   @include text(400, 17px, 1.33, -0.03em);
   color: rgba(17, 17, 17, 0.6);
+  &:hover,
+  :focus .active-text {
+    font-weight: 700;
+    color: $accent-text-color;
+    text-transform: uppercase;
+  }
 }
 .categories_list {
   height: 228px;
   min-width: 335px;
   overflow-y: scroll;
-  // margin-bottom: 86px;
 
   &::-webkit-scrollbar-thumb {
     border-radius: 12px;
@@ -28,9 +33,7 @@
     margin-bottom: 0px;
   }
 }
-// .btn-categoty {
-//   color: rgba(17, 17, 17, 0.6);
-// }
+
 .item-category:not(:last-child) {
   margin-bottom: 24px;
   @include mq(tablet) {

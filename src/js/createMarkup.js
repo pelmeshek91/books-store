@@ -8,7 +8,3 @@ export function createMarkup(book) {
         <p class="book-author">${author}</p>
         </li>`;
 }
-
-// <p class="card-text">
-//          QUICK VIEW
-//         </p>
