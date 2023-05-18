@@ -1,5 +1,4 @@
 .support-container {
-  // width: 335px;
   left: 20px;
   top: 372px;
 
@@ -16,7 +15,6 @@
     left: 24px;
     top: 670px;
     width: 335px;
-    // margin-top: 0px;
   }
   @include mq(desktop) {
     width: 356px;
