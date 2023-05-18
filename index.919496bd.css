@@ -1349,8 +1349,12 @@ body.dark-theme .book__title, body.dark-theme .book__description, body.dark-them
   color: #fff;
 }
 
-body.dark-theme .empty-section, body.dark-theme .svg-shop-link {
+body.dark-theme .empty-section {
   color: #b4afaf;
+}
+
+body.dark-theme .svg-shop-link {
+  fill: #b4afaf;
 }
 
 .category-books {
@@ -2157,4 +2161,4 @@ body.dark-theme .empty-section, body.dark-theme .svg-shop-link {
   display: flex;
 }
 
-/*# sourceMappingURL=index.03ba8da5.css.map */
+/*# sourceMappingURL=index.919496bd.css.map */
