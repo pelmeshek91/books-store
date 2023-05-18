@@ -17,7 +17,7 @@ import './js/theme';
 import './js/autoriz_modal.js';
 import './js/scrollUp';
 import './js/burder';
-import './js/firebase';
+
 categoriesList(fetchList);
 createMurkUpAllBooks();
 
