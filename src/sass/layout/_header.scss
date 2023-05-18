@@ -110,12 +110,29 @@
         0 0 40px rgb(128, 117, 228);
   }
   @include mq(mob-only) {
-    position: absolute;
-    z-index: 300;
-    left: 20px;
-    top: 104px;
+    // position: absolute;
+    // z-index: 300;
+    // left: 40px;
+    // top: 104px;
+    // display: flex;
+
     &.is-visible {
-      display: flex;
+          display: flex;
+            width: 184px;
+            height: 48px;
+            background-color: $accent-text-color;
+            border-radius: 18px;
+            color: $second-color;
+            border: 1.5px solid #111111;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            gap: 90px;
+            margin-right: 150px;
+            position: absolute;
+            z-index: 200;
+            top: 104px;
     }
   }
 
@@ -269,6 +286,8 @@ body.dark-theme {
         0 0 50px rgba(251, 255, 0, 0.89), 0 0 100px rgb(255, 208, 0);
     }
   }
+  & .empty-store-text-img{
+    color: rgba(255, 255, 255, 0.6);} 
   & .home-btn {
     color: $second-color;
     &:hover,

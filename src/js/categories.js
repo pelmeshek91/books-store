@@ -1,6 +1,10 @@
+import { log } from 'console';
 import { categoriesList, sectionBooksEl } from './allBooks';
 import { fetchBooks } from './booksApi';
 import { createMarkup } from './createMarkup';
+
+export const home = document.querySelector('.home-btn');
+export const shopping = document.querySelector('.shop-btn');
 export async function handleClickOnFilter(category) {
   try {
     const categoryBooks = `/category?category=${category}`;
