@@ -2,6 +2,7 @@ import { fetchBooks } from './booksApi';
 import { handleClickOnFilter } from './categories';
 import { createLoader, removeMask } from './loader';
 import { createMarkup } from './createMarkup';
+import { fetchList, listElem } from './categoriesList';
 export const sectionBooksEl = document.querySelector('.books');
 
 export async function createMurkUpAllBooks() {
@@ -42,9 +43,18 @@ function createBooks(books) {
   return books.map(book => createMarkup(book)).join('');
 }
 
-export function onHandleCategoriesForButton(e) {
+export async function onHandleCategoriesForButton(e) {
   if (e.target.nodeName !== 'BUTTON') return;
   const res = e.target.parentNode;
   const categoryName = res.querySelector('h2').textContent;
   handleClickOnFilter(categoryName);
+
+  const btnCateg = listElem.querySelectorAll('.btn-category');
+  btnCateg.forEach(btn => {
+    if (btn.textContent === categoryName) {
+      const activeClass = listElem.querySelectorAll('.active-text');
+      activeClass.forEach(activeEl => activeEl.classList.remove('active-text'));
+      btn.classList.add('active-text');
+    }
+  });
 }
