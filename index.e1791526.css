@@ -1202,11 +1202,11 @@ body.dark-theme .logo-book {
   fill: #fff;
 }
 
-body.dark-theme .btn-categoty {
+body.dark-theme .btn-category {
   color: #fff9;
 }
 
-body.dark-theme .btn-categoty:hover, body.dark-theme .btn-categoty :focus, body.dark-theme .active-text {
+body.dark-theme .btn-category:hover, body.dark-theme .btn-category :focus, body.dark-theme .active-text {
   color: #eac645;
 }
 
@@ -2161,4 +2161,4 @@ body.dark-theme .svg-shop-link {
   display: flex;
 }
 
-/*# sourceMappingURL=index.79d9b8a1.css.map */
+/*# sourceMappingURL=index.e1791526.css.map */
