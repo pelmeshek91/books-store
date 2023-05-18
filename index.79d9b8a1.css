@@ -1206,7 +1206,7 @@ body.dark-theme .btn-categoty {
   color: #fff9;
 }
 
-body.dark-theme .active-text {
+body.dark-theme .btn-categoty:hover, body.dark-theme .btn-categoty :focus, body.dark-theme .active-text {
   color: #eac645;
 }
 
@@ -2161,4 +2161,4 @@ body.dark-theme .svg-shop-link {
   display: flex;
 }
 
-/*# sourceMappingURL=index.8e0ce40d.css.map */
+/*# sourceMappingURL=index.79d9b8a1.css.map */
