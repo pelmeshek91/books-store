@@ -91,7 +91,6 @@ async function addAndRemuveBooksToLS(id) {
     data = await getDB();
   }
 
-  // let data = JSON.parse(localStorage.getItem('bookId')) || [];
   const chooseToLSBtn = document.querySelector('.btn-chose-book');
   if (data.includes(id)) {
     chooseToLSBtn.textContent = 'ADD TO SHOPING LIST';
@@ -102,7 +101,6 @@ async function addAndRemuveBooksToLS(id) {
   }
 
   setDB(data);
-  // localStorage.setItem('bookId', JSON.stringify(data));
 }
 
 function createMarkupForModal({
@@ -161,4 +159,3 @@ function createMarkupForModal({
           <p class="peshka"></p>
     </div>`;
 }
-console.log(111);
