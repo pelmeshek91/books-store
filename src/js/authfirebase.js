@@ -14,16 +14,18 @@ import {
   closeModal,
 } from './autoriz_modal';
 import Notiflix from 'notiflix';
+import { home, shopping } from './categories';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCKPIp5P57wGoGdcbR6QZHRmEbcDocx1gA',
-  authDomain: 'book-shop-dd444.firebaseapp.com',
-  projectId: 'book-shop-dd444',
-  storageBucket: 'book-shop-dd444.appspot.com',
-  messagingSenderId: '721371865689',
-  appId: '1:721371865689:web:842c8a5efa6226f21a0748',
+  apiKey: 'AIzaSyDdiX4miDnvSyE7S-piSDUDrOT024HmPxc',
+  authDomain: 'partybookshard.firebaseapp.com',
+  databaseURL:
+    'https://partybookshard-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'partybookshard',
+  storageBucket: 'partybookshard.appspot.com',
+  messagingSenderId: '572831827905',
+  appId: '1:572831827905:web:09a3282865bb9169df1140',
 };
-
 export function openModal() {
   if (openBtn.textContent.toUpperCase().trim() === 'SIGN UP') {
     backdrop.removeAttribute('autoriz-is-hidden');
@@ -39,12 +41,16 @@ export function openModal() {
     });
   localStorage.removeItem('userName');
   openBtn.textContent = 'Sign up';
+  shopping.classList.add('is-hidden');
+  home.classList.add('is-hidden');
 }
 firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     localStorage.setItem('currentUser', user.uid);
+    shopping.classList.remove('is-hidden');
+    home.classList.remove('is-hidden');
   } else {
     localStorage.removeItem('currentUser');
   }
