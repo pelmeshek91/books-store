@@ -5,7 +5,7 @@
   "homepage": "https://pelmeshek91.github.io/books-store",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /books-store/--no-optimize"
+    "build": "parcel build src/*.html --public-url /books-store/ --no-optimize"
   },
   "repository": {
     "type": "git",
