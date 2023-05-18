@@ -75,6 +75,12 @@ body {
   }
 }
 
+.btn-chose-book:disabled {
+  background-color: rgba(48, 9, 154, 0.348);
+  color: rgb(255, 255, 255);
+  border-color: rgb(75, 74, 74);
+}
+
 .is-hidden {
   visibility: hidden;
   opacity: 0;

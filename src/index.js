@@ -1,9 +1,10 @@
 import './js/modal';
 import {
+  listElem,
   fetchList,
   categoriesList,
   onHandleCategories,
-} from './js/categotyList';
+} from './js/categoriesList';
 import {
   createMurkUpAllBooks,
   sectionBooksEl,
