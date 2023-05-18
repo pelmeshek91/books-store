@@ -84,7 +84,7 @@ async function renderBookList(page) {
                 <a href="${
                   buy_links[0].url
                 }" target="_new" rel="noopener noreferer" aria-label="link to Amazon">
-                 <svg class="svg-shop-link" width="32" height="11">
+                 <svg class="svg-shop-link logo-amazon" width="32" height="11">
     <use href=${require('../images/modal/modal-img.svg')}#icon-amazon></use>
   </svg>
                 </a>
@@ -93,7 +93,7 @@ async function renderBookList(page) {
                 <a href="${
                   buy_links[1].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Apple Books">
-                  <svg class="svg-shop-link" width="16" height="16">
+                  <svg class="svg-shop-link logo-apple" width="16" height="16">
     <use href=${require('../images/modal/modal-img.svg')}#icon-apple></use>
   </svg>
                 </a>
@@ -102,7 +102,7 @@ async function renderBookList(page) {
                 <a href="${
                   buy_links[4].url
                 }" target="_new rel="noopener noreferer" aria-label="link to Bookshop">
-                  <svg class="svg-shop-link" width="16" height="16">
+                  <svg class="svg-shop-link logo-bookshop-mini" width="16" height="16">
     <use href=${require('../images/modal/modal-img.svg')}#icon-book_shop></use>
   </svg>
                   </a>
