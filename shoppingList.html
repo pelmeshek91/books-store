@@ -1,1 +1,96 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Basket</title><link rel="icon" type="image/png" sizes="16x16" href="/books-store/--no-optimize/favicon-16x16.b1d101b2.png"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="/books-store/--no-optimize/index.f353947f.css"><link rel="stylesheet" href="/books-store/--no-optimize/shoppingList.b80cd090.css"></head><body>  <header> <div class="container header-container"> <a class="logo-link" href="/books-store/--no-optimize/index.html"> <svg class="logo" width="24" height="24"> <use href="/books-store/--no-optimize/general-svg.svg.42d92875.svg#icon-logo-1"></use> </svg> <svg class="logo-book" width="81" height="24"> <use href="/books-store/--no-optimize/general-svg.svg.42d92875.svg#icon-Bookshelf"></use> </svg> </a> <a class="home-btn" href="/books-store/--no-optimize/index.html">HOME</a> <a class="active-shop shop-btn" href="/books-store/--no-optimize/shoppingList.html">SHOPPING LIST <svg class="shop-logo" width="20" height="20"> <use href="/books-store/--no-optimize/general-svg.svg.42d92875.svg#icon-lock"></use> </svg> </a> <div class="theme-switch__control"> <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить тему"> <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label> <div aria-hidden="true" class="theme-switch__marker"></div> </div> <div class="autorithation-container">  <div class="display-none"> <button class="burger-modal-open menu-toggle"> <svg class="icon-burger" width="28" height="28"> <use href="/books-store/--no-optimize/general-svg.svg.42d92875.svg#icon-align-left"></use> </svg> </button> <button class="burger-modal-close hiden-burger menu-toggle"> <svg class="icon-burger" width="28" height="28"> <use href="/books-store/--no-optimize/general-svg.svg.42d92875.svg#icon-x-close"></use> </svg> </button> </div> </div> </div> </header> <main class="container store-container"> <div class="support-container"> <div class="support-header"> <h1 class="support-title">Support Ukraine</h1> <svg class="ukraine-icon" width="20px" height="32px"> <use href="/books-store/--no-optimize/support-svg.76dbc4ff.svg#tryzub"></use> </svg> </div> <ul class="support-list"></ul> <button class="scroll-btn" type="button"> <svg class="scroll-icon" width="22px" height="22px"> <use href="/books-store/--no-optimize/support-svg.76dbc4ff.svg#scroll-icon-2"></use> </svg> </button> </div> <div class="list-container"> <h1 class="shopping-title">Shopping <span>List</span></h1> <div id="bookList" class="booklist"></div> <div id="pagination" class="pagination"></div> </div> </main>   <script src="/books-store/--no-optimize/shoppingList.ef40dfcc.js" type="module"></script><script src="/books-store/--no-optimize/shoppingList.0fbfb2f0.js" nomodule defer></script>  <script src="/books-store/--no-optimize/shoppingList.297f59b6.js" type="module"></script><script src="/books-store/--no-optimize/shoppingList.7d32952c.js" nomodule defer></script> <script src="/books-store/--no-optimize/shoppingList.ce26a380.js" type="module"></script><script src="/books-store/--no-optimize/shoppingList.332f6b06.js" nomodule defer></script> </body></html>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/books-store/favicon-16x16.b1d101b2.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/books-store/index.c1e2afe7.css">
+    <link rel="stylesheet" href="/books-store/shoppingList.e10cc586.css">
+  </head>
+  <body>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <header>
+  <div class="header-container container">
+    <a class="logo-link" href="/books-store/index.html">
+      <svg class="logo" width="24" height="24">
+        <use href="/books-store/general-svg.svg.a33baf69.svg#icon-logo-1"></use>
+      </svg>
+      <svg class="logo-book" width="81" height="24">
+        <use href="/books-store/general-svg.svg.a33baf69.svg#icon-Bookshelf"></use>
+      </svg>
+    </a>
+    <a class="home-btn" href="/books-store/index.html">HOME</a>
+    <a class="shop-btn active-shop" href="/books-store/shoppingList.html">SHOPPING LIST
+      <svg class="shop-logo" width="20" height="20">
+        <use href="/books-store/general-svg.svg.a33baf69.svg#icon-lock"></use>
+      </svg>
+    </a>
+    <div class="theme-switch__control">
+      <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить тему">
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+      </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
+    </div>
+    <div class="autorithation-container">
+      <!-- <button type="button" class="sign-btn" autoriz-open-menu>
+        Sign up
+        <svg class="arrow" width="20" height="20">
+          <use
+            href="./images/svg/general-svg.svg.svg#icon-arrow-narrow-right"
+          ></use>
+        </svg>
+      </button> -->
+      <div class="display-none">
+        <button class="menu-toggle burger-modal-open">
+          <svg class="icon-burger" width="28" height="28">
+            <use href="/books-store/general-svg.svg.a33baf69.svg#icon-align-left"></use>
+          </svg>
+        </button>
+        <button class="menu-toggle burger-modal-close hiden-burger">
+          <svg class="icon-burger" width="28" height="28">
+            <use href="/books-store/general-svg.svg.a33baf69.svg#icon-x-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <main class="container store-container">
+  <div class="support-container">
+  <div class="support-header">
+    <h1 class="support-title">Support Ukraine</h1>
+    <svg class="ukraine-icon" width="20px" height="32px">
+      <use href="/books-store/support-svg.b733e313.svg#tryzub"></use>
+    </svg>
+  </div>
+  <ul class="support-list"></ul>
+  <button class="scroll-btn" type="button">
+    <svg class="scroll-icon" width="22px" height="22px">
+      <use href="/books-store/support-svg.b733e313.svg#scroll-icon-2"></use>
+    </svg>
+  </button>
+  
+</div>
+
+  <div class="list-container">
+  <h1 class="shopping-title">Shopping <span>List</span></h1>
+  <div id="bookList" class="booklist"></div>
+  <div id="pagination" class="pagination"></div>
+</div>
+
+</main>
+
+    <!-- <include src="./partials/support.html"></include> -->
+
+    <!-- <script src="./index.js" type="module"></script> -->
+    <script src="/books-store/shoppingList.9d1ce58f.js" type="module"></script><script src="/books-store/shoppingList.4c49e876.js" nomodule="" defer=""></script>
+    <!-- <script src="./js/support.js" type="module"></script>
+    <script src="./js/theme.js" type="module"></script> -->
+    <script src="/books-store/shoppingList.8faad84c.js" type="module"></script><script src="/books-store/shoppingList.ad7ea5e1.js" nomodule="" defer=""></script>
+
+    <script src="/books-store/shoppingList.fc030349.js" type="module"></script><script src="/books-store/shoppingList.4a972488.js" nomodule="" defer=""></script>
+  </body>
+</html>

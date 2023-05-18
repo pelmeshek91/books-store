@@ -1,0 +1,21 @@
+.support-container {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .support-container {
+    display: block;
+  }
+}
+
+.active-shop {
+  background-color: #eac645;
+  font-weight: 700;
+  box-shadow: 0 0 5px #ffc400, 0 0 15px #ffbb00ea, 0 0 20px #ffd000e3, 0 0 40px #f5dc6c;
+}
+
+.active-shop .shop-logo {
+  fill: #eac645;
+}
+
+/*# sourceMappingURL=shoppingList.e10cc586.css.map */
